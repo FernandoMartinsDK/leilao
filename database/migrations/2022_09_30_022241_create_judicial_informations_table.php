@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('judicial_informations', function (Blueprint $table) {
             $table->id();
-            $table->string('process');
-            $table->string('judicial_circuit');
-            $table->string('judge');
-            $table->string('exequent');
-            $table->string('executed');
+            $table->string('process')->nullable();
+            $table->string('judicial_circuit')->nullable();
+            $table->string('judge')->nullable();
+            $table->string('exequent')->nullable();
+            $table->string('executed')->nullable();
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate();
             $table->foreignId('immobile_type_id')->constrained('immobiles_types')->cascadeOnUpdate();
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnUpdate();
             $table->string('city');
             $table->string('address');
             $table->string('district');

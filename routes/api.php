@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ImmobilesController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class,'register']);
 Route::post('/login', [AuthController::class,'login']);
-
+/*
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/user', [UserController::class,'index']); 
     Route::get('/user/{id}', [UserController::class,'show']);
@@ -28,9 +29,21 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::delete('/user/{id}', [UserController::class,'destroy']);
     Route::post('/logout', [AuthController::class,'logout']);
 });
-
-/*
-Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
-    return $request->user();
-});
 */
+Route::middleware(['auth:sanctum'])->prefix('/user')->group(function(){    
+    Route::get('/', [UserController::class,'index']); 
+    Route::get('/{id}', [UserController::class,'show']);
+    Route::get('/search/{name}', [UserController::class,'search']);
+    Route::post('/', [UserController::class,'store']);
+    Route::put('/{id}', [UserController::class,'update']);
+    Route::delete('/{id}', [UserController::class,'destroy']);
+    Route::post('/logout', [AuthController::class,'logout']);
+});
+
+Route::middleware(['auth:sanctum'])->prefix('/immobile')->group(function(){    
+    Route::get('/', [ImmobilesController::class,'index']); 
+    Route::post('/', [ImmobilesController::class,'store']);
+    Route::get('/{id}', [ImmobilesController::class,'show']);
+    Route::put('/{id}', [ImmobilesController::class,'update']);
+    Route::delete('/{id}', [ImmobilesController::class,'destroy']);
+});

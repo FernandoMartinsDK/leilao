@@ -11,14 +11,14 @@ class ImmobileModel extends Model
     protected $table = 'immobiles';
 
     protected $fillable = [
-        'users_id',
+        'user_id',
         'category_id',
         'city',
         'address',
         'district',
         'cep',
         'immobile_type_id',
-        'judicial_information'
+        'judicial_information_id'
     ];
 
     //Relations
