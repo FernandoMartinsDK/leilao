@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('cpf')->unique();
             $table->string('email')->unique();
             $table->char('active');
+            $table->char('is_admin');
             $table->timestamp('email_verified_at')->unique();
             $table->string('password');
             //$table->rememberToken();

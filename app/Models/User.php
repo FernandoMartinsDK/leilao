@@ -18,6 +18,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'view_name',
+        'cpf',
+        'active',
+        'is_admin',
         'name',
         'email',
         'password',
@@ -43,10 +47,6 @@ class User extends Authenticatable
     ];
 
     //Relations
-    public function profile(){
-        return $this->belongsTo(ProfileModel::class);
-    }
-
     public function vehicle(){
         return $this->hasMany(VehicleModel::class);
     }
