@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('city');
             $table->integer('cep');
             $table->string('country');
-            $table->string('complement');
+            $table->text('complement')->nullable();
             $table->string('name');
             $table->timestamps();
         });
