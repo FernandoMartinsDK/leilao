@@ -15,19 +15,21 @@ return new class extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
+            $table->string('brand');
+            $table->string('model');
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate();
-            $table->foreignId('vehicle_type')->constrained('vehicles_types','id')->cascadeOnUpdate();
+            $table->foreignId('vehicle_type_id')->constrained('vehicles_types','id')->cascadeOnUpdate();
             $table->foreignId('category_id')->constrained('categories','id')->cascadeOnUpdate();
-            $table->string('license_plate');
+            $table->string('license_plate')->unique();
             $table->string('mileage');
             $table->string('direction');
             $table->char('shielding');
             $table->string('color');
             $table->string('fuel');
             $table->string('chassi_status');
-            $table->string('air_conditioning');
+            $table->char('air_conditioning');
             $table->char('gas_kit');
-            $table->text('observation');
+            $table->text('observation')->nullable();
             $table->timestamps();
         });
     }

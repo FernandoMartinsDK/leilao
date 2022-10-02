@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\ImmobilesController;
-use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\{ImmobilesController,UserController,VehicleController};
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -46,4 +45,12 @@ Route::middleware(['auth:sanctum'])->prefix('/immobile')->group(function(){
     Route::get('/{id}', [ImmobilesController::class,'show']);
     Route::put('/{id}', [ImmobilesController::class,'update']);
     Route::delete('/{id}', [ImmobilesController::class,'destroy']);
+});
+
+Route::middleware(['auth:sanctum'])->prefix('/vehicle')->group(function(){    
+    Route::get('/', [VehicleController::class,'index']); 
+    Route::post('/', [VehicleController::class,'store']);
+    Route::get('/{id}', [VehicleController::class,'show']);
+    Route::put('/{id}', [VehicleController::class,'update']);
+    Route::delete('/{id}', [VehicleController::class,'destroy']);
 });
