@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -15,7 +16,19 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::all();
+        try {
+            $users = User::all();
+            return response()->json([
+                'message' => 'success',
+                'data' => $users
+            ],200);     
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
     }
 
     /**
@@ -36,7 +49,28 @@ class UserController extends Controller
             'password' => 'required'
         ]);
 
-        return User::create($request->all());
+        try {
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'view_name' => $request->view_name,
+                'cpf' => $request->cpf,
+                'active' => $request->active,
+                'is_admin' => $request->is_admin,
+                'password' =>  bcrypt($request->password)
+            ]);
+            return response()->json([
+                'message' => 'success',
+                'data' =>  $user
+            ],200);
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
+        
     }
 
     /**
@@ -47,7 +81,19 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::findOrfail($id);
+        try {
+            $user = User::findOrfail($id);
+            return response()->json([
+                'message' => 'success',
+                'data' => $user
+            ],200);     
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
     }
 
     /**
@@ -59,9 +105,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::findOrfail($id);
-        $user->update($request->all());
-        return $user;
+        try {
+            $user = User::findOrfail($id);
+            $user->update($request->all());
+            return response()->json([
+                'message' => 'success',
+                'data' => $user
+            ],200);     
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
     }
 
     /**
@@ -72,7 +129,19 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        return User::destroy($id);
+        try {
+            $user = User::destroy($id);
+            return response()->json([
+                'message' => 'success',
+                'data' => $user
+            ],200);
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
     }
 
     /**
@@ -81,6 +150,18 @@ class UserController extends Controller
     */
     public function search(string $name)
     {
-        return User::where('name','like',"%".$name."%")->get();
+        try {
+            $user = User::where('name','like',"%".$name."%")->get();
+            return response()->json([
+                'message' => 'success',
+                'data' => $user
+            ],200);
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
     }
 }
