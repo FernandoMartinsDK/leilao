@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\{
+    AuctionController,
     FinancialInstitutionsController,
     ImmobilesController,
     PlaceController,
@@ -75,4 +76,12 @@ Route::middleware(['auth:sanctum'])->prefix('/financial_institutions')->group(fu
     Route::put('/{id}', [FinancialInstitutionsController::class,'update']);
     Route::get('/{id}', [FinancialInstitutionsController::class,'show']);
     Route::delete('/{id}', [FinancialInstitutionsController::class,'destroy']);
+});
+
+Route::middleware(['auth:sanctum'])->prefix('/auctions')->group(function(){    
+    Route::get('/', [AuctionController::class,'index']); 
+    Route::post('/', [AuctionController::class,'store']);
+    Route::put('/{id}', [AuctionController::class,'update']);
+    Route::get('/{id}', [AuctionController::class,'show']);
+    Route::delete('/{id}', [AuctionController::class,'destroy']);
 });

@@ -12,7 +12,6 @@ class AuctionModel extends Model
 
     protected $fillable = [
         'auction_date',
-        'place',
         'financial_institution_id',
         'place_id',
         'open'
