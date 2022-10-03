@@ -1,6 +1,12 @@
 <?php
 
-use App\Http\Controllers\Api\{ImmobilesController, PlaceController, UserController,VehicleController};
+use App\Http\Controllers\Api\{
+    FinancialInstitutionsController,
+    ImmobilesController,
+    PlaceController,
+    UserController,
+    VehicleController
+};
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -61,4 +67,12 @@ Route::middleware(['auth:sanctum'])->prefix('/place')->group(function(){
     Route::put('/{id}', [PlaceController::class,'update']);
     Route::get('/{id}', [PlaceController::class,'show']);
     Route::delete('/{id}', [PlaceController::class,'destroy']);
+});
+
+Route::middleware(['auth:sanctum'])->prefix('/financial_institutions')->group(function(){    
+    Route::get('/', [FinancialInstitutionsController::class,'index']); 
+    Route::post('/', [FinancialInstitutionsController::class,'store']);
+    /*Route::put('/{id}', [FinancialInstitutionsController::class,'update']);
+    Route::get('/{id}', [FinancialInstitutionsController::class,'show']);
+    Route::delete('/{id}', [FinancialInstitutionsController::class,'destroy']);*/
 });
