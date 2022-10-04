@@ -17,11 +17,16 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('view_name');
-            $table->string('cpf')->unique();
+            $table->string('cpf');
+            $table->string('cnpj');
+            $table->string('state_registration');//inscrição
             $table->string('email')->unique();
+            $table->date('date_birth');
+            $table->string('telephone');
             $table->char('active');
             $table->char('is_admin');
-            $table->timestamp('email_verified_at')->unique();
+            $table->foreignId('type_person_id')->constrained('types_person')->cascadeOnUpdate();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             //$table->rememberToken();
             $table->timestamps();
