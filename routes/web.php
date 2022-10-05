@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('/authenticate')->name('authenticate.')->group(function(){
     Route::post('/try', [AuthenticateController::class,'authenticate'])->name('try');
+    Route::post('/store', [AuthenticateController::class,'store'])->name('store');
     Route::get('/register', [AuthenticateController::class,'register'])->name('register');
     Route::get('/login', [AuthenticateController::class,'login'])->name('login');
     /*Route::post('/reset/password', [AuthenticateController::class,'resetPassword'])->name('reset.password');
@@ -26,11 +26,9 @@ Route::prefix('/authenticate')->name('authenticate.')->group(function(){
     */
 });
 
-/*
 Route::prefix('/home')->name('home.')->group(function(){
-    Route::any('/start', [HomeController::class,'index'])->name('start');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
-*/
 
 /*
 Route::get('/login', function () {

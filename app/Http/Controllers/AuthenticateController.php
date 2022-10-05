@@ -55,7 +55,11 @@ class AuthenticateController extends Controller
 
     public function store(Request $request)
     {
-        dd('store');
+
+        /**
+         * CHAMAR_API
+         */
+      
         return view('register');
     }
 
