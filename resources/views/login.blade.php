@@ -16,7 +16,8 @@
                             <div class="logo">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY0lurMcKAFv1tdikKmoH7QtAnGOQGxQP1yw&usqp=CAU" alt="">
                             </div>
-                            <form class="p-3 mt-3">
+                            <form class="p-3 mt-3"  method="POST" action="{{route('teste')}}">
+                                @csrf
                                 <div class="form-field d-flex align-items-center">
                                     <span class="far fa-user"></span>
                                     <input type="email" name="userName" id="userName" placeholder="Email">
