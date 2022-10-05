@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -36,6 +37,7 @@ class AuthController extends Controller
             'is_admin' => $request->is_admin,
             'cpf' =>$request->cpf,
             'cnpj' =>$request->cnpj,
+            'state_registration' =>$request->state_registration,
             'date_birth' => $request->date_birth,
             'telephone' => $request->telephone,
             'password' => bcrypt($request->password)
@@ -55,9 +57,9 @@ class AuthController extends Controller
      * @param  request  $request  
     */
     public function login(Request $request){
-        $request ->validate([
+        $credentials = $request ->validate([
             'email' => 'required|string',
-            'password' => 'required|string|confirmed'
+            'password' => 'required|string'
         ]);
 
         // Verifica email do usuário
@@ -70,12 +72,13 @@ class AuthController extends Controller
             ],401);
         }
 
-        $token = $user->createToken('primeiroToken')->plainTextToken;
-        $response = [
-            'user'=>$user,
-            'token'=>$token
-        ];
-        return response($response,201);
+            $token = $user->createToken('primeiroToken')->plainTextToken;
+            $response = [
+                'user'=>$user,
+                'token'=>$token
+            ];
+            return response($response,201);
+        
     }
 
     /**

@@ -31,6 +31,8 @@
                             <div class="text-center fs-6">
                                 <a href="#">Esqueceu a senha?</a>
                             </div>
+                            @include('components.messages.message')
+
                         </div>
                     </div>
                 </div>

@@ -28,7 +28,7 @@ return new class extends Migration
             $table->foreignId('type_person_id')->constrained('types_person')->cascadeOnUpdate();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            //$table->rememberToken();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
