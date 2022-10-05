@@ -16,15 +16,15 @@
                             <div class="logo">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY0lurMcKAFv1tdikKmoH7QtAnGOQGxQP1yw&usqp=CAU" alt="">
                             </div>
-                            <form class="p-3 mt-3"  method="POST" action="{{route('teste')}}">
+                            <form class="p-3 mt-3"  method="POST" action="{{route('authenticate.try')}}">
                                 @csrf
                                 <div class="form-field d-flex align-items-center">
                                     <span class="far fa-user"></span>
-                                    <input type="email" name="userName" id="userName" placeholder="Email">
+                                    <input type="email" name="email" placeholder="Email">
                                 </div>
                                 <div class="form-field d-flex align-items-center">
                                     <span class="fas fa-key"></span>
-                                    <input type="password" name="password" id="pwd" placeholder="Senha">
+                                    <input type="password" name="password" placeholder="Senha">
                                 </div>
                                 <button class="btn mt-3"  type="submit" >Logar</button>
                             </form>

@@ -18,19 +18,26 @@ class AuthController extends Controller
             'name' => 'required|string',
             'email' => 'required|string|unique:users,email',
             'view_name' => 'required|string',
-            'cpf' => 'required|unique:users,cpf',
+            'cpf' => 'required',
             'active' => 'required',
             'is_admin' => 'required',
-            'password' => 'required|string|confirmed'
+            'date_birth' => 'required',
+            'telephone' => 'required',
+            'password' => 'required|string'
         ]);
 
         $user = User::create([
             'name' => $request->name,
+            'type_person_id' => $request->type_person_id,
             'email' => $request->email,
             'view_name' => $request->view_name,
             'cpf' => $request->cpf,
             'active' => $request->active,
             'is_admin' => $request->is_admin,
+            'cpf' =>$request->cpf,
+            'cnpj' =>$request->cnpj,
+            'date_birth' => $request->date_birth,
+            'telephone' => $request->telephone,
             'password' => bcrypt($request->password)
         ]);
 
