@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Route;
 
 class HomeController extends Controller
 {
@@ -30,7 +31,11 @@ class HomeController extends Controller
 
     public function teste()
     {
+        //$response = Http::acceptJson()->post('http://127.0.0.1:8000/api/test');
 
-        return 'ok';
+        $response= Request::create('http://localhost:8000/api/test', 'POST');
+        $response = Route::dispatch($response);
+
+        return $response;
     }
 }
