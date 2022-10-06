@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users','id')->cascadeOnUpdate();
             $table->foreignId('auction_id')->constrained('auctions','id')->cascadeOnUpdate();
             $table->integer('opening_bid');
+            $table->text('note');
             $table->timestamps();
         });
     }

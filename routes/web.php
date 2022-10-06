@@ -1,7 +1,12 @@
 <?php
 
-use App\Http\Controllers\{AuthenticateController,UserController};
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\{
+    AuctionController, 
+    AuthenticateController,
+    UserController,
+    HomeController,
+    ItemController
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,7 +42,11 @@ Route::prefix('/user')->name('user.')->group(function(){
 });
 
 Route::prefix('/auction')->name('auction.')->group(function(){
-    Route::get('/create', [UserController::class, 'store'])->name('update');
+    Route::get('/create', [AuctionController::class, 'create'])->name('update');
+});
+
+Route::prefix('/item')->name('item.')->group(function(){
+    Route::get('/create', [ItemController::class, 'create'])->name('create');
 });
 
 /*

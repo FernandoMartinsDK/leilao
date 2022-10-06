@@ -30,10 +30,6 @@ class ImmobileModel extends Model
         return $this->belongsTo(ImmobileTypeModel::class);
     }
 
-    public function judicial_information(){
-        return $this->hasOne(JudicialInformationsModel::class);
-    }
-
     public function category(){
         return $this->belongsTo(CategoryModel::class);
     }

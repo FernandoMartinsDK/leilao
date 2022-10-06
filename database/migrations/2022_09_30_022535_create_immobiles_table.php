@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('district');
             $table->integer('cep');
-            $table->foreignId('judicial_information_id')->constrained('judicial_informations')->cascadeOnUpdate();
+            $table->text('judicial_information');
             $table->timestamps();
         });
     }

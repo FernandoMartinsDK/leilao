@@ -23,7 +23,7 @@ class AuctionController extends Controller
      */
     public function create()
     {
-        //
+        return view('auction.create');
     }
 
     /**

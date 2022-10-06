@@ -15,6 +15,7 @@ class AuctionItemModel extends Model
         'user_id',
         'auction_id',
         'opening_bid',
+        'note'
     ];
 
     //Relations

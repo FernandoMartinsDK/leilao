@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('judicial_informations', function (Blueprint $table) {
+        Schema::create('brands', function (Blueprint $table) {
             $table->id();
-            $table->string('process')->nullable();
-            $table->string('judicial_circuit')->nullable();
-            $table->string('judge')->nullable();
-            $table->string('exequent')->nullable();
-            $table->string('executed')->nullable();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('judicial_informations');
+        Schema::dropIfExists('brands');
     }
 };
