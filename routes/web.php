@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AuthenticateController;
+use App\Http\Controllers\{AuthenticateController,UserController};
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +28,11 @@ Route::prefix('/authenticate')->name('authenticate.')->group(function(){
 
 Route::prefix('/home')->name('home.')->group(function(){
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/update', [App\Http\Controllers\HomeController::class, 'update'])->name('update');
+});
+
+Route::prefix('/user')->name('user.')->group(function(){
+    Route::post('/update', [UserController::class, 'update'])->name('update');
 });
 
 /*

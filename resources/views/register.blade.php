@@ -212,7 +212,6 @@
     <script>
         var select = document.getElementById("tipoCadastro");
         select.addEventListener('change', function(){
-            console.log(select.value)
             if (select.value=='2') {
                 document.getElementById("divCpf").classList.add("back");
                 document.getElementById("divCnpj").classList.remove("back");
