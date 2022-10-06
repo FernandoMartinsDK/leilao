@@ -1,0 +1,30 @@
+public function authenticate(Request $request)
+    {   
+
+        $request= Request::create('http://localhost:8000/api/login', 'POST',[
+            'email'=>$request->email,
+            'password'=>$request->password
+        ]);
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $values = json_decode($body);
+
+        Session::put([
+            'token'=>$values->token,
+            'id'=>$values->user->id,
+            'access'=>$values->user->type_person_id
+        ]);
+        $request->session()->regenerate();
+        
+        return redirect()->intended('home/start');
+        //1|wWKZJn3EBm4acmDblY463uR9CF2n5E7WeJv04Mti
+        /*
+        $res = HTTP::acceptJson()->post('http://localhost:8000/api/test');
+        echo $res->getStatusCode(); // 200
+        echo $res->getBody();
+        */
+    }
+
+    NO BANCO ==>
+    1 tabelas
+-ganhadores do leilão

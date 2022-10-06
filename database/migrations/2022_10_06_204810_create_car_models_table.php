@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('financial_institutions', function (Blueprint $table) {
+        Schema::create('car_models', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('cnpj')->unique();
-            $table->string('name');
+            $table->string('model_car');
+            $table->foreignId('brand_id')->constrained('brands','id')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('financial_institutions');
+        Schema::dropIfExists('car_models');
     }
 };
