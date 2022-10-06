@@ -8,7 +8,7 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <a class="btn btn-outline-primary ms-auto" role="button" href="{{route('authenticate.register')}}">Registrar</a>
                 <a class="btn btn-primary" type="button" href="{{route('authenticate.login')}}" style="margin-left: 15px;">Logar</a>
-                <a class="btn btn-primary" type="button"style="margin-left: 15px;">{{$user}}</a>
+                <!-- <a class="btn btn-primary" type="button"style="margin-left: 15px;">{{$user}}</a> -->
             </div>
         </div>
     </nav>

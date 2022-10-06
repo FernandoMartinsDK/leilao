@@ -70,7 +70,10 @@ class AuthenticateController extends Controller
 
     public function login()
     {
-
+        //dd(Auth::check(),Auth::guest());
+        if (Auth::check()) {
+            return redirect()->route('home.');
+        }
         return view('login');
     }
 
