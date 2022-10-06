@@ -18,7 +18,9 @@ return new class extends Migration
             $table->dateTime('auction_date');
             $table->foreignId('financial_institution_id')->constrained('financial_institutions','id')->cascadeOnUpdate();
             $table->foreignId('place_id')->constrained('places','id')->cascadeOnUpdate();
+            $table->foreignId('categorie_id')->constrained('categories','id')->cascadeOnUpdate();
             $table->char('open');
+            $table->text('note');
             $table->timestamps();
         });
     }

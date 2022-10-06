@@ -14,7 +14,8 @@ class AuctionModel extends Model
         'auction_date',
         'financial_institution_id',
         'place_id',
-        'open'
+        'open',
+        'categorie_id'
     ];
 
     //Relations
@@ -28,5 +29,9 @@ class AuctionModel extends Model
 
     public function place(){
         return $this->belongsTo(PlaceModel::class);
+    }
+
+    public function categorie(){
+        return $this->belongsTo(CategoryModel::class);
     }
 }

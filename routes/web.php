@@ -36,6 +36,10 @@ Route::prefix('/user')->name('user.')->group(function(){
     Route::post('/update', [UserController::class, 'update'])->name('update');
 });
 
+Route::prefix('/auction')->name('auction.')->group(function(){
+    Route::get('/create', [UserController::class, 'store'])->name('update');
+});
+
 /*
 Route::get('/login', function () {
     return view('login');

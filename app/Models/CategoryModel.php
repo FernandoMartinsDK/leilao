@@ -26,4 +26,8 @@ class CategoryModel extends Model
     public function auction_item(){
         return $this->hasMany(AuctionItemModel::class);
     }
+
+    public function auction(){
+        return $this->hasMany(CategoryModel::class);
+    }
 }
