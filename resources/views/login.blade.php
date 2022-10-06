@@ -6,7 +6,7 @@
 
 @section('content')
     <body>
-        @include('components.navbar')
+        <x-navbar></x-navbar>
 
         <section class="position-relative py-4 py-xl-5">
             <div class="container">

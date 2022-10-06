@@ -12,7 +12,7 @@ class Navbar extends Component
      * @return void
      */
     public $user;
-    public function __construct($user)
+    public function __construct($user='')
     {
         $this->user = $user;
     }

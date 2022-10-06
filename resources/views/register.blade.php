@@ -6,7 +6,7 @@
 
 @section('content')
     <body>
-        @include('components.navbar')
+        <x-navbar user=''></x-navbar>
         <div>
             <section class="" style="background-color: #eee;">
                 <div class="container ">
