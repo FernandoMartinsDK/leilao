@@ -46,4 +46,10 @@ class HomeController extends Controller
         return view('home.update');
     }
 
+    public function show()
+    {
+        //dd('HOME INDEX',Auth::user());
+        return view('home.show');
+    }
+
 }

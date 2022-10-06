@@ -29,6 +29,7 @@ Route::prefix('/authenticate')->name('authenticate.')->group(function(){
 Route::prefix('/home')->name('home.')->group(function(){
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/update', [App\Http\Controllers\HomeController::class, 'update'])->name('update');
+    Route::get('/show', [App\Http\Controllers\HomeController::class, 'show'])->name('show');
 });
 
 Route::prefix('/user')->name('user.')->group(function(){
