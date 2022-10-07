@@ -17,6 +17,7 @@ return new class extends Migration
                 "category_id" => "1",
                 "auction_id" => '2',
                 "opening_bid" => "5000",
+                "value_bid" => "5000",
                 "note" => "Primeiro leilão",
                 "created_at" => now(),
                 "updated_at" => now()
@@ -26,6 +27,7 @@ return new class extends Migration
                 "category_id" => "1",
                 "auction_id" => '1',
                 "opening_bid" => "7000",
+                "value_bid" => "7000",
                 "note" => "Segundo Leilão",
                 "created_at" => now(),
                 "updated_at" => now()
@@ -35,6 +37,7 @@ return new class extends Migration
                 "category_id" => "1",
                 "auction_id" => '1',
                 "opening_bid" => "7000",
+                "value_bid" => "7000",
                 "note" => "Segundo Leilão",
                 "created_at" => now(),
                 "updated_at" => now()
@@ -44,6 +47,7 @@ return new class extends Migration
                 "category_id" => "2",
                 "auction_id" => '1',
                 "opening_bid" => "7000",
+                "value_bid" => "7000",
                 "note" => "Segundo Leilão",
                 "created_at" => now(),
                 "updated_at" => now()
@@ -53,6 +57,7 @@ return new class extends Migration
                 "category_id" => "2",
                 "auction_id" => '1',
                 "opening_bid" => "7000",
+                "value_bid" => "7000",
                 "note" => "Segundo Leilão",
                 "created_at" => now(),
                 "updated_at" => now()
@@ -62,6 +67,7 @@ return new class extends Migration
                 "category_id" => "2",
                 "auction_id" => '1',
                 "opening_bid" => "7000",
+                "value_bid" => "7000",
                 "note" => "Segundo Leilão",
                 "created_at" => now(),
                 "updated_at" => now()

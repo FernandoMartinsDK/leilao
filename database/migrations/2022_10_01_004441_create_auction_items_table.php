@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories','id')->cascadeOnUpdate();
             $table->foreignId('auction_id')->constrained('auctions','id')->cascadeOnUpdate();
             $table->integer('opening_bid'); //valor inicial
-            $table->integer('value_bid'); //oferta atual
+            $table->integer('value_bid')->nullable(); //oferta atual
             $table->text('note')->nullable();
             $table->timestamps();
         });
