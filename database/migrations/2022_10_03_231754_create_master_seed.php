@@ -19,7 +19,7 @@ return new class extends Migration
                 "cpf" => "3337775855",
                 "cnpj" => "",
                 "active" => "T",
-                "is_admin" => "V",
+                "profile_id" => "2",
                 "date_birth" => "1991-02-14",
                 "telephone" => '12995589090',
                 "state_registration" => "",

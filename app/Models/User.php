@@ -25,7 +25,7 @@ class User extends Authenticatable
         'telephone',
         'type_person_id',
         'active',
-        'is_admin',
+        'type_person_id',
         'name',
         'email',
         'state_registration',

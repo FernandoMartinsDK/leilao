@@ -24,7 +24,7 @@ return new class extends Migration
             $table->date('date_birth');
             $table->string('telephone');
             $table->char('active',1);
-            $table->char('is_admin',1);
+            $table->foreignId('profile_id')->constrained('profiles')->cascadeOnUpdate();
             $table->foreignId('type_person_id')->constrained('types_person')->cascadeOnUpdate();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
