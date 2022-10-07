@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('brand_id')->constrained('brands','id')->cascadeOnUpdate();
             $table->foreignId('vehicles_model_id')->constrained('vehicles_models','id')->cascadeOnUpdate();
-            $table->foreignId('category_id')->constrained('categories','id')->cascadeOnUpdate();//carro,moto,imovel,etv
+            $table->foreignId('vehicle_type_id')->constrained('vehicles_types','id')->cascadeOnUpdate();
             $table->string('license_plate')->unique();
             $table->string('mileage');
             $table->string('direction');

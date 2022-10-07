@@ -14,7 +14,6 @@ return new class extends Migration
         $this->seedValue = [
             [
                 'immobile_type_id'=>'3',
-                'category_id'=>'1',
                 'city'=>'Caçapava',
                 'address'=>'Rua Luiz Jair',
                 'district'=>'Santana',
@@ -29,7 +28,6 @@ return new class extends Migration
             ],
             [
                 'immobile_type_id'=>'1',
-                'category_id'=>'1',
                 'city'=>'São Jose dos Campos',
                 'address'=>'Rua Coronel Marcos',
                 'district'=>'Centro',
@@ -44,7 +42,6 @@ return new class extends Migration
             ],
             [
                 'immobile_type_id'=>'2',
-                'category_id'=>'1',
                 'city'=>'Jacareí',
                 'address'=>'Av rock Samba',
                 'district'=>'Putim',
@@ -59,7 +56,6 @@ return new class extends Migration
             ],
             [
                 'immobile_type_id'=>'1',
-                'category_id'=>'1',
                 'city'=>'São Jose dos Campos',
                 'address'=>'Rua das flores',
                 'district'=>'Centro',
@@ -74,7 +70,6 @@ return new class extends Migration
             ],
             [
                 'immobile_type_id'=>'2',
-                'category_id'=>'1',
                 'city'=>'São Jose dos Campos',
                 'address'=>'Rua dos animais',
                 'district'=>'São Dimas',
@@ -106,6 +101,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('immobiles_seed');
+        //Schema::dropIfExists('immobiles_seed');
     }
 };

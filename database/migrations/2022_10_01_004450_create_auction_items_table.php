@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('auction_items', function (Blueprint $table) {
             $table->id();
-            $table->integer('item_id');
-            $table->foreignId('category_id')->constrained('categories','id')->cascadeOnUpdate();
+            $table->foreignId('item_id')->nullable()->constrained('items','id')->cascadeOnUpdate();//remover nullable depois de fazer o seed
             $table->foreignId('auction_id')->constrained('auctions','id')->cascadeOnUpdate();
             $table->integer('opening_bid'); //valor inicial
             $table->integer('value_bid')->nullable(); //oferta atual

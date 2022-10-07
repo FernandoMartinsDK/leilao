@@ -13,8 +13,7 @@ return new class extends Migration
     {
         $this->seedValue = [
             [
-                "item_id" => "1",
-                "category_id" => "1",
+                //"item_id" => "1",
                 "auction_id" => '2',
                 "opening_bid" => "5000",
                 "value_bid" => "5000",
@@ -23,8 +22,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
-                "item_id" => "2",
-                "category_id" => "1",
+                //"item_id" => "2",
                 "auction_id" => '1',
                 "opening_bid" => "7000",
                 "value_bid" => "7000",
@@ -33,8 +31,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
-                "item_id" => "3",
-                "category_id" => "1",
+                //"item_id" => "3",
                 "auction_id" => '1',
                 "opening_bid" => "7000",
                 "value_bid" => "7000",
@@ -43,8 +40,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
-                "item_id" => "1",
-                "category_id" => "2",
+                //"item_id" => "1",
                 "auction_id" => '1',
                 "opening_bid" => "7000",
                 "value_bid" => "7000",
@@ -53,8 +49,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
-                "item_id" => "2",
-                "category_id" => "2",
+                //"item_id" => "2",
                 "auction_id" => '1',
                 "opening_bid" => "7000",
                 "value_bid" => "7000",
@@ -63,8 +58,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
-                "item_id" => "3",
-                "category_id" => "2",
+                //"item_id" => "3",
                 "auction_id" => '1',
                 "opening_bid" => "7000",
                 "value_bid" => "7000",
