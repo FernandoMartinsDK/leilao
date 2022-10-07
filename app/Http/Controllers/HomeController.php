@@ -27,7 +27,12 @@ class HomeController extends Controller
     public function index()
     {
         //dd('HOME INDEX',Auth::user());
-        dd(session()->all());
+        
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+        
+        dd(session()->all(),Auth::user());
         //pega as últimas vendas
         
         return view('home.start');

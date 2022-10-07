@@ -35,4 +35,8 @@ class AuctionItemModel extends Model
         return $this->belongsTo(ProfileModel::class);
     }
 
+    public function auction_winner(){
+        return $this->belongsTo(AuctionWinnerModel::class);
+    }
+
 }

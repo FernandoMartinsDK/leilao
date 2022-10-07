@@ -10,35 +10,23 @@ class VehicleModel extends Model
     use HasFactory;
     protected $table = 'vehicles';
 
-    protected $fillable = [
-        'brand',
-        'model',
-        'user_id',
-        'category_id',
-        'vehicle_type_id',
-        'license_plate',
-        'mileage',
-        'direction',
-        'shielding',
-        'color',
-        'fuel',
-        'chassi_status',
-        'air_conditioning',
-        'gas_kit',
-        'observation'
-    ];
+    protected $guarded = [];
 
     //Relations
 
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
-
-    public function category(){
-        return $this->belongsTo(CategoryModel::class);
+    public function vehicle_models(){
+        return $this->belongsTo(VehicleModelsModel::class);
     }
 
     public function vehicle_type(){
         return $this->belongsTo(VehicleTypeModel::class);
+    }
+
+    public function brand(){
+        return $this->belongsTo(BrandModel::class);
+    }
+
+    public function item(){
+        return $this->hasMany(ItemModel::class);
     }
 }

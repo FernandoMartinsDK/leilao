@@ -24,12 +24,12 @@ class AuctionModel extends Model
         return $this->hasMany(AuctionItemModel::class);
     }
 
-    public function financial_institution(){
-        return $this->belongsTo(FinancialInstitutionsModel::class);
-    }
-
     public function place(){
         return $this->belongsTo(PlaceModel::class);
+    }
+
+    public function financial_institution(){
+        return $this->belongsTo(FinancialInstitutionsModel::class);
     }
 
     public function categorie(){

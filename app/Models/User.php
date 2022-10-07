@@ -51,20 +51,20 @@ class User extends Authenticatable
     ];
 
     //Relations
-    public function vehicle(){
-        return $this->hasMany(VehicleModel::class);
+    public function address(){
+        return $this->belongsTo(AddressModel::class);
     }
 
-    public function immobile(){
-        return $this->hasMany(ImmobileModel::class);
+    public function types_person(){
+        return $this->belongsTo(TypePersonModel::class);
     }
 
     public function bid(){
         return $this->hasMany(BidModel::class);
     }
-    
-    public function auction_item(){
-        return $this->hasMany(AuctionItemModel::class);
+
+    public function auction_winner(){
+        return $this->hasMany(AuctionWinnerModel::class);
     }
-    
+
 }

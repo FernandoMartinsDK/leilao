@@ -19,15 +19,7 @@ class CategoryModel extends Model
         return $this->hasMany(ImmobileModel::class);
     }
 
-    public function vehicle(){
-        return $this->hasMany(VehicleModel::class);
-    }
-
-    public function auction_item(){
-        return $this->hasMany(AuctionItemModel::class);
-    }
-
     public function auction(){
-        return $this->hasMany(CategoryModel::class);
+        return $this->hasMany(AuctionModel::class);
     }
 }

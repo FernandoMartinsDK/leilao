@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ImmobileTypeModel extends Model
+class TypePersonModel extends Model
 {
     use HasFactory;
-    protected $table = 'immobiles_types';
 
     protected $fillable = [
         'type'
     ];
 
     //Relations
-    public function immobile(){
-        return $this->hasMany(ImmobileModel::class);
+    public function user(){
+        return $this->hasMany(User::class);
     }
 }

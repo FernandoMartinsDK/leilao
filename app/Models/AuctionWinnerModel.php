@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BidModel extends Model
+class AuctionWinnerModel extends Model
 {
     use HasFactory;
+    protected $table = 'auction_winner';
 
     protected $fillable = [
-        'value_bid',
-        'user_id_bid',
-        'auction_items_id'
+        'winner_user_id',
+        'auctio_lot_id',
+        'auction_item_id',
+        'purchase_date'
     ];
 
     //Relations
@@ -22,5 +24,9 @@ class BidModel extends Model
 
     public function auction_item(){
         return $this->belongsTo(AuctionItemModel::class);
+    }
+
+    public function auction(){
+        return $this->belongsTo(AuctionModel::class);
     }
 }
