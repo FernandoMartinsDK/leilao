@@ -67,4 +67,8 @@ class User extends Authenticatable
         return $this->hasMany(AuctionWinnerModel::class);
     }
 
+    public function profile(){
+        return $this->belongsTo(ProfileModel::class);
+    }
+
 }
