@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('auction_items', function (Blueprint $table) {
+        Schema::create('auction_winner', function (Blueprint $table) {
             $table->id();
-            $table->integer('item_id');
-            $table->foreignId('category_id')->constrained('categories','id')->cascadeOnUpdate();
-            $table->foreignId('auction_id')->constrained('auctions','id')->cascadeOnUpdate();
-            $table->integer('opening_bid');
-            $table->text('note')->nullable();
+            $table->foreignId('winner_user_id')->constrained('users','id')->cascadeOnUpdate();
+            $table->foreignId('auctio_lot_id')->constrained('auctions','id')->cascadeOnUpdate();
+            $table->foreignId('auction_item_id')->constrained('auction_items','id')->cascadeOnUpdate();
+            $table->dateTime('purchase_date');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('auction_items');
+        Schema::dropIfExists('auction_winner');
     }
 };

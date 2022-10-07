@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('immobiles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnUpdate();
             $table->foreignId('immobile_type_id')->constrained('immobiles_types')->cascadeOnUpdate();
             $table->foreignId('category_id')->constrained('categories')->cascadeOnUpdate();
             $table->string('city');
@@ -23,6 +22,10 @@ return new class extends Migration
             $table->string('district');
             $table->integer('cep');
             $table->text('judicial_information');
+            $table->text('description');
+            $table->integer('number');
+            $table->string('complement');
+            $table->string('state');
             $table->timestamps();
         });
     }

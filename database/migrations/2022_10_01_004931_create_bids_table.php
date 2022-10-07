@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('bids', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained('categories','id')->cascadeOnUpdate();
             $table->foreignId('user_id')->constrained('users','id')->cascadeOnUpdate();
             $table->foreignId('auction_id')->constrained('auctions','id')->cascadeOnUpdate();
             $table->integer('value_bid');

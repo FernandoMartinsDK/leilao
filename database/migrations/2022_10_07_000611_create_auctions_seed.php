@@ -13,19 +13,22 @@ return new class extends Migration
     {
         $this->seedValue = [
             [
-                "category" => "Imóvel",
+                "auction_date" => now(),
+                "categorie_id" => "1",
+                "financial_institution_id" => '1',
+                "place_id" => "2",
+                "open" => "T",
+                "note" => "Primeiro leilão",
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
-
-                "category" => "Veículos",
-                "created_at" => now(),
-                "updated_at" => now()
-            ],
-            [
-
-                "category" => "Variado",
+                "auction_date" => now(),
+                "categorie_id" => "2",
+                "financial_institution_id" => '1',
+                "place_id" => "2",
+                "open" => "T",
+                "note" => "Primeiro leilão",
                 "created_at" => now(),
                 "updated_at" => now()
             ]
@@ -38,7 +41,7 @@ return new class extends Migration
      */
     public function up()
     {
-        DB::table("categories")->insert($this->seedValue);
+        DB::table("auctions")->insert($this->seedValue);
     }
 
     /**
@@ -48,11 +51,6 @@ return new class extends Migration
      */
     public function down()
     {
-        DB::table("categories")->where('category',array_map(
-            function($row){
-                return $row["category"];
-            },
-            $this->seedValue
-        ))->delete();
+        Schema::dropIfExists('auctions_seed');
     }
 };
