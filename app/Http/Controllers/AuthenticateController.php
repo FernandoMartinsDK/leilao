@@ -45,8 +45,22 @@ class AuthenticateController extends Controller
                 'name'=>$usr[0]['name'],
                 'access'=>$usr[0]['type_person_id']
             ]);
-            $request->session()->regenerate();
-            return redirect()->route('home');
+
+            // Autentica na api
+            $request= Request::create('http://localhost:8000/api/login', 'POST',[
+                'email'=>$request->email,
+                'password'=>$request->password,
+            ]);
+            $response = Route::dispatch($request);
+            $body = $response->getContent();  
+            $values = json_decode($body);
+
+            //salva o token
+            Session::put([
+                'token_api'=>$values->token
+            ]);
+            //$request->session()->regenerate();
+            return redirect()->route('home.');
         }else{
             \App\Services\MessageService::addFlash('danger','Senha ou usuario inválido');
             return redirect()->back();

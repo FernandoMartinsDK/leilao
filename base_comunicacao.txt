@@ -28,3 +28,35 @@ public function authenticate(Request $request)
     NO BANCO ==>
     1 tabelas
 -ganhadores do leilão
+
+
+
+SELECT DISTINCT
+	immobiles.id AS immobile_id,
+	immobiles_types.type,
+	opening_bid
+FROM immobiles
+INNER JOIN immobiles_types ON immobiles.immobile_type_id = immobiles_types.id
+INNER JOIN categories ON immobiles.category_id = categories.id
+INNER JOIN (SELECT ai.id from auction_items WHERE category_id=1) ai ON categories.id = ai.category_id
+
+-- SELECT id from auction_items WHERE category_id=1
+
+
+
+SELECT DISTINCT
+	auction_items.id AS auction_items_id,
+	auction_date,
+	auction_items.note,
+	auction_items.opening_bid,
+	category_id,
+	category,
+	(SELECT type from vehicles_types where vehicles_types.id=category_id ),
+	(SELECT type from immobiles_types where immobiles_types.id=category_id )
+FROM auction_items
+INNER JOIN auctions ON auction_items.auction_id = auctions.id
+INNER JOIN categories ON auction_items.category_id = categories.id
+-- LEFT JOIN immobiles ON categories.id = immobiles.category_id
+
+
+https://youtu.be/gAwX10G46GE?list=PLIs1KcrzXGex-6TEr1XCKSSLC0Z93eEod&t=443

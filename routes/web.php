@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [AuthenticateController::class,'login'])->name('login');
+
 Route::prefix('/authenticate')->name('authenticate.')->group(function(){
     Route::post('/try', [AuthenticateController::class,'authenticate'])->name('try');
     Route::post('/store', [AuthenticateController::class,'store'])->name('store');

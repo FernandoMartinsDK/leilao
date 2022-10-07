@@ -27,6 +27,9 @@ class HomeController extends Controller
     public function index()
     {
         //dd('HOME INDEX',Auth::user());
+        dd(session()->all());
+        //pega as últimas vendas
+        
         return view('home.start');
     }
 

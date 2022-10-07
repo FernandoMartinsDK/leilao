@@ -14,8 +14,9 @@ class AuctionModel extends Model
         'auction_date',
         'financial_institution_id',
         'place_id',
+        'categorie_id',
         'open',
-        'categorie_id'
+        'note'
     ];
 
     //Relations

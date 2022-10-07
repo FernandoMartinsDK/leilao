@@ -11,8 +11,8 @@ class AuctionItemModel extends Model
     protected $table = 'auction_items';
 
     protected $fillable = [
+        'item_id',
         'category_id',
-        'user_id',
         'auction_id',
         'opening_bid',
         'note'

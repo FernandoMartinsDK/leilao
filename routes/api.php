@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\{
     AuctionController,
     FinancialInstitutionsController,
     ImmobilesController,
+    ItemsController,
     PlaceController,
     UserController,
     VehicleController
@@ -87,4 +88,8 @@ Route::middleware(['auth:sanctum'])->prefix('/auctions')->group(function(){
     Route::put('/{id}', [AuctionController::class,'update']);
     Route::get('/{id}', [AuctionController::class,'show']);
     Route::delete('/{id}', [AuctionController::class,'destroy']);
+});
+
+Route::middleware(['auth:sanctum'])->prefix('/items')->group(function(){    
+    Route::get('/', [ItemsController::class,'index']);
 });
