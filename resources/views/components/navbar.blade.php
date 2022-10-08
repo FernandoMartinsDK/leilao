@@ -16,7 +16,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="{{route('home.')}}">HOME</a></li>
                 </ul>
-                <a class="btn btn-outline-primary btn-sm ms-auto" type="button" href="{{route('authenticate.register')}}" >CADASTRAR</a>
+                <a class="btn btn-outline-primary btn-sm ms-auto" type="button" href="{{route('register')}}" >CADASTRAR</a>
             @endif
             @if(Auth::check())
                 <a class="btn btn-outline-danger btn-sm ms-auto" type="button" href="{{route('logout')}}" >SAIR</a>

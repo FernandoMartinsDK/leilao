@@ -7,13 +7,13 @@
 @section('content')
     <body>
         <x-navbar user=''></x-navbar>
-        <div>
+        <div >
             <section class="" style="background-color: #eee;">
                 <div class="container ">
                     <div class="row d-flex justify-content-center align-items-center">
                         <div class="col-lg-12 col-xl-11">
-                            <div class="card text-black" style="border-radius: 25px;">
-                                <div class="card-body p-md-5">
+                            <div class="card text-black" style="border-radius: 25px;margin-top: 80px;">
+                                <div class="card-body p-md-5" >
 
                                     <form action="{{route('authenticate.store')}}" method="post">
                                         @csrf

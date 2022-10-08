@@ -23,11 +23,12 @@ Route::get('/teste', [App\Http\Controllers\HomeController::class, 'teste'])->nam
 
 Route::get('/', [AuthenticateController::class,'login'])->name('login');
 Route::get('/logout', [AuthenticateController::class,'logout'])->name('logout');
+Route::get('/register', [AuthenticateController::class,'create'])->name('register');
+
 
 Route::prefix('/authenticate')->name('authenticate.')->group(function(){
     Route::post('/try', [AuthenticateController::class,'authenticate'])->name('try');
     Route::post('/store', [AuthenticateController::class,'store'])->name('store');
-    Route::get('/register', [AuthenticateController::class,'register'])->name('register');
     Route::get('/login', [AuthenticateController::class,'login'])->name('login');
     /*Route::post('/reset/password', [AuthenticateController::class,'resetPassword'])->name('reset.password');
     Route::post('/recovery/password/email', [AuthenticateController::class,'recoveryPasswordEmail'])->name('recovery.password.email');

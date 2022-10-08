@@ -90,4 +90,12 @@ class AuthenticateController extends Controller
         return redirect()->route('login');
     }
 
+    /**
+     * Carrega tela de cadastro de usuario 
+     */
+    public function create()
+    {
+        return view('register');
+    }
+
 }
