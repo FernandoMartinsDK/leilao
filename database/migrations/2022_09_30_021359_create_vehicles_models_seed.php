@@ -13,12 +13,12 @@ return new class extends Migration
     {
         $this->seedValue = [
             [
-                'model'=>'Conversível',
+                'model'=>'CONVERSÍVEL',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
-                'model'=>'Sedã',
+                'model'=>'SEDÃ',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
@@ -28,27 +28,27 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
-                'model'=>'Minivan',
+                'model'=>'MINIVAN',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
-                'model'=>'Picape',
+                'model'=>'PICAPE',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
-                'model'=>'Esportiva',
+                'model'=>'ESPORTIVO',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
-                'model'=>'Scooter',
+                'model'=>'SCOOTER',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
-                'model'=>'Street',
+                'model'=>'STREET',
                 "created_at" => now(),
                 "updated_at" => now()
             ],

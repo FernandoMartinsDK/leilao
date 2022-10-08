@@ -13,42 +13,42 @@ return new class extends Migration
     {
         $this->seedValue = [
             [
-                "model_car"=>'modelo-1',
+                "model_car"=>'MODELO-1',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
-                "model_car"=>'modelo-2',
+                "model_car"=>'MODELO-2',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
-                "model_car"=>'modelo-3',
+                "model_car"=>'MODELO-3',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
-                "model_car"=>'modelo-4',
+                "model_car"=>'MODELO-4',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
-                "model_car"=>'modelo-5',
+                "model_car"=>'MODELO-5',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
-                "model_car"=>'modelo-6',
+                "model_car"=>'MODELO-6',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
-                "model_car"=>'modelo-7',
+                "model_car"=>'MODELO-7',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
-                "model_car"=>'modelo-8',
+                "model_car"=>'MODELO-8',
                 "created_at" => now(),
                 "updated_at" => now()
             ],

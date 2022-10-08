@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('item_id')->nullable()->constrained('items','id')->cascadeOnUpdate();//remover nullable depois de fazer o seed
             $table->foreignId('auction_id')->constrained('auctions','id')->cascadeOnUpdate();
             $table->integer('opening_bid'); //valor inicial
-            $table->integer('value_bid')->nullable(); //oferta atual
+            $table->string('value_bid')->nullable(); //oferta atual
             $table->text('note')->nullable();
             $table->timestamps();
         });

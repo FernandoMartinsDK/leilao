@@ -13,24 +13,24 @@ return new class extends Migration
     {
         $this->seedValue = [
             [
-                'name'=>'Patio Zonalopolis',
-                'address'=>'Rua das flores',
-                'district'=> 'Putim',
-                'city'=>'Caçapava',
+                'name'=>'PATIO NOSSA SENHORA',
+                'address'=>'RUA DAS FLORES',
+                'district'=> 'PUTIM',
+                'city'=>'CAÇAPAVA',
                 'cep'=>'12278055',
                 'complement'=>'',
-                'country'=>'Brasil',
+                'country'=>'BRASIL',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
-                'name'=>'Patio Detram',
-                'address'=>'Av. Lurdes Santos',
-                'district'=> 'Centro',
-                'city'=>'Jacareí',
+                'name'=>'PATIO DETRAM',
+                'address'=>'AV. DONA LURDES',
+                'district'=> 'CENTRO',
+                'city'=>'JACAREÍ',
                 'cep'=>'25278055',
                 'complement'=>'',
-                'country'=>'Brasil',
+                'country'=>'BRASIL',
                 "created_at" => now(),
                 "updated_at" => now()
             ]

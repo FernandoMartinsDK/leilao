@@ -33,33 +33,23 @@ class HomeController extends Controller
             return redirect()->route('login');
         }
         
-        /**
-         * -Busca dados via api
-         *  pega os imoveis e imoveis que estão abertos para leilao
-        */
-        $request= Request::create('http://localhost:8000/api/items/open', 'GET');
-        $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
-        $response = Route::dispatch($request);
-        $body = $response->getContent();  
-        $response= json_decode($body);
-        /*if ($response->getStatusCode()=='400') {
-            abort(400, 'Não é possível processar a solicitação porque ela está malformada ou incorreta.');
-        }*/
-        dd($response);
-        $immobiles = $response->data_immobiles;
-        $vehicles = $response->data_vehicles;
-        
-        return view('home.start',compact(['immobiles','vehicles']));
+       
+        return view('home.start');
     }
 
     public function teste()
     {
+
         //$response = Http::acceptJson()->post('http://127.0.0.1:8000/api/test');
+        $term = 3;
+        $request= Request::create('http://localhost:8000/api/items/search/'.$term, 'GET');
+        
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $values = json_decode($body);
+        dd($values,$response,$body);
 
-        $response= Request::create('http://localhost:8000/api/test', 'POST');
-        $response = Route::dispatch($response);
-
-        return $response;
+        return view('welcome',compact(['values']));
     }
 
     public function update()

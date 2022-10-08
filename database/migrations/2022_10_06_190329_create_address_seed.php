@@ -14,12 +14,12 @@ return new class extends Migration
         $this->seedValue = [
             [
                 'user_id'=>'1',
-                'address'=>'Rua Coronel Marcos',
+                'address'=>'RUA CORONEL MARCOS',
                 'cep'=>'12270555',
                 'number'=>'34',
-                'complement'=>'apt 23',
-                'district'=>'district',
-                'city'=>'São Jose dos Campos',
+                'complement'=>'APT 23',
+                'district'=>'DISTRICT',
+                'city'=>'SÃO JOSE DOS CAMPOS',
                 'state'=>'SP',
                 "created_at" => now(),
                 "updated_at" => now()

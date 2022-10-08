@@ -91,5 +91,6 @@ Route::middleware(['auth:sanctum'])->prefix('/auctions')->group(function(){
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/items')->group(function(){    
-    Route::get('/open', [ItemsController::class,'open']); //Itens em aberto
+    Route::get('/open', [ItemsController::class,'open']); 
+    Route::get('/search/{term}', [ItemsController::class,'search']); 
 });

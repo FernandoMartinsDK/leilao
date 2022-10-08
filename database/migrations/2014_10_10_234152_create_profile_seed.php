@@ -13,13 +13,13 @@ return new class extends Migration
     {
         $this->seedValue = [
             [
-                "type" => "Usuário",
+                "type" => "USUÁRIO",
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
 
-                "type" => "Administrador",
+                "type" => "ADMINISTRADOR",
                 "created_at" => now(),
                 "updated_at" => now()
             ]

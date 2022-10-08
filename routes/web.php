@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/teste', [App\Http\Controllers\HomeController::class, 'teste'])->name('testes');
 
 Route::get('/', [AuthenticateController::class,'login'])->name('login');
 
@@ -48,7 +49,9 @@ Route::prefix('/auction')->name('auction.')->group(function(){
 });
 
 Route::prefix('/item')->name('item.')->group(function(){
+    Route::post('/', [ItemController::class, 'index']);
     Route::get('/create', [ItemController::class, 'create'])->name('create');
+    Route::post('/search', [ItemController::class, 'search'])->name('search');
 });
 
 /*
@@ -59,4 +62,3 @@ Route::get('/login', function () {
 
 //Auth::routes();
 
-Route::get('/testes', [App\Http\Controllers\HomeController::class, 'teste'])->name('testes');
