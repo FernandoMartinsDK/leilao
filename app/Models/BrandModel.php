@@ -11,15 +11,11 @@ class BrandModel extends Model
     protected $table = 'brands';
 
     protected $fillable = [
-        'name'
+        'brand'
     ];
 
     public function vehicle(){
         return $this->hasMany(VehicleModel::class);
-    }
-
-    public function car_model(){
-        return $this->belongsTo(CarModelsModel::class);
     }
 
 }

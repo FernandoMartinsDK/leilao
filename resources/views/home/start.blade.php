@@ -29,72 +29,75 @@
         </div>
     </div>
     <div class="container ">
-        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-            <div class="col-xxl-3">
-                <div class="card">
+
+            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+                <div class="col-xxl-3">
                     <div class="card">
-                        <div class="card-body border rounded-0">
-                            <h6 class="text-center card-title">Data do Leilão</h6>
-                            <h4 class="text-center text-muted card-subtitle mb-2">15/10/2022</h4>
+                        <div class="card">
+                            <div class="card-body border rounded-0">
+                                <h6 class="text-center card-title">Data do Leilão</h6>
+                                <h4 class="text-center text-muted card-subtitle mb-2">15/10/2022</h4>
+                            </div>
+                        </div><img class="card-img w-100 d-block fit-cover" style="height: 200px;" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png">
+                        <div class="card-body p-4">
+                            <p class="text-primary card-text mb-0">Marca</p>
+                            <h4 class="card-title">Modelo</h4>
+                            <h3 class="text-center">R$ 10.000,00</h3>
+                            <div class="d-grid gap-2"><button class="btn btn-outline-success btn-sm" type="button">Aberto para lances</button></div>
                         </div>
-                    </div><img class="card-img w-100 d-block fit-cover" style="height: 200px;" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png">
-                    <div class="card-body p-4">
-                        <p class="text-primary card-text mb-0">Marca</p>
-                        <h4 class="card-title">Modelo</h4>
-                        <h3 class="text-center">R$ 10.000,00</h3>
-                        <div class="d-grid gap-2"><button class="btn btn-outline-success btn-sm" type="button">Aberto para lances</button></div>
+                    </div>
+                </div>
+                <div class="col-xxl-3">
+                    <div class="card">
+                        <div class="card">
+                            <div class="card-body border rounded-0">
+                                <h6 class="text-center card-title">Data do Leilão</h6>
+                                <h4 class="text-center text-muted card-subtitle mb-2">15/10/2022</h4>
+                            </div>
+                        </div><img class="card-img w-100 d-block fit-cover" style="height: 200px;" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png">
+                        <div class="card-body p-4">
+                            <p class="text-primary card-text mb-0">Marca</p>
+                            <h4 class="card-title">Modelo</h4>
+                            <h3 class="text-center">R$ 10.000,00</h3>
+                            <div class="d-grid gap-2"><button class="btn btn-outline-success btn-sm" type="button">Aberto para lances</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-3">
+                    <div class="card">
+                        <div class="card">
+                            <div class="card-body border rounded-0">
+                                <h6 class="text-center card-title">Data do Leilão</h6>
+                                <h4 class="text-center text-muted card-subtitle mb-2">15/10/2022</h4>
+                            </div>
+                        </div><img class="card-img w-100 d-block fit-cover" style="height: 200px;" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png">
+                        <div class="card-body p-4">
+                            <p class="text-primary card-text mb-0">Marca</p>
+                            <h4 class="card-title">Modelo</h4>
+                            <h3 class="text-center">R$ 10.000,00</h3>
+                            <div class="d-grid gap-2"><button class="btn btn-outline-success btn-sm" type="button">Aberto para lances</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-3">
+                    <div class="card">
+                        <div class="card">
+                            <div class="card-body border rounded-0">
+                                <h6 class="text-center card-title">Data do Leilão</h6>
+                                <h4 class="text-center text-muted card-subtitle mb-2">15/10/2022</h4>
+                            </div>
+                        </div><img class="card-img w-100 d-block fit-cover" style="height: 200px;" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png">
+                        <div class="card-body p-4">
+                            <p class="text-primary card-text mb-0">Marca</p>
+                            <h4 class="card-title">Modelo</h4>
+                            <h3 class="text-center">R$ 10.000,00</h3>
+                            <div class="d-grid gap-2"><button class="btn btn-outline-success btn-sm" type="button">Aberto para lances</button></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-3">
-                <div class="card">
-                    <div class="card">
-                        <div class="card-body border rounded-0">
-                            <h6 class="text-center card-title">Data do Leilão</h6>
-                            <h4 class="text-center text-muted card-subtitle mb-2">15/10/2022</h4>
-                        </div>
-                    </div><img class="card-img w-100 d-block fit-cover" style="height: 200px;" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png">
-                    <div class="card-body p-4">
-                        <p class="text-primary card-text mb-0">Marca</p>
-                        <h4 class="card-title">Modelo</h4>
-                        <h3 class="text-center">R$ 10.000,00</h3>
-                        <div class="d-grid gap-2"><button class="btn btn-outline-success btn-sm" type="button">Aberto para lances</button></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-3">
-                <div class="card">
-                    <div class="card">
-                        <div class="card-body border rounded-0">
-                            <h6 class="text-center card-title">Data do Leilão</h6>
-                            <h4 class="text-center text-muted card-subtitle mb-2">15/10/2022</h4>
-                        </div>
-                    </div><img class="card-img w-100 d-block fit-cover" style="height: 200px;" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png">
-                    <div class="card-body p-4">
-                        <p class="text-primary card-text mb-0">Marca</p>
-                        <h4 class="card-title">Modelo</h4>
-                        <h3 class="text-center">R$ 10.000,00</h3>
-                        <div class="d-grid gap-2"><button class="btn btn-outline-success btn-sm" type="button">Aberto para lances</button></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-3">
-                <div class="card">
-                    <div class="card">
-                        <div class="card-body border rounded-0">
-                            <h6 class="text-center card-title">Data do Leilão</h6>
-                            <h4 class="text-center text-muted card-subtitle mb-2">15/10/2022</h4>
-                        </div>
-                    </div><img class="card-img w-100 d-block fit-cover" style="height: 200px;" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png">
-                    <div class="card-body p-4">
-                        <p class="text-primary card-text mb-0">Marca</p>
-                        <h4 class="card-title">Modelo</h4>
-                        <h3 class="text-center">R$ 10.000,00</h3>
-                        <div class="d-grid gap-2"><button class="btn btn-outline-success btn-sm" type="button">Aberto para lances</button></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
+        
         <div class="row">
             <div class="col d-xxl-flex justify-content-xxl-end" style="margin-top: 20px;"><button class="btn btn-primary d-xxl-flex" type="button">Carregar mais<svg xmlns="http://www.w3.org/2000/svg" viewBox="-64 0 512 512" width="1em" height="1em" fill="currentColor">
                         <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
@@ -104,3 +107,21 @@
     </div>
 @endsection
 
+@section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $.ajax({
+          url:"{{ route( 'reports.order.history.ajax' )}}",
+          type:'post',
+          datatype:'json',
+          data:$(this).serialize(),
+          success: function(response){   
+            //console.log(response) 
+            //response(response)  
+            table.destroy();
+            loadTable(response);
+          }
+        });
+    </script>
+@endsection

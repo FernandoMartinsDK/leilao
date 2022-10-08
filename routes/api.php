@@ -51,45 +51,45 @@ Route::middleware(['auth:sanctum'])->prefix('/user')->group(function(){
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/immobile')->group(function(){    
-    Route::get('/', [ImmobilesController::class,'index']); 
+    /*Route::get('/', [ImmobilesController::class,'index']); 
     Route::post('/', [ImmobilesController::class,'store']);
     Route::get('/{id}', [ImmobilesController::class,'show']);
     Route::put('/{id}', [ImmobilesController::class,'update']);
-    Route::delete('/{id}', [ImmobilesController::class,'destroy']);
+    Route::delete('/{id}', [ImmobilesController::class,'destroy']);*/
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/vehicle')->group(function(){    
-    Route::get('/', [VehicleController::class,'index']); 
+    /*Route::get('/', [VehicleController::class,'index']); 
     Route::post('/', [VehicleController::class,'store']);
     Route::get('/{id}', [VehicleController::class,'show']);
     Route::put('/{id}', [VehicleController::class,'update']);
-    Route::delete('/{id}', [VehicleController::class,'destroy']);
+    Route::delete('/{id}', [VehicleController::class,'destroy']);*/
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/place')->group(function(){    
-    Route::get('/', [PlaceController::class,'index']); 
+    /*Route::get('/', [PlaceController::class,'index']); 
     Route::post('/', [PlaceController::class,'store']);
     Route::put('/{id}', [PlaceController::class,'update']);
     Route::get('/{id}', [PlaceController::class,'show']);
-    Route::delete('/{id}', [PlaceController::class,'destroy']);
+    Route::delete('/{id}', [PlaceController::class,'destroy']);*/
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/financial_institutions')->group(function(){    
-    Route::get('/', [FinancialInstitutionsController::class,'index']); 
+    /*Route::get('/', [FinancialInstitutionsController::class,'index']); 
     Route::post('/', [FinancialInstitutionsController::class,'store']);
     Route::put('/{id}', [FinancialInstitutionsController::class,'update']);
     Route::get('/{id}', [FinancialInstitutionsController::class,'show']);
-    Route::delete('/{id}', [FinancialInstitutionsController::class,'destroy']);
+    Route::delete('/{id}', [FinancialInstitutionsController::class,'destroy']);*/
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/auctions')->group(function(){    
-    Route::get('/', [AuctionController::class,'index']); 
+    /*Route::get('/', [AuctionController::class,'index']); 
     Route::post('/', [AuctionController::class,'store']);
     Route::put('/{id}', [AuctionController::class,'update']);
     Route::get('/{id}', [AuctionController::class,'show']);
-    Route::delete('/{id}', [AuctionController::class,'destroy']);
+    Route::delete('/{id}', [AuctionController::class,'destroy']);*/
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/items')->group(function(){    
-    Route::get('/', [ItemsController::class,'index']);
+    Route::get('/open', [ItemsController::class,'open']); //Itens em aberto
 });

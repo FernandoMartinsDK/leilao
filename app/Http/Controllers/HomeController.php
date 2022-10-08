@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -25,17 +26,30 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        //dd('HOME INDEX',Auth::user());
+    {   
         
         if (!Auth::check()) {
+            \App\Services\MessageService::addFlash('warning','Sessão expirada!');
             return redirect()->route('login');
         }
         
-        dd(session()->all(),Auth::user());
-        //pega as últimas vendas
+        /**
+         * -Busca dados via api
+         *  pega os imoveis e imoveis que estão abertos para leilao
+        */
+        $request= Request::create('http://localhost:8000/api/items/open', 'GET');
+        $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $response= json_decode($body);
+        /*if ($response->getStatusCode()=='400') {
+            abort(400, 'Não é possível processar a solicitação porque ela está malformada ou incorreta.');
+        }*/
+        dd($response);
+        $immobiles = $response->data_immobiles;
+        $vehicles = $response->data_vehicles;
         
-        return view('home.start');
+        return view('home.start',compact(['immobiles','vehicles']));
     }
 
     public function teste()

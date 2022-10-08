@@ -13,7 +13,7 @@ class VehicleModelsModel extends Model
     protected $guarded = [];
 
     //Relations
-    public function vehicle_models(){
+    public function vehicles(){
         return $this->hasMany(VehicleModel::class);
     }
 }

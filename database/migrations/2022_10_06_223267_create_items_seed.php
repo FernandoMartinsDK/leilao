@@ -53,7 +53,7 @@ return new class extends Migration
             [
                # 'immobile_id'=>'1',
                 'vehicle_id'=>'1',
-                'categories_id'=>'1',
+                'categories_id'=>'2',
                 "created_at" => now(),
                 "updated_at" => now()
             ],

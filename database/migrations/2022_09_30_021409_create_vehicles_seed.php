@@ -13,6 +13,7 @@ return new class extends Migration
     {
         $this->seedValue = [
             [
+                "car_model_id"=>"2",
                 "brand_id" => "1",
                 "vehicles_model_id" => "8",
                 "vehicle_type_id" => '1',
@@ -30,6 +31,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
+                "car_model_id"=>"8",
                 "brand_id" => "2",
                 "vehicles_model_id" => "7",
                 "vehicle_type_id" => '1',
@@ -47,6 +49,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
+                "car_model_id"=>"1",
                 "brand_id" => "3",
                 "vehicles_model_id" => "6",
                 "vehicle_type_id" => '2',
@@ -64,6 +67,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
+                "car_model_id"=>"3",
                 "brand_id" => "4",
                 "vehicles_model_id" => "5",
                 "vehicle_type_id" => '2',
@@ -81,6 +85,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
+                "car_model_id"=>"7",
                 "brand_id" => "5",
                 "vehicles_model_id" => "4",
                 "vehicle_type_id" => '1',
@@ -98,6 +103,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
+                "car_model_id"=>"5",
                 "brand_id" => "6",
                 "vehicles_model_id" => "3",
                 "vehicle_type_id" => '1',
@@ -115,6 +121,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
+                "car_model_id"=>"4",
                 "brand_id" => "7",
                 "vehicles_model_id" => "2",
                 "vehicle_type_id" => '1',
@@ -132,6 +139,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
+                "car_model_id"=>"3",
                 "brand_id" => "8",
                 "vehicles_model_id" => "1",
                 "vehicle_type_id" => '2',
@@ -149,6 +157,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
+                "car_model_id"=>"8",
                 "brand_id" => "1",
                 "vehicles_model_id" => "8",
                 "vehicle_type_id" => '2',
@@ -166,6 +175,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
+                "car_model_id"=>"5",
                 "brand_id" => "2",
                 "vehicles_model_id" => "6",
                 "vehicle_type_id" => '1',
@@ -183,6 +193,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
+                "car_model_id"=>"1",
                 "brand_id" => "3",
                 "vehicles_model_id" => "4",
                 "vehicle_type_id" => '1',
@@ -200,6 +211,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
+                "car_model_id"=>"2",
                 "brand_id" => "4",
                 "vehicles_model_id" => "2",
                 "vehicle_type_id" => '2',
@@ -217,6 +229,7 @@ return new class extends Migration
                 "updated_at" => now()
             ],
             [
+                "car_model_id"=>"8",
                 "brand_id" => "5",
                 "vehicles_model_id" => "1",
                 "vehicle_type_id" => '1',
