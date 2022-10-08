@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\{Route,Auth,Session};
 
 class AuthenticateController extends Controller
 {
 
+    /**
+     * Realiza autenticação do usuario
+     */
     public function authenticate(Request $request)
     {   
         $credentials = $request->validate([
@@ -67,21 +67,6 @@ class AuthenticateController extends Controller
         }
     }
 
-    public function store(Request $request)
-    {
-
-        /**
-         * CHAMAR_API
-         */
-      
-        return view('register');
-    }
-
-    public function register(Request $request)
-    {
-        return view('register');
-    }
-
     public function login()
     {
         //dd(Auth::check(),Auth::guest());
@@ -89,6 +74,20 @@ class AuthenticateController extends Controller
             return redirect()->route('home.');
         }
         return view('login');
+    }
+
+     /**
+     * Faz o logout do usuario 
+    */
+    public function logout()
+    {
+        auth()->user()->tokens()->delete();
+        Auth::logout();
+        Session::flush();
+
+        \App\Services\MessageService::addFlash('success','Sessão Finalizada');
+
+        return redirect()->route('login');
     }
 
 }

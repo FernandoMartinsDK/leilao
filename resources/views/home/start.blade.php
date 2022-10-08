@@ -7,7 +7,7 @@
 <x-navbar user='FULANO'></x-navbar>
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin-top: 50px;">
         <div class="row">
             <div class="col">
                 <section class="py-4 py-xl-5">
@@ -29,7 +29,6 @@
         </div>
     </div>
     <div class="container" id="divContainer">
-
             <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3" id>
                 <div class="col-xxl-3">
                     <div class="card">

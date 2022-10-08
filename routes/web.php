@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/teste', [App\Http\Controllers\HomeController::class, 'teste'])->name('testes');
 
 Route::get('/', [AuthenticateController::class,'login'])->name('login');
+Route::get('/logout', [AuthenticateController::class,'logout'])->name('logout');
 
 Route::prefix('/authenticate')->name('authenticate.')->group(function(){
     Route::post('/try', [AuthenticateController::class,'authenticate'])->name('try');

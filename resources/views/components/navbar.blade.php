@@ -1,15 +1,27 @@
-<div>
-    <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
-        <div class="container-fluid">
-            <img class="d-none" src="{{asset('img/receita.png')}}">
-            <img src="{{asset('img/receita.png')}}" style="width: 47px;margin-left: 0px;margin-right: 10px;">
-            <a class="navbar-brand" href="#">Receita Federal - Leilões</a>
-            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <a class="btn btn-outline-primary ms-auto" role="button" href="{{route('authenticate.register')}}">Registrar</a>
-                <a class="btn btn-primary" type="button" href="{{route('authenticate.login')}}" style="margin-left: 15px;">Logar</a>
-                <!-- <a class="btn btn-primary" type="button"style="margin-left: 15px;">{{$user}}</a> -->
-            </div>
+<nav class="navbar navbar-light navbar-expand-md fixed-top" style="background: rgb(208, 204, 204);border-bottom-color: rgb(33, 37, 41);">
+    <div class="container-fluid">
+        <img src="{{asset('img/receita.png')}}" style="width: 3%;margin-right: 20px;" />
+        <div id="navcol-1" class="collapse navbar-collapse">
+            @if(Auth::check())
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="{{route('home.')}}">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Meus Dados</a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Histórico</a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="#">Lances</a><a class="dropdown-item" href="#">Compras</a></div>
+                    </li>
+                </ul>
+            @endif
+            @if(Auth::guest())
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{{route('home.')}}">HOME</a></li>
+                </ul>
+                <a class="btn btn-outline-primary btn-sm ms-auto" type="button" href="{{route('authenticate.register')}}" >CADASTRAR</a>
+            @endif
+            @if(Auth::check())
+                <a class="btn btn-outline-danger btn-sm ms-auto" type="button" href="{{route('logout')}}" >SAIR</a>
+            @endif
+         
         </div>
-    </nav>
-</div>
+    </div>
+</nav>
