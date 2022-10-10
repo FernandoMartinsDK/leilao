@@ -92,5 +92,10 @@ Route::middleware(['auth:sanctum'])->prefix('/auctions')->group(function(){
 
 Route::middleware(['auth:sanctum'])->prefix('/items')->group(function(){    
     Route::get('/open', [ItemsController::class,'open']); 
+    //Route::post('/lance', [ItemsController::class,'lance']); 
     Route::get('/search/{term}', [ItemsController::class,'search']); 
+    Route::get('immobile/auction/{term}', [ItemsController::class,'show_auction_item_immobile']);
+    Route::get('vehicle/auction/{term}', [ItemsController::class,'show_auction_item_vehicles']);
+    Route::post('lance', [ItemsController::class,'lance']);
+    Route::post('/historic', [ItemsController::class,'historic']);
 });

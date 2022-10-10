@@ -39,17 +39,19 @@ class HomeController extends Controller
 
     public function teste()
     {
-
+        dd(session()->get('token_api'));
+        /*
         //$response = Http::acceptJson()->post('http://127.0.0.1:8000/api/test');
-        $term = 3;
-        $request= Request::create('http://localhost:8000/api/items/search/'.$term, 'GET');
-        
+        $term=10;
+        $request= Request::create('http://localhost:8000/api/items/vehicle/auction/'.$term, 'GET');
+        $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
         $response = Route::dispatch($request);
         $body = $response->getContent();  
-        $values = json_decode($body);
-        dd($values,$response,$body);
+        $value = json_decode($body);
 
-        return view('welcome',compact(['values']));
+        //dd($value->data,$response,$body);
+        return view('home.show',compact(['value']));
+        */
     }
 
     public function update()

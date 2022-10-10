@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/teste', [App\Http\Controllers\HomeController::class, 'teste'])->name('testes');
+Route::get('/teste', [App\Http\Controllers\HomeController::class, 'teste'])->name('teste');
 
 Route::get('/', [AuthenticateController::class,'login'])->name('login');
 Route::get('/logout', [AuthenticateController::class,'logout'])->name('logout');
@@ -29,7 +29,6 @@ Route::get('/register', [AuthenticateController::class,'create'])->name('registe
 Route::prefix('/authenticate')->name('authenticate.')->group(function(){
     Route::post('/try', [AuthenticateController::class,'authenticate'])->name('try');
     Route::post('/store', [AuthenticateController::class,'store'])->name('store');
-    Route::get('/login', [AuthenticateController::class,'login'])->name('login');
     /*Route::post('/reset/password', [AuthenticateController::class,'resetPassword'])->name('reset.password');
     Route::post('/recovery/password/email', [AuthenticateController::class,'recoveryPasswordEmail'])->name('recovery.password.email');
     Route::get('/logout', [AuthenticateController::class,'logout'])->name('logout');
@@ -52,8 +51,10 @@ Route::prefix('/auction')->name('auction.')->group(function(){
 
 Route::prefix('/item')->name('item.')->group(function(){
     Route::post('/', [ItemController::class, 'index']);
+    Route::get('/show/{id}/{cate}', [ItemController::class, 'show'])->name('show');
     Route::get('/create', [ItemController::class, 'create'])->name('create');
     Route::post('/search', [ItemController::class, 'search'])->name('search');
+    //Route::get('/show/{id}//{cate}', [ItemController::class, 'show'])->name('show');
 });
 
 /*

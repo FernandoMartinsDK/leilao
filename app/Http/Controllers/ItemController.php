@@ -56,9 +56,26 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,$cate)
+    {   
+        //dd($id,$cate);
+        if ($cate == '2') {
+            $request= Request::create('http://localhost:8000/api/items/vehicle/auction/'.$id, 'GET');
+        }else{
+            $request= Request::create('http://localhost:8000/api/items/immobile/auction/'.$id, 'GET');
+        }
+        
+        $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $value= json_decode($body);
+        return view('home.show',compact(['value']));
+    }
+
+    public function route_item()
     {
-        //
+        return view('home.show');
+
     }
 
     /**
@@ -115,4 +132,19 @@ class ItemController extends Controller
         return $data;
         
     }
+
+    /**
+     * valida o lance
+    */
+    public function lance(Request $request)
+    {
+        $request= Request::create('http://localhost:8000/api/items/search/'.$term, 'GET');
+        
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $values = json_decode($body);
+
+        return $request->valor.'-'.$request->item_id;
+    }
+
 }
