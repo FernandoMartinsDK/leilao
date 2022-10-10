@@ -336,10 +336,28 @@ class ItemsController extends Controller
             ->get(['auction_items.value_bid','auction_items.minimum_bid'])
             ->first();
 
+            // verifica se o lance atual não é do próprio usuario
+            $historic = AuctionItemModel::
+            join('bids','bids.auction_item_id','auction_items.id')
+            ->where('auction_item_id',$request->item_id)
+            ->orderBy('bids.created_at','desc')
+            ->get(['bids.user_id'])
+            ->first();
+
+            if ($historic->user_id == $request->user) {
+                return response()->json([
+                    'message' => 'warning',
+                    'data' => 'O maior lance ainda é o seu',
+                    'vl_min'=>$bid->value_bid
+                ],200);
+            }
+            return $historic;
+
+            // verifica se o lance atual é maior que o anterior
             if ($request->valor <= $bid->value_bid) {
                 return response()->json([
                     'message' => 'warning',
-                    'data' => 'O valor do lance deve ser maior que o atual',
+                    'data' => 'O valor do lance deve ser maior que o atual! Atualize a página para verificar o novo valor do lance',
                     'vl_min'=>$bid->value_bid
                 ],200);  
             }
@@ -401,7 +419,16 @@ class ItemsController extends Controller
                 ],200); 
             }
 
-            $historic = BidModel::where('auction_item_id',$id)->get();
+            $historic = BidModel::
+            join('users','users.id','bids.user_id')
+            ->join('auction_items','bids.auction_item_id','auction_items.id')
+            ->where('auction_item_id',$id)
+            ->get([
+                'users.name',
+                'bids.value_bid',
+                'auction_items.opening_bid',
+                'bids.created_at'
+            ]);
 
             return response()->json([
                 'message' => 'success',

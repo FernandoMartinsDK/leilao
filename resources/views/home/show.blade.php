@@ -67,7 +67,7 @@
                             <h4 class="text-center text-light card-subtitle mb-2">Dê seu lance</h4>
                         </div>
                     </div>
-                    <div class="d-grid gap-2"><button class="btn btn-outline-secondary" type="button" style="margin-left: 20PX;margin-right: 20PX;margin-top: 15PX;">Cobrir o lance atual em R$ {{number_format($value->data->minimum_bid,2,",",".")}}</button>
+                    <div class="d-grid gap-2"><button class="btn btn-outline-secondary" id="bntCobrir" type="button" style="margin-left: 20PX;margin-right: 20PX;margin-top: 15PX;">Cobrir o lance atual em R$ {{number_format($value->data->minimum_bid,2,",",".")}}</button>
                         <div class="input-group" style="margin-top: 10px;padding-right: 20px;padding-left: 20px;">
                             <span class="input-group-text">Fazer um lance</span>
                             <input class="form-control" type="number" id="edtValor" placeholder="Informe o valor">
@@ -80,9 +80,9 @@
                     </div>
                     <div class="card-body p-4">
                         <p class="d-inline-flex" style="font-weight: bold;">Lances fixados em +&nbsp;&nbsp;</p>
-                        <p class="d-inline-flex"><a id="txtVlAtual">R$ {{number_format($value->data->minimum_bid,2,",",".")}}</a></p>
+                        <p class="d-inline-flex"><a id="txtVlminimum">R$ {{number_format($value->data->minimum_bid,2,",",".")}}</a></p>
                         <h5 class="text-center">LANCE ATUAL</h5>
-                        <h2 class="text-center">R$ {{number_format($value->data->value_bid,2,",",".")}}</h2>
+                        <h2 class="text-center" id="txtVlAtual">R$ {{number_format($value->data->value_bid,2,",",".")}}</h2>
                         <div class="text-center">
                             <p class="text-secondary d-inline-flex mb-0">Feito por:&nbsp;</p>
                             <p class="text-secondary d-inline-flex mb-0"><a id="txtNomeLance">Processando...</a></p>
@@ -236,38 +236,19 @@
                 var lance = $("#edtValor").val();
                 var cate = $("#edtCategory").val();
                 var user = $("#edtUser").val();
-                
-                $.ajax({
-                    url:"http://localhost:8000/api/items/lance",
-                    type:'post',
-                    headers: {
-                    "Authorization": "Bearer " + token
-                    },
-                    datatype:'json',
-                    data:{valor:lance, item_id:item, category:cate, user:user},                    
-                    beforeSend : function(){
-                        $('body').loading({
-                            message: 'Aplicando o lance...'
-                        });
-                    },
-                    success: function(response){
-                        console.log(response)
-                        console.log(response['message'])
-                        $('#divAlert').html(" <div class='alert alert-"+response['message']+" alert-dismissible fade show' role='alert'><strong>Atenção!</strong> "+response['data']+".<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
-                    },
-                    error: function (request, status, error) {
-                        $('body').loading('stop');
-                        if ('Unauthorized'==error) {
-                            alert('Sessão expirada');
-                            window.location.href = "{{route('logout')}}";
-                        }else{
-                            alert('Um erro aconteceu: '+error)
-                        }
-                        $('#divAlert').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Um erro interno aconteceu!.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
-                    }
-                }).done(function () {
-                    $('body').loading('stop');
-                });
+                if (lance>1) {
+                    makeLance(lance,cate,user);
+                }else{
+                    $('#divAlert').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Informe um valor válido!.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")             
+                }
+            });
+
+            // cobre o lance atual com o valor minimo
+            $(document).on('click', '#bntCobrir', function() {
+                var lance = (parseInt('{{$value->data->minimum_bid}}') + parseInt('{{$value->data->value_bid}}'))
+                var cate = $("#edtCategory").val();
+                var user = $("#edtUser").val();
+                makeLance(lance,cate,user);
             });
 
             // busca historico
@@ -286,7 +267,16 @@
                     },
                     success: function(response){
                         if (response['data'].length>0) {
-                            console.log(response)
+                            let size = (response['data'].length - 1);
+                            $('#txtNomeLance').html(response['data'][size]['name']);
+                            $('#tab-historico').html('<p><strong>Valor inicial: <strong>'+parseFloat(response['data'][0]['opening_bid']).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+'</p>');
+                            $('#tab-historico').append('<p>Lances Realizados:</p><ol>')
+                            for (let index = 0; index < response['data'].length; index++) {
+                                let dt = moment(response['data'][index]['created_at']).format('DD/MM/YYYY - h:mm' );
+                                let vl = parseFloat(response['data'][index]['value_bid']).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+                                $('#tab-historico').append("<li>"+vl+" por "+response['data'][0]['name']+" - "+ dt +" </li>")                  
+                            }
+                            $('#tab-historico').append("</ol>")
                         }else{
                             $('#txtNomeLance').html('-')
                             $('#tab-historico').html('Nenhum lance realizado!')
@@ -302,13 +292,50 @@
                             alert('Um erro aconteceu: '+error)
                         }
                         $('#divAlert').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Um erro interno aconteceu!.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
-                        
                     }
                 }).done(function () {
                     $('body').loading('stop');
                 });
             }
 
+            // realiza o lance
+            function makeLance(lance,cate,user){
+                $.ajax({
+                    url:"http://localhost:8000/api/items/lance",
+                    type:'post',
+                    headers: {
+                    "Authorization": "Bearer " + token
+                    },
+                    datatype:'json',
+                    data:{valor:lance, item_id:item, category:cate, user:user},                    
+                    beforeSend : function(){
+                        $('body').loading({
+                            message: 'Aplicando o lance...'
+                        });
+                    },
+                    success: function(response){
+                        if (response['message']=='success') {
+                            $("#edtValor").val('')
+                            let vl = parseFloat(lance).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+                            $('#txtVlAtual').html(vl)
+                            historic();                          
+                        }
+                        $('#divAlert').html(" <div class='alert alert-"+response['message']+" alert-dismissible fade show' role='alert'><strong>Atenção!</strong> "+response['data']+".<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+                    },
+                    error: function (request, status, error) {
+                        $('body').loading('stop');
+                        if ('Unauthorized'==error) {
+                            alert('Sessão expirada');
+                            window.location.href = "{{route('logout')}}";
+                        }else{
+                            alert('Um erro aconteceu: '+error)
+                        }
+                        $('#divAlert').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Um erro interno aconteceu!.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
+                    }
+                }).done(function () {
+                    $('body').loading('stop');
+                });
+            }
         });
     </script>
 @endsection
