@@ -106,6 +106,19 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         try {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+                'view_name' => 'required',
+                'cpf' => 'required',
+                'cnpj' => 'required',
+                'state_registration' => 'state_registration',
+                'telephone' => 'telephone',
+                'date_birth' => 'date_birth',
+                'active' => 'required',
+                'is_admin' => 'required'
+            ]);
+
             $user = User::findOrfail($id);
             $user->update($request->all());
             return response()->json([

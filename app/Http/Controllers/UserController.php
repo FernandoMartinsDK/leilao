@@ -45,7 +45,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        //pega informações sobre usuario, endereço
+        return view('home.update');
     }
 
     /**

@@ -42,7 +42,7 @@ Route::prefix('/home')->name('home.')->group(function(){
 });
 
 Route::prefix('/user')->name('user.')->group(function(){
-    Route::post('/update', [UserController::class, 'update'])->name('update');
+    Route::get('/show/{id}', [UserController::class, 'show'])->name('show');
 });
 
 Route::prefix('/auction')->name('auction.')->group(function(){

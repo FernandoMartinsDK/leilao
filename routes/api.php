@@ -40,12 +40,12 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::post('/logout', [AuthController::class,'logout']);
 });
 */
-Route::middleware(['auth:sanctum'])->prefix('/user')->group(function(){    
+Route::middleware(['auth:sanctum'])->prefix('/user')->group(function(){ 
+    Route::put('/{id}', [UserController::class,'update']);
     /*Route::get('/', [UserController::class,'index']); 
     Route::get('/{id}', [UserController::class,'show']);
     Route::get('/search/{name}', [UserController::class,'search']);
     Route::post('/', [UserController::class,'store']);
-    Route::put('/{id}', [UserController::class,'update']);
     Route::delete('/{id}', [UserController::class,'destroy']);*/
     Route::post('/logout', [AuthController::class,'logout']);
 });
