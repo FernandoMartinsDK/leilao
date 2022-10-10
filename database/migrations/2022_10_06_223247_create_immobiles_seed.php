@@ -23,6 +23,8 @@ return new class extends Migration
                 'complement'=>'',
                 'description'=>'nceptos bla rhoncus aliquet massa mollis, dolor euismod litora volutpat amet eros tempus sollicitudin fusce andit sapien feugiat platea sem lacus consequat. proin curabitur fusce taciti quis etiam viverr sadasdsa.',
                 'state'=>'SP',
+                'land_area'=>'1065',
+                'building_area'=>'142.71',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
@@ -37,6 +39,8 @@ return new class extends Migration
                 'complement'=>'De esquina',
                 'description'=>'nceptos blandit sapien feugiat platea sem lacus consequat. proin curabitur fusce taciti quis etiam viverra rhoncus aliquet massa mollis, dolor euismod litora volutpat amet eros tempus sollicitudin fusce urna tortor.',
                 'state'=>'SP',
+                'land_area'=>'106',
+                'building_area'=>'14.51',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
@@ -51,6 +55,8 @@ return new class extends Migration
                 'complement'=>'De frente ao bar do boca',
                 'description'=>'turpis iaculis laoreet nisi elit urna ac bibendum, quisque sit mi morbi lacinia felis feugiat eu, luctus ali',
                 'state'=>'SP',
+                'land_area'=>'3565',
+                'building_area'=>'2100',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
@@ -65,6 +71,8 @@ return new class extends Migration
                 'complement'=>'',
                 'description'=>'nceptos blandit sapien feugiat platea sem lacus consequat. proin curabitur fusce taciti quis etiam viverra rhoncus aliquet massa mollis, dolor euismod litora volutpat amet eros tempus sollicitudin fusce urna tortor.',
                 'state'=>'SP',
+                'land_area'=>'500',
+                'building_area'=>'100',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
@@ -79,6 +87,8 @@ return new class extends Migration
                 'complement'=>'',
                 'description'=>'ncept consequat. proin curabitur fusce taciti quis etiam viverra rhoncus aliquet massa os blandit sapien feugiat platea sem lacus mollis, dolor euismod litora volutpat amet eros tempus sollicitudin fusce urna tortor.',
                 'state'=>'SP',
+                '   '=>'1540',
+                'building_area'=>'542.80',
                 "created_at" => now(),
                 "updated_at" => now()
             ],

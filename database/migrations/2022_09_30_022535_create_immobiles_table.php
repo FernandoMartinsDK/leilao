@@ -20,11 +20,13 @@ return new class extends Migration
             $table->string('address');
             $table->string('district');
             $table->integer('cep');
-            $table->text('judicial_information');
+            $table->text('judicial_information')->nullable();
             $table->text('description');
             $table->integer('number');
-            $table->string('complement');
+            $table->string('complement')->nullable();
             $table->string('state');
+            $table->string('land_area');
+            $table->string('building_area');
             $table->timestamps();
         });
     }

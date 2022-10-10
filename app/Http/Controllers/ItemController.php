@@ -58,13 +58,11 @@ class ItemController extends Controller
      */
     public function show($id,$cate)
     {   
-        //dd($id,$cate);
         if ($cate == '2') {
             $request= Request::create('http://localhost:8000/api/items/vehicle/auction/'.$id, 'GET');
         }else{
             $request= Request::create('http://localhost:8000/api/items/immobile/auction/'.$id, 'GET');
         }
-        
         $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
         $response = Route::dispatch($request);
         $body = $response->getContent();  

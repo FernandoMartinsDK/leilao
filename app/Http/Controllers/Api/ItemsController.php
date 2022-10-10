@@ -59,15 +59,18 @@ class ItemsController extends Controller
             join('auctions','auctions.id','auction_items.auction_id')
             ->join('financial_institutions','auctions.financial_institution_id','financial_institutions.id')
             ->join('places','auctions.place_id','places.id')
-            ->join('categories','auctions.categorie_id','categories.id')
             ->join('items','auction_items.item_id','items.id')
+            ->join('categories','items.categories_id','categories.id')
             ->join('immobiles','items.immobile_id','immobiles.id')
+            ->join('immobiles_types','immobiles_types.id','immobiles.immobile_type_id')
             ->where('item_id',$id)
             ->get([
                 'auction_items.value_bid',
                 'auction_items.note AS note_item',
                 'auction_items.item_id',
+                'auction_items.minimum_bid',
                 'auctions.note',
+                'auctions.auction_date',
                 'financial_institutions.name AS financial_institution',
                 'places.name AS place',
                 'places.district AS place_district',
@@ -84,7 +87,10 @@ class ItemsController extends Controller
                 'immobiles.description AS immobiles_description',
                 'immobiles.number AS immobiles_number',
                 'immobiles.complement AS immobiles_complement',
-                'immobiles.state AS immobiles_state'
+                'immobiles.state AS immobiles_state',
+                'immobiles.land_area',
+                'immobiles.building_area',
+                'immobiles_types.type AS immobiles_type'
             ])
             ->first();
 
@@ -344,15 +350,16 @@ class ItemsController extends Controller
             ->get(['bids.user_id'])
             ->first();
 
-            if ($historic->user_id == $request->user) {
-                return response()->json([
-                    'message' => 'warning',
-                    'data' => 'O maior lance ainda é o seu',
-                    'vl_min'=>$bid->value_bid
-                ],200);
+            if (isset($historic->user_id)) {
+                if ($historic->user_id == $request->user) {
+                    return response()->json([
+                        'message' => 'warning',
+                        'data' => 'O maior lance ainda é o seu',
+                        'vl_min'=>$bid->value_bid
+                    ],200);
+                }
             }
-            return $historic;
-
+            
             // verifica se o lance atual é maior que o anterior
             if ($request->valor <= $bid->value_bid) {
                 return response()->json([

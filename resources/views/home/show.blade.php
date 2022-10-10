@@ -15,7 +15,6 @@
     <input id="edtTime" type="hidden" value="{{$value->data->auction_date}}">
     <input id="edItemAction" type="hidden" value="{{$value->data->item_id}}">
     <input id="edtUser" type="hidden" value="{{session()->get('id')}}">
-
     <div class="container-fluid" style="padding: 0px;padding-right: 8px;">
         <div class="row" style="margin-top: 40px;">
             <div class="col-md-12">
@@ -23,7 +22,11 @@
                     <div class="container-fluid h-100">
                         <div class="row">
                             <div class="col">
-                                <div class="text-center" style="background: #c6bfbf;"><span style="font-size: 51px;">{{$value->data->brand}} - {{$value->data->model_car}} - {{$value->data->place_city}}</span></div>
+                                @if ($value->data->category=='VEÍCULOS')
+                                    <div class="text-center" style="background: #c6bfbf;"><span style="font-size: 51px;">{{$value->data->brand}} - {{$value->data->model_car}} - {{$value->data->place_city}}</span></div>
+                                @else
+                                    <div class="text-center" style="background: #c6bfbf;"><span style="font-size: 51px;">{{$value->data->immobiles_type}} - {{$value->data->place_city}}</span></div>
+                                @endif
                             </div>
                         </div>
                         <div class="row">
@@ -159,13 +162,24 @@
                             </p>
                             <p><strong>Gás Kit: </strong>@if (trim($value->data->gas_kit) =='F') Não @else Sim @endif</p>
                         @else
-                            <p>IMOVEL</p>
+                            <input type="hidden" value="2" id="edtCategory">
+                            <p><strong>Área do Terreno: </strong>{{$value->data->land_area}} metros quadrados</p>
+                            <p><strong>Área Construida: </strong>{{$value->data->building_area}} metros quadrados</p>
+                            <p><strong>Localização do imóvel:</strong></p>
+                            <p><strong>Cidade: </strong>{{$value->data->immobiles_city}}</p>
+                            <p><strong>Endereço: </strong>{{$value->data->immobiles_address}}</p>
+                            <p><strong>Bairro: </strong>{{$value->data->immobiles_district}}</p>
+                            <p><strong>Número: </strong>{{$value->data->immobiles_number}}</p>
+                            <p><strong>CEP: </strong>{{$value->data->immobiles_cep}}</p>
+                            <p><strong>UF: </strong>{{$value->data->immobiles_state}}</p>
                         @endif
                     </div>
                     <div class="tab-pane fade" id="tab-observacoes" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                         <p><strong>Observação sobre o leilão: </strong> {{$value->data->note}}</p>
                         <p><strong>Observação do item: </strong>{{$value->data->note_item}}</p>
-                        {{$value->data->observation}}
+                        @if ($value->data->category=='VEÍCULOS')
+                            {{$value->data->observation}}
+                        @endif
                     </div>
                     <div class="tab-pane fade" id="tab-historico" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">..Historico de Lance.</div>
                 </div>
@@ -248,6 +262,7 @@
                 var lance = (parseInt('{{$value->data->minimum_bid}}') + parseInt('{{$value->data->value_bid}}'))
                 var cate = $("#edtCategory").val();
                 var user = $("#edtUser").val();
+                console.log(user+' - '+cate+' - '+lance)
                 makeLance(lance,cate,user);
             });
 
