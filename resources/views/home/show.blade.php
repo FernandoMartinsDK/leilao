@@ -5,7 +5,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="assets/css/Simple-Slider-Simple-Slider.css">
+    <link rel="stylesheet" href="{{ asset('css/slider.css') }}">
+
 @endsection
 
 <x-navbar user='FULANO'></x-navbar>
@@ -84,7 +85,7 @@
                         <h2 class="text-center">R$ {{number_format($value->data->value_bid,2,",",".")}}</h2>
                         <div class="text-center">
                             <p class="text-secondary d-inline-flex mb-0">Feito por:&nbsp;</p>
-                            <p class="text-secondary d-inline-flex mb-0">Marcos</p>
+                            <p class="text-secondary d-inline-flex mb-0"><a id="txtNomeLance">Processando...</a></p>
                         </div>
                     </div>
                 </div>
@@ -94,7 +95,7 @@
                     <div class="card">
                         <div class="card-body text-bg-dark border rounded-0">
                             <h4 class="text-center card-title" style="font-weight: bold;">LEILÃO ENCERRA EM</h4>
-                            <h4 class="text-center card-subtitle mb-2" id="timer">10:55:45</h4>
+                            <h4 class="text-center card-subtitle mb-2" id="timer">--:--:--</h4>
                         </div>
                     </div>
                 </div>
@@ -216,7 +217,10 @@
                 startTimer(duration, display); // iniciando o timer
             };
 
-            // Aplica o lance
+            // define parametros
+            var token = '{{session()->get('token_api')}}'
+            var item = $("#edItemAction").val();
+
             moment.locale('pt-br');
             $.ajaxSetup({
                 headers: {
@@ -224,14 +228,14 @@
                 }
             });
 
+            // carrega o historico
+            historic();
+
+            // Aplica o lance
             $(document).on('click', '#bntLance', function() {
                 var lance = $("#edtValor").val();
-                var item = $("#edItemAction").val();
                 var cate = $("#edtCategory").val();
                 var user = $("#edtUser").val();
-
-                var token = '{{session()->get('token_api')}}'
-                console.log(token)
                 
                 $.ajax({
                     url:"http://localhost:8000/api/items/lance",
@@ -264,23 +268,30 @@
                 }).done(function () {
                     $('body').loading('stop');
                 });
+            });
 
-                // busca historico
+            // busca historico
+            function historic() {
                 $.ajax({
-                    url:"http://localhost:8000/api/items/lance",
-                    type:'post',
+                    url:"http://localhost:8000/api/items/historic/"+item,
+                    type:'get',
                     headers: {
                         "Authorization": "Bearer " + token
                     },
                     datatype:'json',
-                    data:{valor:lance, item_id:item, category:cate, user:user},                    
                     beforeSend : function(){
                         $('body').loading({
-                            message: 'Aplicando o lance...'
+                            message: 'Buscando lances realizados...'
                         });
                     },
                     success: function(response){
-                        console.log(response)
+                        if (response['data'].length>0) {
+                            console.log(response)
+                        }else{
+                            $('#txtNomeLance').html('-')
+                            $('#tab-historico').html('Nenhum lance realizado!')
+                            $('#divAlert').html("<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Nenhum lance feito!</strong> Seja o primeiro a dar um lance.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
+                        }
                     },
                     error: function (request, status, error) {
                         $('body').loading('stop');
@@ -291,11 +302,12 @@
                             alert('Um erro aconteceu: '+error)
                         }
                         $('#divAlert').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Um erro interno aconteceu!.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
+                        
                     }
                 }).done(function () {
                     $('body').loading('stop');
                 });
-            });
+            }
 
         });
     </script>

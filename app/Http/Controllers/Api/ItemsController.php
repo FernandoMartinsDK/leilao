@@ -391,21 +391,30 @@ class ItemsController extends Controller
     /**
      * Carrega o historico de lance de um item do leilão
      */
-    public function historic(Request $request) //verificar se só um parametro já não resolve
+    public function historic(int $id=0) //verificar se só um parametro já não resolve
     {
-        $request ->validate([
-            'category' => 'required',
-            'item_id' => 'required',
-            'valor' => 'required',
-            'user' => 'required'
-        ]);
+        try {
+            if ($id==0) {
+                return response()->json([
+                    'message' => 'warning',
+                    'data' => 'Necessario informar o id do item'
+                ],200); 
+            }
 
-        $historic = BidModel::
-        join('auctions','auctions.id','auction_items.auction_id')
-        ->where('auction_item_id',1)
-        ->get(['value_bid','bids.created_at','name']);//trocar por variavel
+            $historic = BidModel::where('auction_item_id',$id)->get();
 
-        return $historic;
+            return response()->json([
+                'message' => 'success',
+                'data' => $historic
+            ],200);     
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
+
     }
     
 }
