@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
 
 class UserController extends Controller
 {
@@ -46,7 +48,19 @@ class UserController extends Controller
     public function show($id)
     {
         //pega informações sobre usuario, endereço
-        return view('home.update');
+        $request= Request::create('http://localhost:8000/api/user/'.$id, 'GET');
+        $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $value= json_decode($body);
+
+        $request= Request::create('http://localhost:8000/api/address/'.$id, 'GET');
+        $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $address= json_decode($body);
+
+        return view('home.update',compact(['value','address']));
     }
 
     /**

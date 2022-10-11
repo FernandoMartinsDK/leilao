@@ -58,7 +58,7 @@ class AuctionController extends Controller
     public function show($id)
     {
         try {
-            $auction = AuctionModel::findOrfail($id);
+            $auction = AuctionModel::where('user_id',$id)->get()->first();
             return response()->json([
                 'message' => 'success',
                 'data' => $auction

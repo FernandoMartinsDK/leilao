@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('view_name');
-            $table->string('cpf');
-            $table->string('cnpj');
-            $table->string('state_registration');//inscrição
+            $table->string('cpf')->nullable();
+            $table->string('cnpj')->nullable();
+            $table->string('state_registration')->nullable();//inscrição
             $table->string('email')->unique();
             $table->date('date_birth');
             $table->string('telephone');

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\{
+    AddressController,
     AuctionController,
     FinancialInstitutionsController,
     ImmobilesController,
@@ -42,8 +43,8 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
 */
 Route::middleware(['auth:sanctum'])->prefix('/user')->group(function(){ 
     Route::put('/{id}', [UserController::class,'update']);
-    /*Route::get('/', [UserController::class,'index']); 
     Route::get('/{id}', [UserController::class,'show']);
+    /*Route::get('/', [UserController::class,'index']); 
     Route::get('/search/{name}', [UserController::class,'search']);
     Route::post('/', [UserController::class,'store']);
     Route::delete('/{id}', [UserController::class,'destroy']);*/
@@ -97,4 +98,12 @@ Route::middleware(['auth:sanctum'])->prefix('/items')->group(function(){
     Route::get('vehicle/auction/{term}', [ItemsController::class,'show_auction_item_vehicles']);
     Route::get('/historic/{id}', [ItemsController::class,'historic']);
     Route::post('lance', [ItemsController::class,'lance']);
+});
+
+Route::middleware(['auth:sanctum'])->prefix('/address')->group(function(){
+    Route::get('/{id}', [AddressController::class,'show']);
+    Route::put('/{id}', [AddressController::class,'update']);
+    /*Route::get('/', [AuctionController::class,'index']); 
+    Route::post('/', [AuctionController::class,'store']);
+    Route::delete('/{id}', [AuctionController::class,'destroy']);*/
 });

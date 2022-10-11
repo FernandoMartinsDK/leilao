@@ -108,22 +108,16 @@ class UserController extends Controller
         try {
             $request->validate([
                 'name' => 'required',
-                'email' => 'required',
                 'view_name' => 'required',
-                'cpf' => 'required',
-                'cnpj' => 'required',
-                'state_registration' => 'state_registration',
-                'telephone' => 'telephone',
-                'date_birth' => 'date_birth',
-                'active' => 'required',
-                'is_admin' => 'required'
+                'telephone' => 'required',
+                'date_birth' => 'required'
             ]);
 
             $user = User::findOrfail($id);
             $user->update($request->all());
             return response()->json([
                 'message' => 'success',
-                'data' => $user
+                'data' => 'Atualizado com sucesso!'
             ],200);     
         } catch (Exception $error) {
             return response()->json([

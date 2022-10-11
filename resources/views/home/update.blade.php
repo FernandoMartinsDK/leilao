@@ -8,8 +8,6 @@
 <x-navbar user='FULANO'></x-navbar>
 
 @section('content')
-
-
     <div class="container-fluid">
         <div class="row">
             <div class="col">
@@ -20,7 +18,7 @@
 
                                 <div class="row justify-content-center">
                                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Atualizar Cadastro</p>
-
+                                    <input type="hidden" id="edtId" value="{{$value->data->id}}">
                                     <div>
                                         <ul class="nav nav-pills nav-justified" role="tablist">
                                             <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="pill" href="#tab-1">Dados Pessoais</a></li>
@@ -33,14 +31,14 @@
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="text" id="edtNome" name="name" class="form-control" required/>
+                                                        <input type="text" id="edtNome" name="name" class="form-control" value="{{$value->data->name}}" required/>
                                                         <label class="form-label" for="form3Example1c">Nome* </label>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="date" id="edtNascimento" name="dt_nascimento" class="form-control" required/>
+                                                        <input type="date" id="edtNascimento" name="dt_nascimento" class="form-control" value="{{$value->data->date_birth}}" required/>
                                                         <label class="form-label" for="form3Example3c">Data de Nascimento*</label>
                                                     </div>
                                                 </div>
@@ -59,7 +57,7 @@
                                                     <div class="d-flex flex-row align-items-center mb-4">
                                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                         <div class="form-outline flex-fill mb-0">
-                                                            <input id="edtCpf" type="text" class="form-control" />
+                                                            <input id="edtCpf" type="text" class="form-control" value="{{$value->data->cpf}}"/>
                                                             <label class="form-label" >CPF*</label>
                                                         </div>
                                                     </div>
@@ -69,7 +67,7 @@
                                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                         <div class="form-outline flex-fill mb-0">
                                                             <input type="text" id="edtCnpj" class="form-control" />
-                                                            <label class="form-label">CNPJ</label>
+                                                            <label class="form-label">CNPJ*</label>
                                                         </div>
                                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                         <div class="form-outline flex-fill mb-0">
@@ -81,14 +79,14 @@
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="text" id="edtTelefone" name="telephone" class="form-control" required/>
+                                                        <input type="text" id="edtTelefone" name="telephone" class="form-control" value="{{$value->data->telephone}}" required/>
                                                         <label class="form-label" for="form3Example4c">Telefone Celeular*</label>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="text" id="edtApelido" name="view_name" class="form-control"  required/>
+                                                        <input type="text" id="edtApelido" name="view_name" class="form-control" value="{{$value->data->view_name}}" required/>
                                                         <label class="form-label" >Apelido*</label>
                                                     </div>
                                                 </div>
@@ -101,42 +99,42 @@
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="text" id="edtEndereco" name="address" class="form-control" required/>
+                                                        <input type="text" id="edtEndereco" name="address" class="form-control" value="{{$address->data->address}}" required/>
                                                         <label class="form-label" for="form3Example4c">Endereço*</label>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="text" id="edtComplemento" name="complement" class="form-control"/>
+                                                        <input type="text" id="edtComplemento" name="complement" class="form-control" value="{{$address->data->complement}}"/>
                                                         <label class="form-label">Complemento</label>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="text" id="edtCidade" name="city" class="form-control" required/>
+                                                        <input type="text" id="edtCidade" name="city" class="form-control" value="{{$address->data->city}}" required/>
                                                         <label class="form-label" >Cidade*</label>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="text" id="edtCep" name="cep" class="form-control" required/>
+                                                        <input type="text" id="edtCep" name="cep" class="form-control" value="{{$address->data->cep}}" required/>
                                                         <label class="form-label" for="form3Example4c">CEP*</label>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="number" id="edtNumero" name="number" class="form-control" required/>
+                                                        <input type="number" id="edtNumero" name="number" class="form-control" value="{{$address->data->number}}" required/>
                                                         <label class="form-label" >Número*</label>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="text" id="edtBairro" name="district" class="form-control" required/>
+                                                        <input type="text" id="edtBairro" name="district" class="form-control" value="{{$address->data->district}}" required/>
                                                         <label class="form-label" >Bairro*</label>
                                                     </div>
                                                 </div>
@@ -144,32 +142,32 @@
                                                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
                                                         <select name="state" id="selectEstado" class="form-select" required>
-                                                            <option value="SP">SP</option>
-                                                            <option value="RJ">RJ</option>
-                                                            <option value="SC">SC</option>
-                                                            <option value="TO">TO</option>
-                                                            <option value="RS">RS</option>
-                                                            <option value="RO">RO</option>
-                                                            <option value="RN">RN</option>
-                                                            <option value="PI">PI</option>
-                                                            <option value="PE">PE</option>
-                                                            <option value="PR">PR</option>
-                                                            <option value="PB">PB</option>
-                                                            <option value="PA">PA</option>
-                                                            <option value="PB">PB</option>
-                                                            <option value="MG">MG</option>
-                                                            <option value="MS">MS</option>
-                                                            <option value="MT">MT</option>
-                                                            <option value="MA">MA</option>
-                                                            <option value="GO">GO</option>
-                                                            <option value="ES">ES</option>
-                                                            <option value="DF">DF</option>
-                                                            <option value="CE">CE</option>
-                                                            <option value="BA">BA</option>
-                                                            <option value="AM">AM</option>
-                                                            <option value="AP">AP</option>
-                                                            <option value="AL">AL</option>
-                                                            <option value="AC">AC</option>
+                                                            <option value="SP" @if($address->data->state == 'SP') selected @endif>SP</option>
+                                                            <option value="RJ">RJ @if($address->data->state == 'RJ') selected @endif</option>
+                                                            <option value="SC">SC @if($address->data->state == 'SC') selected @endif</option>
+                                                            <option value="TO">TO @if($address->data->state == 'TO') selected @endif</option>
+                                                            <option value="RS">RS @if($address->data->state == 'RS') selected @endif</option>
+                                                            <option value="RO">RO @if($address->data->state == 'RO') selected @endif</option>
+                                                            <option value="RN">RN @if($address->data->state == 'RN') selected @endif</option>
+                                                            <option value="PI">PI @if($address->data->state == 'PI') selected @endif</option>
+                                                            <option value="PE">PE @if($address->data->state == 'PE') selected @endif</option>
+                                                            <option value="PR">PR @if($address->data->state == 'PR') selected @endif</option>
+                                                            <option value="PB">PB @if($address->data->state == 'PB') selected @endif</option>
+                                                            <option value="PA">PA @if($address->data->state == 'PA') selected @endif</option>
+                                                            <option value="PB">PB @if($address->data->state == 'PB') selected @endif</option>
+                                                            <option value="MG">MG @if($address->data->state == 'MG') selected @endif</option>
+                                                            <option value="MS">MS @if($address->data->state == 'MS') selected @endif</option>
+                                                            <option value="MT">MT @if($address->data->state == 'MT') selected @endif</option>
+                                                            <option value="MA">MA @if($address->data->state == 'MA') selected @endif</option>
+                                                            <option value="GO">GO @if($address->data->state == 'GO') selected @endif</option>
+                                                            <option value="ES">ES @if($address->data->state == 'ES') selected @endif</option>
+                                                            <option value="DF">DF @if($address->data->state == 'DF') selected @endif</option>
+                                                            <option value="CE">CE @if($address->data->state == 'CE') selected @endif</option>
+                                                            <option value="BA">BA @if($address->data->state == 'BA') selected @endif</option>
+                                                            <option value="AM">AM @if($address->data->state == 'AM') selected @endif</option>
+                                                            <option value="AP">AP @if($address->data->state == 'AP') selected @endif</option>
+                                                            <option value="AL">AL @if($address->data->state == 'AL') selected @endif</option>
+                                                            <option value="AC">AC @if($address->data->state == 'AC') selected @endif</option>
                                                         </select>
                                                         <label class="form-label">Estado</label>
                                                     </div>
@@ -183,7 +181,7 @@
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                                     <div class="form-outline flex-fill mb-0">
-                                                        <input type="email" id="edtEmail" name="email" class="form-control" disabled/>
+                                                        <input type="email" id="edtEmail" name="email" class="form-control" value="{{$value->data->email}}" disabled/>
                                                         <label class="form-label">email</label>
                                                     </div>
                                                 </div>
@@ -230,7 +228,9 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            var token = '';
+            var token = '{{session()->get('token_api')}}';
+            var id = $('#edtId').val();
+
             // mascaras
             $('#edtCpf').mask('000.000.000-00', {reverse: true});
             $('#edtCnpj').mask('00.000.000/0000-00', {reverse: true});
@@ -252,16 +252,17 @@
                 }
             })
 
-            //salva dados
+            //salva dados 
             $(document).on('click', '#btnAtualizarDados', function() {
-                let selectTipo = $('#tipoCadastro').val()
-                let cpf = $('#edtCpf').val()
-                let cnpj = $('#edtCnpj').val()
-                let ie = $('#edtInscricaoEstadual').val()
-                let nome = $('#edtNome').val()
-                let nascimento = $('#edtNascimento').val()
-                let apelido = $('#edtApelido').val()
-                
+                var selectTipo = $('#tipoCadastro').val();
+                var cpf = $('#edtCpf').val();
+                var cnpj = $('#edtCnpj').val();
+                var ie = $('#edtInscricaoEstadual').val();
+                var nome = $('#edtNome').val();
+                var nascimento = $('#edtNascimento').val();
+                var apelido = $('#edtApelido').val();
+                var telefone = $('#edtTelefone').val();
+                console.log(apelido)
                 var conf = true;
                 
                 // valida os campos
@@ -278,7 +279,7 @@
                 }
 
                 if (conf==true) {
-                    if (nome=='' || nascimento=='' || cep=='' || numero=='' || bairro=='' || uf=='' || telefone=='' || endereco=='' || cidade=='' || apelido) {
+                    if (nome =='' || nascimento =='' || apelido=='') {
                         conf = false;   
                         $("#divAlert").html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Prencha todos os campos obrigatorios.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");                    
                     }
@@ -286,25 +287,28 @@
 
                 if (conf==true) {
                     $.ajax({
-                        url:"http://localhost:8000/api/user",
+                        url:"http://localhost:8000/api/user/"+id,
                         headers: {
-                        "Authorization": "Bearer " + token
+                        "Authorization": "Bearer "+token 
                         },
+                        type:'put',
                         datatype:'json',
-                        data:{valor:lance, item_id:item, category:cate, user:user},                    
+                        data:{name:nome, view_name:apelido, cpf:cpf, cnpj:cnpj, state_registration:id, date_birth:nascimento, telephone:telefone, id:id},                    
                         beforeSend : function(){
                             $('body').loading({
-                                message: 'Aplicando o lance...'
+                                message: 'Atualizando dados...'
                             });
                         },
                         success: function(response){
+                            $('body').loading('stop');
+                            $('#divAlert').html("<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>✔</strong> Dados atualizados com sucesso.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
                             cosole.log(response)
                         },
                         error: function (request, status, error) {
                             $('body').loading('stop');
                             if ('Unauthorized'==error) {
                                 alert('Sessão expirada');
-                                window.location.href = "{{route('logout')}}";
+                                //window.location.href = "{{route('logout')}}";
                             }else{
                                 alert('Um erro aconteceu: '+error)
                             }
