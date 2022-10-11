@@ -18,7 +18,7 @@ return new class extends Migration
                 "financial_institution_id" => '1',
                 "place_id" => "2",
                 "open" => "T",
-                "note" => "Primeiro leilão",
+                "note" => "Leilão extra",
                 "created_at" => now(),
                 "updated_at" => now()
             ],
@@ -28,7 +28,17 @@ return new class extends Migration
                 "financial_institution_id" => '1',
                 "place_id" => "2",
                 "open" => "T",
-                "note" => "Primeiro leilão",
+                "note" => "Fruto de ação judicial",
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                "auction_date" => now(),
+                "categorie_id" => "1",
+                "financial_institution_id" => '3',
+                "place_id" => "2",
+                "open" => "F",
+                "note" => "Veiculos recolhidos pela PRF do estado de SP",
                 "created_at" => now(),
                 "updated_at" => now()
             ]
@@ -51,6 +61,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('auctions_seed');
+        //Schema::dropIfExists('auctions_seed');
     }
 };

@@ -3,6 +3,7 @@
 use App\Http\Controllers\{
     AuctionController, 
     AuthenticateController,
+    BidController,
     UserController,
     HomeController,
     ItemController
@@ -46,7 +47,11 @@ Route::prefix('/user')->name('user.')->group(function(){
 });
 
 Route::prefix('/auction')->name('auction.')->group(function(){
-    Route::get('/create', [AuctionController::class, 'create'])->name('update');
+    Route::get('/create', [AuctionController::class, 'create'])->name('create');
+});
+
+Route::prefix('/bid')->name('bid.')->group(function(){
+    Route::get('/historic/{id}', [BidController::class, 'show'])->name('historic');
 });
 
 Route::prefix('/item')->name('item.')->group(function(){

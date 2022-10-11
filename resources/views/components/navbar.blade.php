@@ -5,10 +5,13 @@
             @if(Auth::check())
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link active" href="{{route('home.')}}">HOME</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('user.show',['id'=>'1'])}}">Meus Dados</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('user.show',['id'=> session()->get('id') ])}}">Meus Dados</a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Histórico</a>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="#">Lances</a><a class="dropdown-item" href="#">Compras</a></div>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{route('bid.historic',[ 'id' => session()->get('id') ])}}">Lances</a>
+                            <a class="dropdown-item" href="#">Compras</a>
+                        </div>
                     </li>
                 </ul>
             @endif

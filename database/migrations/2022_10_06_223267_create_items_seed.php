@@ -142,6 +142,33 @@ return new class extends Migration
                 "updated_at" => now()
             ]
         ];
+
+        $this->seedValue3 = [
+            [
+                'vehicle_id'=>'14',
+                'categories_id'=>'2',
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                'vehicle_id'=>'15',
+                'categories_id'=>'2',
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                'vehicle_id'=>'16',
+                'categories_id'=>'2',
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                'vehicle_id'=>'17',
+                'categories_id'=>'2',
+                "created_at" => now(),
+                "updated_at" => now()
+            ]
+        ];
     }
     /**
      * Run the migrations.
@@ -152,6 +179,7 @@ return new class extends Migration
     {
         DB::table("items")->insert($this->seedValue);
         DB::table("items")->insert($this->seedValue2);
+        DB::table("items")->insert($this->seedValue3);
     }
 
     /**

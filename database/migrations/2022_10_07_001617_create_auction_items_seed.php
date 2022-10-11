@@ -193,6 +193,49 @@ return new class extends Migration
                 "updated_at" => now()
             ]
         ];
+
+        $this->seedValue2 = [
+            [
+                "item_id" => "19",
+                "auction_id" => '3',
+                "opening_bid" => "30000",
+                "minimum_bid" => "5000",
+                "value_bid" => "703200",
+                "note" => "Apreendido em ação judicial",
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                "item_id" => "20",
+                "auction_id" => '3',
+                "opening_bid" => "20000",
+                "minimum_bid" => "1000",
+                "value_bid" => "703200",
+                "note" => "Apreendido em ação judicial",
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                "item_id" => "21",
+                "auction_id" => '3',
+                "opening_bid" => "25000",
+                "minimum_bid" => "1500",
+                "value_bid" => "703200",
+                "note" => "Apreendido em ação judicial",
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                "item_id" => "22",
+                "auction_id" => '3',
+                "opening_bid" => "45000",
+                "minimum_bid" => "500",
+                "value_bid" => "703200",
+                "note" => "Apreendido em ação judicial",
+                "created_at" => now(),
+                "updated_at" => now()
+            ]
+        ];
     }
     /**
      * Run the migrations.
@@ -202,6 +245,7 @@ return new class extends Migration
     public function up()
     {
         DB::table("auction_items")->insert($this->seedValue);
+        DB::table("auction_items")->insert($this->seedValue2);
     }
 
     /**
@@ -211,6 +255,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('auction_items_seed');
+        //Schema::dropIfExists('auction_items_seed');
     }
 };

@@ -247,6 +247,81 @@ return new class extends Migration
                 "updated_at" => now()
             ]
         ];
+
+        $this->seedValue2 = [
+            [
+                "car_model_id"=>"2",
+                "brand_id" => "1",
+                "vehicles_model_id" => "8",
+                "vehicle_type_id" => '1',
+                "license_plate" => "ABV-7861",
+                "direction" => "MANUAL",
+                "mileage" => "10000",
+                "shielding" => "F",
+                "color"=>"PRETO",
+                "fuel"=>"GASOLINA",
+                "chassi_status"=>"INTACTO",
+                "air_conditioning"=>"V",
+                "gas_kit"=>"F",
+                "observation"=>"",
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                "car_model_id"=>"2",
+                "brand_id" => "2",
+                "vehicles_model_id" => "5",
+                "vehicle_type_id" => '1',
+                "license_plate" => "HSH-9090",
+                "direction" => "AUTOMATICO",
+                "mileage" => "5896",
+                "shielding" => "F",
+                "color"=>"PRETO",
+                "fuel"=>"GASOLINA",
+                "chassi_status"=>"INTACTO",
+                "air_conditioning"=>"V",
+                "gas_kit"=>"F",
+                "observation"=>"",
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                "car_model_id"=>"2",
+                "brand_id" => "3",
+                "vehicles_model_id" => "3",
+                "vehicle_type_id" => '1',
+                "license_plate" => "AAB-9161",
+                "direction" => "MANUAL",
+                "mileage" => "6000",
+                "shielding" => "F",
+                "color"=>"PRETO",
+                "fuel"=>"GASOLINA",
+                "chassi_status"=>"INTACTO",
+                "air_conditioning"=>"V",
+                "gas_kit"=>"F",
+                "observation"=>"",
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                "car_model_id"=>"2",
+                "brand_id" => "5",
+                "vehicles_model_id" => "6",
+                "vehicle_type_id" => '1',
+                "license_plate" => "CDF-9161",
+                "direction" => "MANUAL",
+                "mileage" => "15896",
+                "shielding" => "F",
+                "color"=>"BRANCO",
+                "fuel"=>"GASOLINA",
+                "chassi_status"=>"BATIDO",
+                "air_conditioning"=>"V",
+                "gas_kit"=>"F",
+                "observation"=>"",
+                "created_at" => now(),
+                "updated_at" => now()
+            ]
+        ];
     }
     /**
      * Run the migrations.
@@ -256,6 +331,7 @@ return new class extends Migration
     public function up()
     {
         DB::table("vehicles")->insert($this->seedValue);
+        DB::table("vehicles")->insert($this->seedValue2);
     }
 
     /**
