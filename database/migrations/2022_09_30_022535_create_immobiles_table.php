@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('cep');
             $table->text('judicial_information')->nullable();
             $table->text('description');
+            $table->string('model');
             $table->integer('number');
             $table->string('complement')->nullable();
             $table->string('state');

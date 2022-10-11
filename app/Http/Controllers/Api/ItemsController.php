@@ -85,6 +85,7 @@ class ItemsController extends Controller
                 'immobiles.cep AS immobiles_cep',
                 'immobiles.judicial_information AS immobiles_judicial_information',
                 'immobiles.description AS immobiles_description',
+                'immobiles.model AS immobiles_model',
                 'immobiles.number AS immobiles_number',
                 'immobiles.complement AS immobiles_complement',
                 'immobiles.state AS immobiles_state',
@@ -213,7 +214,8 @@ class ItemsController extends Controller
                 'opening_bid',
                 'value_bid',
                 'auction_date',
-                'auctions.open'
+                'auctions.open',
+                'immobiles.model'
             ]);
 
             $vehicles = AuctionItemModel::
@@ -233,7 +235,8 @@ class ItemsController extends Controller
                 'opening_bid',
                 'value_bid',
                 'auction_date',
-                'auctions.open'
+                'auctions.open',
+                'brands.id AS model '
             ]);
 
             return response()->json([

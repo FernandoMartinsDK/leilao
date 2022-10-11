@@ -22,6 +22,11 @@ return new class extends Migration
                 "type" => "MOTO",
                 "created_at" => now(),
                 "updated_at" => now()
+            ],[
+
+                "type" => "VAN",
+                "created_at" => now(),
+                "updated_at" => now()
             ]
         ];
     }

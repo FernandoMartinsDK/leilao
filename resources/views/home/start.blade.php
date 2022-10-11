@@ -121,9 +121,13 @@
                     for (let index = 0; index < response.length; index++) {
                         let vl = parseFloat(response[index]['value_bid']).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
                         let dt = moment(response[index]['auction_date']).format('DD/MM/YYYY - h:mm' )
-
+                        if (response[index]['categories_id']=='1') {
+                            var model = "- "+response[index]['model'];  
+                        }else{
+                            var model = "";
+                        }
                         //let dt =  response[index]['auction_date'].replace(/(\d*)-(\d*)-(\d*).*/, '$3-$2-$1');
-                        divCards += "<div class='col-xxl-3'><div class='card'><div class='card'><div class='card-body border rounded-0'><h6 class='text-center card-title'>DATA DO LEILÃO</h6><h4 class='text-center text-muted card-subtitle mb-2'>"+dt+"</h4></div></div><img class='card-img w-100 d-block fit-cover' style='height: 200px;' src='https://cdn.bootstrapstudio.io/placeholders/1400x800.png'><div class='card-body p-4'><p class='text-primary card-text mb-0'>"+response[index]['category']+"</p><h4 class='card-title'>"+response[index]['type']+"</h4><h3 class='text-center'>"+vl+"</h3><div class='d-grid gap-2'><a class='btn btn-outline-success btn-sm item' href='item/show/"+response[index]['item_id']+"/"+response[index]['categories_id']+"' type='button' >Aberto para lances</a></div></div></div></div>"
+                        divCards += "<div class='col-xxl-3'><div class='card'><div class='card'><div class='card-body border rounded-0'><h6 class='text-center card-title'>DATA DO LEILÃO</h6><h4 class='text-center text-muted card-subtitle mb-2'>"+dt+"</h4></div></div><img class='card-img w-100 d-block fit-cover' style='height: 200px;' src='https://cdn.bootstrapstudio.io/placeholders/1400x800.png'><div class='card-body p-4'><p class='text-primary card-text mb-0'>"+response[index]['category']+" "+model+"</p><h4 class='card-title'>"+response[index]['type']+"</h4><h3 class='text-center'>"+vl+"</h3><div class='d-grid gap-2'><a class='btn btn-outline-success btn-sm item' href='item/show/"+response[index]['item_id']+"/"+response[index]['categories_id']+"' type='button' >Aberto para lances</a></div></div></div></div>"
                     }
                 divCards +=  "</br>"
             }
