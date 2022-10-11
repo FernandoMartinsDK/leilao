@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     private array $seedValue = [];
+    private array $seedValue2= [];
 
     public function __construct()
     {
@@ -200,7 +201,7 @@ return new class extends Migration
                 "auction_id" => '3',
                 "opening_bid" => "30000",
                 "minimum_bid" => "5000",
-                "value_bid" => "703200",
+                "value_bid" => "60000",
                 "note" => "Apreendido em ação judicial",
                 "created_at" => now(),
                 "updated_at" => now()
@@ -210,7 +211,7 @@ return new class extends Migration
                 "auction_id" => '3',
                 "opening_bid" => "20000",
                 "minimum_bid" => "1000",
-                "value_bid" => "703200",
+                "value_bid" => "38000",
                 "note" => "Apreendido em ação judicial",
                 "created_at" => now(),
                 "updated_at" => now()
@@ -220,7 +221,7 @@ return new class extends Migration
                 "auction_id" => '3',
                 "opening_bid" => "25000",
                 "minimum_bid" => "1500",
-                "value_bid" => "703200",
+                "value_bid" => "37000",
                 "note" => "Apreendido em ação judicial",
                 "created_at" => now(),
                 "updated_at" => now()
@@ -230,7 +231,7 @@ return new class extends Migration
                 "auction_id" => '3',
                 "opening_bid" => "45000",
                 "minimum_bid" => "500",
-                "value_bid" => "703200",
+                "value_bid" => "54000",
                 "note" => "Apreendido em ação judicial",
                 "created_at" => now(),
                 "updated_at" => now()

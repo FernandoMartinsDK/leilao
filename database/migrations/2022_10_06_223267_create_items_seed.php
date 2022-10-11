@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     private array $seedValue = [];
+    private array $seedValue2 = [];
+    private array $seedValue3 = [];
 
     public function __construct()
     {
