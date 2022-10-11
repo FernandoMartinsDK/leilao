@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
 */
 Route::middleware(['auth:sanctum'])->prefix('/user')->group(function(){ 
     Route::put('/{id}', [UserController::class,'update']);
+    Route::put('/password/{id}', [UserController::class,'passwordUpdate']);
     Route::get('/{id}', [UserController::class,'show']);
     /*Route::get('/', [UserController::class,'index']); 
     Route::get('/search/{name}', [UserController::class,'search']);

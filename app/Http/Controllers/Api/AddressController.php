@@ -62,7 +62,44 @@ class AddressController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $request->validate([
+                'user_id' => 'required',
+                'address' => 'required',
+                'cep' => 'required',
+                'number' => 'required',
+                'district' => 'required',
+                'city' => 'required',
+                'state' => 'required'
+            ]);
+
+            //Remove pontuação
+            $remove = ["*","-","/",".","(",")"];
+            $request->cep = str_replace($remove,"", $request->cep);
+            $request->number = str_replace($remove,"", $request->number);
+
+            AddressModel::where('id',$id)
+            ->update([
+                'user_id' => $request->user_id,
+                'address' => $request->address,
+                'cep' => $request->cep,
+                'number' => $request->number,
+                'district' => $request->district,
+                'city' => $request->city,
+                'state' => $request->state
+            ]);
+
+            return response()->json([
+                'message' => 'success',
+                'data' => 'Endereço atualizado com sucesso!'
+            ],200);
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
     }
 
     /**

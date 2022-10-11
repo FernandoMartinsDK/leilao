@@ -302,13 +302,12 @@
                         success: function(response){
                             $('body').loading('stop');
                             $('#divAlert').html("<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>✔</strong> Dados atualizados com sucesso.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
-                            cosole.log(response)
                         },
                         error: function (request, status, error) {
                             $('body').loading('stop');
                             if ('Unauthorized'==error) {
                                 alert('Sessão expirada');
-                                //window.location.href = "{{route('logout')}}";
+                                window.location.href = "{{route('logout')}}";
                             }else{
                                 alert('Um erro aconteceu: '+error)
                             }
@@ -329,11 +328,86 @@
                 let endereco = $('#edtEndereco').val()
                 let complemento = $('#edtComplemento').val()
                 let cidade = $('#edtCidade').val()
+
+                if (cep=='' || numero=='' || bairro=='' || uf=='' || telefone=='' || endereco=='' || cidade=='') {
+                    $("#divAlert").html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Prencha todos os campos obrigatorios.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");                    
+                }else{
+                    $.ajax({
+                        url:"http://localhost:8000/api/address/"+id,
+                        headers: {
+                        "Authorization": "Bearer "+token 
+                        },
+                        type:'put',
+                        datatype:'json',
+                        data:{user_id:id, address:endereco, cep:cep, number:numero, district:bairro, city:cidade, state:uf},                    
+                        beforeSend : function(){
+                            $('body').loading({
+                                message: 'Atualizando Endereço...'
+                            });
+                        },
+                        success: function(response){
+                            $('body').loading('stop');
+                            $('#divAlert').html("<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>✔</strong> Dados atualizados com sucesso.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
+                        },
+                        error: function (request, status, error) {
+                            console.log(error,status,request)
+                            $('body').loading('stop');
+                            if ('Unauthorized'==error) {
+                                alert('Sessão expirada');
+                                window.location.href = "{{route('logout')}}";
+                            }else{
+                                alert('Um erro aconteceu: '+error)
+                            }
+                            $('#divAlert').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Um erro interno aconteceu!.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
+                        }
+                    }).done(function () {
+                        $('body').loading('stop');
+                    });
+                }
             });
 
             $(document).on('click', '#btnAtualizarSenha', function() {
                 let senha = $('#edtSenha').val()
                 let confSenha = $('#edtPassword').val()
+
+                if ((senha !== confSenha) || (senha == '' || confSenha=='')) {
+                    $('#divAlert').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong>O campo 'senha' e 'confirma senha' devem estar preenchidos de maneira igual!<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
+                }else{
+                    $.ajax({
+                        url:"http://localhost:8000/api/user/password/"+id,
+                        headers: {
+                        "Authorization": "Bearer "+token 
+                        },
+                        type:'put',
+                        datatype:'json',
+                        data:{password:senha, password_confirmation:confSenha},                    
+                        beforeSend : function(){
+                            $('body').loading({
+                                message: 'Atualizando Senha...'
+                            });
+                        },
+                        success: function(response){
+                            $('body').loading('stop');
+                            $('#divAlert').html("<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>✔</strong> Senha atualizada com sucesso.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
+                        },
+                        error: function (request, status, error) {
+                            console.log(request, status, error)
+                            $('body').loading('stop');
+                            if ('Unauthorized'==error) {
+                                alert('Sessão expirada');
+                                window.location.href = "{{route('logout')}}";
+                            }else{
+                                alert('Um erro aconteceu: '+error)
+                            }
+                            $('#divAlert').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Um erro interno aconteceu!.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
+                        }
+                    }).done(function () {
+                        $('body').loading('stop');
+                    });
+                }
+
+                
+
             });
 
         });

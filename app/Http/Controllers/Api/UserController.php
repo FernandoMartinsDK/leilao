@@ -171,4 +171,25 @@ class UserController extends Controller
             ],400);
         }
     }
+
+    public function passwordUpdate(Request $request, $id)
+    {
+        try {
+            $request->validate([
+                'password' => 'required|confirmed'
+            ]);
+
+            User::where('id',$id)->update(['password'=>bcrypt($request->password)]);
+            return response()->json([
+                'message' => 'success',
+                'data' => 'Senha atualizada com sucesso!'
+            ],200);     
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
+    }
 }
