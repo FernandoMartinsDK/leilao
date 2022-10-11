@@ -24,7 +24,7 @@ return new class extends Migration
                 'description'=>'nceptos bla rhoncus aliquet massa mollis, dolor euismod litora volutpat amet eros tempus sollicitudin fusce andit sapien feugiat platea sem lacus consequat. proin curabitur fusce taciti quis etiam viverr sadasdsa.',
                 'state'=>'SP',
                 'land_area'=>'1065',
-                'building_area'=>'142.71',
+                'building_area'=>'142',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
@@ -40,7 +40,7 @@ return new class extends Migration
                 'description'=>'nceptos blandit sapien feugiat platea sem lacus consequat. proin curabitur fusce taciti quis etiam viverra rhoncus aliquet massa mollis, dolor euismod litora volutpat amet eros tempus sollicitudin fusce urna tortor.',
                 'state'=>'SP',
                 'land_area'=>'106',
-                'building_area'=>'14.51',
+                'building_area'=>'35',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
@@ -87,8 +87,8 @@ return new class extends Migration
                 'complement'=>'',
                 'description'=>'ncept consequat. proin curabitur fusce taciti quis etiam viverra rhoncus aliquet massa os blandit sapien feugiat platea sem lacus mollis, dolor euismod litora volutpat amet eros tempus sollicitudin fusce urna tortor.',
                 'state'=>'SP',
-                '   '=>'1540',
-                'building_area'=>'542.80',
+                'land_area'=>'1540',
+                'building_area'=>'542',
                 "created_at" => now(),
                 "updated_at" => now()
             ],
