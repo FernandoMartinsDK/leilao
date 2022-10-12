@@ -137,29 +137,29 @@ return new class extends Migration
                 "user_id" => "4",
                 "auction_item_id" => '22',
                 "value_bid" => "48000",
-                "created_at" => now(),
-                "updated_at" => now()
+                "created_at" => date('Y-m-10 H:i:s'),
+                "updated_at" => date('Y-m-10 H:i:s')
             ],
             [
                 "user_id" => "2",
                 "auction_item_id" => '22',
                 "value_bid" => "50000",
-                "created_at" => now(),
-                "updated_at" => now()
+                "created_at" => date('Y-m-10 H:i:s'),
+                "updated_at" => date('Y-m-10 H:i:s')
             ],
             [
                 "user_id" => "4",
                 "auction_item_id" => '22',
                 "value_bid" => "52500",
-                "created_at" => now(),
-                "updated_at" => now()
+                "created_at" => date('Y-m-10 H:i:s'),
+                "updated_at" => date('Y-m-10 H:i:s')
             ],
             [
                 "user_id" => "3",
                 "auction_item_id" => '22',
                 "value_bid" => "54000",
-                "created_at" => now(),
-                "updated_at" => now()
+                "created_at" => date('Y-m-10 H:i:s'),
+                "updated_at" => date('Y-m-10 H:i:s')
             ]
         ];
     }

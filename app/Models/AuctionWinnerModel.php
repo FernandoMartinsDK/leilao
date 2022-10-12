@@ -13,8 +13,7 @@ class AuctionWinnerModel extends Model
     protected $fillable = [
         'winner_user_id',
         'auctio_lot_id',
-        'auction_item_id',
-        'purchase_date'
+        'auction_item_id'
     ];
 
     //Relations
