@@ -19,20 +19,28 @@
                         <table class="table table-striped maximize" id="table" style="width: 100%;">
                             <thead class="thead-dark">
                                 <th>Nome</th>
+                                <th>Lote</th>
                                 <th>Categoria</th>
                                 <th>Valor do lance</th>
                                 <th>Inst.Finance</th>
+                                <th>Leilão Aberto</th>
                                 <th>Ação</th>
                             </thead>
                             <tbody>
                                 @for ($i = 0; $i < sizeof($value->data); $i++)
                                     <tr>
                                         <td>{{$value->data[$i]->name}}</td>
+                                        <td>Lote - {{$value->data[$i]->id_auction}}</td>
                                         <td>{{$value->data[$i]->category}}</td>
                                         <td>{{$value->data[$i]->value_bid}}</td>
                                         <td>{{$value->data[$i]->financial}}</td>
+                                        @if ($value->data[$i]->open=='T')
+                                            <td>SIM</td>
+                                        @else
+                                            <td>NÃO</td>
+                                        @endif
                                         <td>
-                                            <a type="button" class="btn btn-outline-dark btn-sm">Detalhar</a>
+                                            <a type="button" id="{{$value->data[$i]->id_item}}" class="btn btn-outline-dark btn-sm">Detalhar</a>
                                         </td>
                                     </tr>
                                 @endfor
@@ -63,7 +71,7 @@
                 columnDefs: [ 
                     {"render": function(data){
                         return parseFloat(data).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-                        },"targets": [2] 
+                        },"targets": [3] 
                     }
                 ]    
             });
