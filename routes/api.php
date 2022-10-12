@@ -70,11 +70,11 @@ Route::middleware(['auth:sanctum'])->prefix('/vehicle')->group(function(){
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/place')->group(function(){    
-    /*Route::get('/', [PlaceController::class,'index']); 
+    Route::get('/', [PlaceController::class,'index']); 
     Route::post('/', [PlaceController::class,'store']);
-    Route::put('/{id}', [PlaceController::class,'update']);
     Route::get('/{id}', [PlaceController::class,'show']);
-    Route::delete('/{id}', [PlaceController::class,'destroy']);*/
+    Route::put('/{id}', [PlaceController::class,'update']);
+    Route::delete('/{id}', [PlaceController::class,'destroy']);
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/financial_institutions')->group(function(){    

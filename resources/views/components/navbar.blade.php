@@ -17,7 +17,7 @@
                         <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Administrar</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Items</a>
-                                <a class="dropdown-item" href="#">Locais</a>
+                                <a class="dropdown-item" href="{{route('auction.place')}}">Locais</a>
                                 <a class="dropdown-item" href="#">Leilões</a>
                                 <a class="dropdown-item" href="{{route('auction.institutions')}}">Instituições Financeiras</a>
                             </div>

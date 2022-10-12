@@ -44,7 +44,6 @@ class PlaceController extends Controller
             'district' => 'required',
             'city' => 'required',
             'cep' => 'required',
-            'country' => 'required',
             'name' => 'required'
         ]);
 
@@ -54,8 +53,8 @@ class PlaceController extends Controller
                 'district' => $request->district,
                 'city' => $request->city,
                 'cep' => $request->cep,
-                'country' => $request->country,
-                'name' => $request->name
+                'name' => $request->name,
+                'complement'=>$request->complement
             ]);
             return response()->json([
                 'message' => 'success',

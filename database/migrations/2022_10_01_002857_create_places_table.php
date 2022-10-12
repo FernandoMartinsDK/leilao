@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('district');
             $table->string('city');
             $table->integer('cep');
-            $table->string('country');
+            $table->string('country')->nullable();
             $table->text('complement')->nullable();
             $table->string('name');
             $table->timestamps();
