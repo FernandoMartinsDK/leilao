@@ -95,7 +95,12 @@ class FinancialInstitutionsController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $financial = FinancialInstitutionsModel::destroy($id);
+            $financial = FinancialInstitutionsModel::where('id',$id)
+            ->update([
+                'name'=> $request->name,
+                'cnpj'=> $request->cnpj,
+                'updated_at' => now()
+            ]);
             return response()->json([
                 'message' => 'success',
                 'data' => $financial

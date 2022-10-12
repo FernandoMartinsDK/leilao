@@ -6,6 +6,7 @@ use App\Http\Controllers\{
     BidController,
     UserController,
     HomeController,
+    InstitutionController,
     ItemController
 };
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,7 @@ Route::prefix('/user')->name('user.')->group(function(){
 
 Route::prefix('/auction')->name('auction.')->group(function(){
     Route::get('/create', [AuctionController::class, 'create'])->name('create');
+    Route::get('/institutions', [InstitutionController::class, 'index'])->name('institutions');
 });
 
 Route::prefix('/bid')->name('bid.')->group(function(){

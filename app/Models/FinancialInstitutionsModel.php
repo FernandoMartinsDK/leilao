@@ -12,7 +12,9 @@ class FinancialInstitutionsModel extends Model
 
     protected $fillable = [
         'cnpj',
-        'name'
+        'name',
+        'created_at',
+        'updated_at'
     ];
 
     //Relations

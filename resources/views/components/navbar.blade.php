@@ -19,7 +19,7 @@
                                 <a class="dropdown-item" href="#">Items</a>
                                 <a class="dropdown-item" href="#">Locais</a>
                                 <a class="dropdown-item" href="#">Leilões</a>
-                                <a class="dropdown-item" href="#">Instituições Financeira</a>
+                                <a class="dropdown-item" href="{{route('auction.institutions')}}">Instituições Financeiras</a>
                             </div>
                         </li>
                     @endif
