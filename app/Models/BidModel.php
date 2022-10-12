@@ -11,9 +11,9 @@ class BidModel extends Model
     protected $table = 'bids';
 
     protected $fillable = [
-        'value_bid',
         'user_id',
-        'auction_item_id'
+        'auction_item_id',
+        'value_bid'
     ];
 
     //Relations

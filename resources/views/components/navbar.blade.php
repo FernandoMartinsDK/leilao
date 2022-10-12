@@ -13,18 +13,24 @@
                             <a class="dropdown-item" href="#">Compras</a>
                         </div>
                     </li>
+                    @if (session()->get('id')=='1')
+                        <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Administrar</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Items</a>
+                                <a class="dropdown-item" href="#">Locais</a>
+                                <a class="dropdown-item" href="#">Leilões</a>
+                                <a class="dropdown-item" href="#">Instituições Financeira</a>
+                            </div>
+                        </li>
+                    @endif
                 </ul>
             @endif
             @if(Auth::guest())
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="{{route('home.')}}">HOME</a></li>
-                </ul>
-                <a class="btn btn-outline-primary btn-sm ms-auto" type="button" href="{{route('register')}}" >CADASTRAR</a>
+                <a class="btn btn-outline-primary btn-sm ms-auto" type="button" href="{{route('register')}}">CADASTRAR</a>
             @endif
             @if(Auth::check())
-                <a class="btn btn-outline-danger btn-sm ms-auto" type="button" href="{{route('logout')}}" >SAIR</a>
+                <a class="btn btn-outline-danger btn-sm ms-auto" type="button" href="{{route('logout')}}"> SAIR</a>
             @endif
-         
         </div>
     </div>
 </nav>

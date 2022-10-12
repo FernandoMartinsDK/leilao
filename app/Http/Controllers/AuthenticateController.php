@@ -26,7 +26,8 @@ class AuthenticateController extends Controller
                 'id',
                 'name',
                 'view_name',
-                'type_person_id'
+                'type_person_id',
+                'profile_id'
             ])
         ->toArray();
 
@@ -43,7 +44,8 @@ class AuthenticateController extends Controller
                 'id'=>$usr[0]['id'],
                 'view_name'=>$usr[0]['view_name'],
                 'name'=>$usr[0]['name'],
-                'access'=>$usr[0]['type_person_id']
+                'access'=>$usr[0]['type_person_id'],
+                'profile_id'=>$usr[0]['profile_id']
             ]);
 
             // Autentica na api

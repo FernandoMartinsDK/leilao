@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\{
     AddressController,
     AuctionController,
+    BidsController,
     FinancialInstitutionsController,
     ImmobilesController,
     ItemsController,
@@ -107,4 +108,9 @@ Route::middleware(['auth:sanctum'])->prefix('/address')->group(function(){
     /*Route::get('/', [AuctionController::class,'index']); 
     Route::post('/', [AuctionController::class,'store']);
     Route::delete('/{id}', [AuctionController::class,'destroy']);*/
+});
+
+Route::middleware(['auth:sanctum'])->prefix('/bids')->group(function(){
+    Route::get('/', [BidsController::class,'index']);
+    Route::get('/{id}', [BidsController::class,'show']);
 });
