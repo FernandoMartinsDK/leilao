@@ -12,9 +12,10 @@ class AuctionItemModel extends Model
 
     protected $fillable = [
         'item_id',
-        'category_id',
         'auction_id',
         'opening_bid',
+        'minimum_bid',
+        'value_bid',
         'note'
     ];
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\AuctionItemModel;
 use App\Models\ItemModel;
 use App\Models\VehicleModel;
 use App\Models\VehicleModelsModel;
@@ -84,9 +85,19 @@ class VehicleController extends Controller
                 'categories_id' => '2'
             ]);
 
+            // Adiciona na tabela de itens que vão a leilão
+            $auctionItem = AuctionItemModel::create([
+                'item_id' => $item->id,
+                'auction_id' => $request->auction_id,
+                'opening_bid' => $request->value_item,
+                'minimum_bid' => $request->minimum_bid,
+                'value_bid' => $request->value_item,
+                'note' => $request->note
+            ]);
+
             return response()->json([
                 'message' => 'success',
-                'data' =>  $item
+                'data' =>  $auctionItem
             ],200);
         } catch (Exception $error) {
             return response()->json([

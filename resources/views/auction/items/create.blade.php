@@ -100,9 +100,22 @@
                                                                         <label class="form-label">Direção</label>
                                                                     </div>
                                                                 </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input id="edtVeiculoVenda" type="text" class="form-control"/>
+                                                                        <label class="form-label">Valor Venda</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input placeholder="Opcional" id="edtVeiculoNota" type="text" name="obs" class="form-control"/>
+                                                                        <label class="form-label">Anotação Item para leião</label>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                             <div class="col-6" style="margin-top: 25px;">
-                                                                
                                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                                     <div class="form-outline flex-fill mb-0">
@@ -178,12 +191,19 @@
                                                                         <label class="form-label">Vincular ao leião</label>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                                <div class="form-outline flex-fill mb-0">
-                                                                    <input placeholder="Campo Não Opcional" id="edtObservacao" type="text" name="obs" class="form-control"/>
-                                                                    <label class="form-label">Observação</label>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input id="edtVeiculoIncremento" type="text" class="form-control"/>
+                                                                        <label class="form-label">Valor de Incremento</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input placeholder="Campo Não Opcional" id="edtObservacao" type="text" name="obs" class="form-control"/>
+                                                                        <label class="form-label">Observação</label>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -280,6 +300,13 @@
                                                                         <label class="form-label">Descrição</label>
                                                                     </div>
                                                                 </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input id="edtImovelAnotacao" type="text" class="form-control" />
+                                                                        <label class="form-label">Anotação Item para leião</label>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                             <div class="col-6"style="margin-top: 25px;">
                                                                 <div class="d-flex flex-row align-items-center mb-4">
@@ -324,8 +351,8 @@
                                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                                     <div class="form-outline flex-fill mb-0">
-                                                                        <input id="edtComplemento" type="text" class="form-control" />
-                                                                        <label class="form-label">Complemento</label>
+                                                                        <input id="edtImovelValor" type="text" class="form-control" />
+                                                                        <label class="form-label">Valor de venda</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
@@ -339,6 +366,13 @@
                                                                             @endfor
                                                                         </select>
                                                                         <label class="form-label">Vincular ao leião</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input id="edtImovelIncremento" type="text" class="form-control" />
+                                                                        <label class="form-label">Valor de Incremento </label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -357,7 +391,7 @@
                                                                     <button type="button" id="bntImovel" class="btn btn-outline-success">Adicionar Imóvel</button>
                                                                 </div>
                                                             </div>
-                                                            <div id="divAlerta" style="margin-top: 15;"></div>
+                                                            <div id="divAlerta" style="margin-top: 25;"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -408,6 +442,9 @@
                 var obs = $('#edtObservacao').val();
                 var leilao = $('#selectLeilao').val();
                 var estilo = $('#selectModeloTipo').val();
+                var valor_item = $('#edtVeiculoVenda').val();
+                var anotacao = $('#edtVeiculoNota').val();
+                var incremento = $('#edtVeiculoIncremento').val();
                 
                 if ( condicionado=='' || chassi=='' || marca=='' || modelo=='' || tipo=='' || placa=='' || kilometragem=='' || gas=='' || direcao=='' || blindagem=='' || cor=='' || combustivel=='' ) {
                     $('#divAlert').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Um ou mais campos obrigatórios não foram preenchidos!<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
@@ -436,6 +473,9 @@
                                 gas_kit:gas,
                                 observation:obs,
                                 auction_id:leilao,
+                                value_item:valor_item,
+                                note:anotacao,
+                                minimum_bid:incremento
                             },
                             beforeSend : function(){
                                 $('body').loading({
@@ -482,8 +522,11 @@
                 var area_construida = $('#edtConstruido').val();
                 var area_terreno = $('#edtTerreno').val();
                 var leilao = $('#selectImovelLeilao').val();
+                var valor_item = $('#edtImovelValor').val();
+                var anotacao = $('#edtImovelAnotacao').val();
+                var incremento = $('#edtImovelIncremento').val();
                 
-                if ( imovel_tipo_id=='' || cidade=='' || endereco=='' || bairro=='' || cep=='' || judicial=='' || numero=='' || uf=='' || descricao=='' || estilo=='' || area_construida=='' || area_terreno=='' ) {
+                if ( incremento=='' || valor_item=='' || imovel_tipo_id=='' || cidade=='' || endereco=='' || bairro=='' || cep=='' || numero=='' || uf=='' || descricao=='' || estilo=='' || area_construida=='' || area_terreno=='' ) {
                     $('#divAlerta').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Um ou mais campos obrigatórios não foram preenchidos!<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
                 }else{
                     if (leilao>0) {
@@ -508,7 +551,10 @@
                                 state:uf,
                                 land_area:area_terreno,
                                 building_area:area_construida,
-                                auction_id:leilao
+                                auction_id:leilao,
+                                value_item:valor_item,
+                                note:anotacao,
+                                minimum_bid:incremento
                             },
                             beforeSend : function(){
                                 $('body').loading({
@@ -530,8 +576,8 @@
                                     $('#divAlerta').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Um erro interno aconteceu!.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
                                 }
                             }
-                            }).done(function () {
-                                $('body').loading('stop');
+                        }).done(function () {
+                            $('body').loading('stop');
                         });
                     }else{
                         $('#divAlerta').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>ATENÇÃO!</strong> NÃO HÁ NENHUM LEILÃO VÁLIDO!<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
