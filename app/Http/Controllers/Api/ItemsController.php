@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\AuctionItemModel;
 use App\Models\BidModel;
+use App\Models\ItemModel;
 use App\Models\VehicleModel;
 use Exception;
 use Illuminate\Http\Request;
@@ -19,8 +20,20 @@ class ItemsController extends Controller
     public function index()
     {
         try {
-            $items = AuctionItemModel::
-            join('stores','sales_central.store_id','=','stores.id');
+            $items = ItemModel::
+            join('categories','categories.id','items.categories_id')
+            ->join('auction_items','auction_items.item_id','items.id')
+            ->join('auctions','auctions.id','auction_items.auction_id')
+            ->join('places','places.id','auctions.place_id')
+            ->leftJoin('auction_winner','auction_winner.auction_item_id','auction_items.id')
+            ->get([
+                'items.id AS id_item',
+                'auctions.id AS lote',
+                'items.created_at',
+                'auction_winner.id AS sold',
+                'category',
+                'places.name'
+            ]);
 
             return response()->json([
                 'message' => 'success',

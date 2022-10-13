@@ -30,13 +30,37 @@ class ItemController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * carrega o formulario para adicição de novos itens
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('auction.items.create');
+        //Busca as marcas
+        $request= Request::create('http://localhost:8000/api/brands/', 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $brands = json_decode($body);
+
+        //Busca os modelos
+        $request= Request::create('http://localhost:8000/api/car_models/', 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $carModels = json_decode($body);
+
+        //Busca tipo de veiculos
+        $request= Request::create('http://localhost:8000/api/vehicle/type', 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $carTypes = json_decode($body);
+
+        //Busca os tipos de Imoveis
+        $request= Request::create('http://localhost:8000/api/immobile/type', 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $immobileTypes = json_decode($body);
+
+        return view('auction.items.create',compact(['brands','carModels','carTypes','immobileTypes']));
     }
 
     /**
@@ -143,6 +167,19 @@ class ItemController extends Controller
         $values = json_decode($body);
 
         return $request->valor.'-'.$request->item_id;
+    }
+
+    /**
+     * Retorna todos os itens de leilão
+     */
+    public function all()
+    {
+        $request= Request::create('http://localhost:8000/api/items', 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $values = json_decode($body);
+
+        return view('auction.items.index',compact(['values']));
     }
 
 }

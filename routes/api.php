@@ -4,6 +4,8 @@ use App\Http\Controllers\Api\{
     AddressController,
     AuctionController,
     BidsController,
+    BrandsController,
+    CarModelsController,
     CategoriesController,
     FinancialInstitutionsController,
     ImmobilesController,
@@ -32,17 +34,7 @@ Route::post('/test', function (Request $request) {
 
 Route::post('/register', [AuthController::class,'register']);
 Route::post('/login', [AuthController::class,'login']);
-/*
-Route::group(['middleware' => ['auth:sanctum']], function(){
-    Route::get('/user', [UserController::class,'index']); 
-    Route::get('/user/{id}', [UserController::class,'show']);
-    Route::get('/user/search/{name}', [UserController::class,'search']);
-    Route::post('/user', [UserController::class,'store']);
-    Route::put('/user/{id}', [UserController::class,'update']);
-    Route::delete('/user/{id}', [UserController::class,'destroy']);
-    Route::post('/logout', [AuthController::class,'logout']);
-});
-*/
+
 Route::middleware(['auth:sanctum'])->prefix('/user')->group(function(){ 
     Route::put('/{id}', [UserController::class,'update']);
     Route::put('/password/{id}', [UserController::class,'passwordUpdate']);
@@ -55,6 +47,7 @@ Route::middleware(['auth:sanctum'])->prefix('/user')->group(function(){
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/immobile')->group(function(){    
+    Route::get('/type', [ImmobilesController::class,'type']);
     /*Route::get('/', [ImmobilesController::class,'index']); 
     Route::post('/', [ImmobilesController::class,'store']);
     Route::get('/{id}', [ImmobilesController::class,'show']);
@@ -63,6 +56,7 @@ Route::middleware(['auth:sanctum'])->prefix('/immobile')->group(function(){
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/vehicle')->group(function(){    
+    Route::get('/type', [VehicleController::class,'type']);
     /*Route::get('/', [VehicleController::class,'index']); 
     Route::post('/', [VehicleController::class,'store']);
     Route::get('/{id}', [VehicleController::class,'show']);
@@ -94,7 +88,8 @@ Route::middleware(['auth:sanctum'])->prefix('/auctions')->group(function(){
     Route::delete('/{id}', [AuctionController::class,'destroy']);
 });
 
-Route::middleware(['auth:sanctum'])->prefix('/items')->group(function(){    
+Route::middleware(['auth:sanctum'])->prefix('/items')->group(function(){  
+    Route::get('/', [ItemsController::class,'index']);
     Route::get('/open', [ItemsController::class,'open']); 
     Route::get('/search/{term}', [ItemsController::class,'search']); 
     Route::get('immobile/auction/{term}', [ItemsController::class,'show_auction_item_immobile']);
@@ -118,4 +113,12 @@ Route::middleware(['auth:sanctum'])->prefix('/bids')->group(function(){
 
 Route::middleware(['auth:sanctum'])->prefix('/categories')->group(function(){
     Route::get('/', [CategoriesController::class,'index']);
+});
+
+Route::middleware(['auth:sanctum'])->prefix('/brands')->group(function(){
+    Route::get('/', [BrandsController::class,'index']);
+});
+
+Route::middleware(['auth:sanctum'])->prefix('/car_models')->group(function(){
+    Route::get('/', [CarModelsController::class,'index']);
 });

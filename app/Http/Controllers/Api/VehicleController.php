@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\VehicleModel;
+use App\Models\VehicleTypeModel;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -130,6 +131,26 @@ class VehicleController extends Controller
                 'message' => 'success',
                 'data' => $vehicle
             ],200);
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
+    }
+
+    /**
+     * Retorna todos os tipos de veiculos cadastrados
+     */
+    public function type()
+    {
+        try {
+            $vehicle = VehicleTypeModel::all();
+            return response()->json([
+                'message' => 'success',
+                'data' => $vehicle
+            ],200);     
         } catch (Exception $error) {
             return response()->json([
                 'message' => get_class($error),

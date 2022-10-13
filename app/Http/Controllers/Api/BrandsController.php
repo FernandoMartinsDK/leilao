@@ -3,25 +3,24 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\AuctionModel;
-use App\Models\ImmobileTypeModel;
+use App\Models\BrandModel;
 use Exception;
 use Illuminate\Http\Request;
 
-class ImmobilesController extends Controller
+class BrandsController extends Controller
 {
     /**
-     * Carrega dados básico de todos os imoveis
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         try {
-            $immobiles = "";
+            $auction = BrandModel::all();
             return response()->json([
                 'message' => 'success',
-                'data' => $immobiles
+                'data' => $auction
             ],200);     
         } catch (Exception $error) {
             return response()->json([
@@ -33,31 +32,29 @@ class ImmobilesController extends Controller
     }
 
     /**
-     * Adicionar novo imovel
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        /**
-         * Caso o imovel tem algum informação judicial ela é gravada
-        */
+        //
     }
 
     /**
-     * Mostra um imovel em especifico
+     * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
-     * Atualiza os dados de um imovel
+     * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -65,6 +62,7 @@ class ImmobilesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //
     }
 
     /**
@@ -75,26 +73,6 @@ class ImmobilesController extends Controller
      */
     public function destroy($id)
     {
+        //
     }
-
-    /**
-     * Carregar tipo de imoveis
-     */
-    public function type()
-    {
-        try {
-            $immobile = ImmobileTypeModel::all();
-            return response()->json([
-                'message' => 'success',
-                'data' => $immobile
-            ],200);     
-        } catch (Exception $error) {
-            return response()->json([
-                'message' => get_class($error),
-                'errors' => $error->getMessage(),
-                'data' => null
-            ],400);
-        }
-    }
-
 }

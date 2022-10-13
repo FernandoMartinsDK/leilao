@@ -17,281 +17,205 @@
                                 <div class="card-body p-md-5"">
 
                                     <div class="row justify-content-center">
-                                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Cadastrar Item de Leilão</p>
+                                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Cadastrar Item para Leilão</p>
 
-                                        <div class="col-6">
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <select name="categorie_id" class="form-select" required>
-                                                        <option value="1">Imóvel</option>
-                                                        <option value="2">Veiculo</option>
-                                                    </select>
-                                                    <label class="form-label">Categoria</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <select name="categorie_id" class="form-select" required>
-                                                        <option value="1">Noma A</option>
-                                                        <option value="2">Nome B</option>
-                                                    </select>
-                                                    <label class="form-label">Local</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input type="text" name="note" class="form-control"/>
-                                                    <label class="form-label" for="form3Example1c">Observação</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <select name="" class="form-select" required>
-                                                        <option value="1">Leilão A</option>
-                                                        <option value="2">Laeilão B</option>
-                                                    </select>
-                                                    <label class="form-label">Leilão</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <select name="financial_institution_id" class="form-select" required>
-                                                        <option value="1">Noma A</option>
-                                                        <option value="2">Nome B</option>
-                                                    </select>
-                                                    <label class="form-label">Orgão Financeiro</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input type="number" name="note" class="form-control"/>
-                                                    <label class="form-label" for="form3Example1c">Lance Inicial</label>
+                                        <div class="col">
+                                            <div>
+                                                <ul class="nav nav-pills nav-fill" role="tablist">
+                                                    <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="pill" href="#tab-1">Veículo</a></li>
+                                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="pill" href="#tab-2">Imóvel</a></li>
+                                                </ul>
+                                                <div class="tab-content" >
+                                                    <div id="tab-1" class="tab-pane fade show active" role="tabpanel">
+                                                        <div class="row justify-content-center" >
+                                                            <div class="col-6" style="margin-top: 25px;">
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <select id="selectMarca" class="form-select" required>
+                                                                            @for ($i = 0; $i < sizeof($brands->data); $i++)
+                                                                                <option value="{{$brands->data[$i]->id}}">{{$brands->data[$i]->brand}}</option>
+                                                                            @endfor
+                                                                        </select>
+                                                                        <label class="form-label">Marca</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <select id="selectModelo" class="form-select" required>
+                                                                            @for ($i = 0; $i < sizeof($carModels->data); $i++)
+                                                                                <option value="{{$carModels->data[$i]->id}}">{{$carModels->data[$i]->model_car}}</option>
+                                                                            @endfor
+                                                                        </select>
+                                                                        <label class="form-label">Modelo</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <select id="selectTipoVeiculo" class="form-select" required>
+                                                                            @for ($i = 0; $i < sizeof($carTypes->data); $i++)
+                                                                                <option value="{{$carTypes->data[$i]->id}}">{{$carTypes->data[$i]->type}}</option>
+                                                                            @endfor
+                                                                        </select>
+                                                                        <label class="form-label">Tipo</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input type="text" name="license_plate" class="form-control"/>
+                                                                        <label class="form-label" for="form3Example1c">Placa</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input type="text" name="mileage" class="form-control"/>
+                                                                        <label class="form-label" for="form3Example1c">Kilometragem</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <select name="gas_kit" class="form-select" required>
+                                                                            <option value="T">Sim</option>
+                                                                            <option value="F">Não</option>
+                                                                        </select>
+                                                                        <label class="form-label">Gás Kit</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6" style="margin-top: 25px;">
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <select name="" class="form-select" required>
+                                                                            <option value="MANUAL">Manual</option>
+                                                                            <option value="AUTOMATICA">Automatica</option>
+                                                                        </select>
+                                                                        <label class="form-label">Direção</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <select name="shielding" class="form-select" required>
+                                                                            <option value="F">Não</option>
+                                                                            <option value="T">Sim</option>
+                                                                        </select>
+                                                                        <label class="form-label">Blindagem</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input type="text" name="color" class="form-control"/>
+                                                                        <label class="form-label" for="form3Example1c">cor</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <select name="shielding" class="form-select" required>
+                                                                            <option value="GASOLINA">Gasolina</option>
+                                                                            <option value="ALCOOL">Alcool</option>
+                                                                            <option value="DISEL">Disel</option>
+                                                                            <option value="ELETRICO">Eletrico</option>
+                                                                        </select>
+                                                                        <label class="form-label">Combustivel</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <select name="chassi_status" class="form-select" required>
+                                                                            <option value="INTACTO">Perfeita condição</option>
+                                                                            <option value="ARRANHOES">Com arranhões</option>
+                                                                            <option value="AMASSADO">Amassado</option>
+                                                                            <option value="ESTRUTURAL">Estrutura Comprometida</option>
+                                                                        </select>
+                                                                        <label class="form-label">Estado do Chassi</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <select name="air_conditioning" class="form-select" required>
+                                                                            <option value="T">Sim</option>
+                                                                            <option value="F">Não</option>
+                                                                        </select>
+                                                                        <label class="form-label">Ar Condicionado</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" id="bntVeiculo" class="btn btn-outline-success">Cadastrar Veículo</button>
+                                                        </div>
+                                                    </div>
+                                                    <div id="tab-2" class="tab-pane fade" role="tabpanel">
+                                                        <div class="row justify-content-center" >
+                                                            <div class="col-6" style="margin-top: 25px;">
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <select id="selectTipoImovel" class="form-select" required>
+                                                                            @for ($i = 0; $i < sizeof($immobileTypes->data); $i++)
+                                                                                <option value="{{$immobileTypes->data[$i]->id}}">{{$immobileTypes->data[$i]->type}}</option>
+                                                                            @endfor
+                                                                        </select>
+                                                                        <label class="form-label">Tipo do imovel</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input type="text"  name="district" class="form-control" />
+                                                                        <label class="form-label">Bairro</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6"style="margin-top: 25px;">
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input id="edtCidade" type="text" name="cidade" class="form-control" />
+                                                                        <label class="form-label">Cidade</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input id="edtCep" type="text" name="cep" class="form-control" />
+                                                                        <label class="form-label">CEP</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                <div class="form-outline flex-fill mb-0">
+                                                                    <input type="text"  name="address" class="form-control" />
+                                                                    <label class="form-label">Endereço</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <textarea class="form-control" name="note" rows="3"></textarea>
+                                                                        <label class="form-label" for="form3Example1c">Observação</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" id="bntImovel" class="btn btn-outline-success">Cadastrar Imóvel</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- cadastro Veiculo -->
-                            <div class="card text-black" style="border-radius: 25px;margin-top: 15px">
-                                <div class="card-body p-md-5">
-
-                                    <div class="row justify-content-center">
-                                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Informação do Veículo</p>
-
-                                        <div class="col-6">
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <select name="!!!CRIAR_MIGRATION!!!" class="form-select" required>
-                                                        <option value="1">Marca - A</option>
-                                                        <option value="2">Marca - B</option>
-                                                    </select>
-                                                    <label class="form-label">Marca</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <select name="!!!CRIAR_MIGRATION!!!" class="form-select" required>
-                                                        <option value="1">Modelo - A</option>
-                                                        <option value="2">Modelo - B</option>
-                                                    </select>
-                                                    <label class="form-label">Modelo</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input type="number" value="0" name="category_id" class="form-control" disabled/>
-                                                    <label class="form-label">Tipo</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input type="text" name="license_plate" class="form-control"/>
-                                                    <label class="form-label" for="form3Example1c">Placa</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input type="text" name="mileage" class="form-control"/>
-                                                    <label class="form-label" for="form3Example1c">Kilometragem</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <select name="gas_kit" class="form-select" required>
-                                                        <option value="T">Sim</option>
-                                                        <option value="F">Não</option>
-                                                    </select>
-                                                    <label class="form-label">Gás Kit</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <select name="" class="form-select" required>
-                                                        <option value="MANUAL">Manual</option>
-                                                        <option value="AUTOMATICA">Automatica</option>
-                                                    </select>
-                                                    <label class="form-label">Direção</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <select name="shielding" class="form-select" required>
-                                                        <option value="F">Não</option>
-                                                        <option value="T">Sim</option>
-                                                    </select>
-                                                    <label class="form-label">Blindagem</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input type="text" name="color" class="form-control"/>
-                                                    <label class="form-label" for="form3Example1c">cor</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <select name="shielding" class="form-select" required>
-                                                        <option value="GASOLINA">Gasolina</option>
-                                                        <option value="ALCOOL">Alcool</option>
-                                                        <option value="DISEL">Disel</option>
-                                                        <option value="ELETRICO">Eletrico</option>
-                                                    </select>
-                                                    <label class="form-label">Combustivel</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <select name="chassi_status" class="form-select" required>
-                                                        <option value="INTACTO">Perfeita condição</option>
-                                                        <option value="ARRANHOES">Com arranhões</option>
-                                                        <option value="AMASSADO">Amassado</option>
-                                                        <option value="ESTRUTURAL">Estrutura Comprometida</option>
-                                                    </select>
-                                                    <label class="form-label">Estado do Chassi</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <select name="air_conditioning" class="form-select" required>
-                                                        <option value="T">Sim</option>
-                                                        <option value="F">Não</option>
-                                                    </select>
-                                                    <label class="form-label">Ar Condicionado</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                            <div class="form-outline flex-fill mb-0">
-                                                <textarea class="form-control" name="note" rows="3"></textarea>
-                                                <label class="form-label" for="form3Example1c">Observação</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- cadastro Imovel -->
-                            <div class="card text-black" style="border-radius: 25px;margin-top: 15px">
-                                <div class="card-body p-md-5"">
-                                    <div class="row justify-content-center">
-                                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Informação do Imovel</p>
-
-                                        <div class="col-6">
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <select name="immobile_type_id" class="form-select" required>
-                                                        <option value="1">Casa</option>
-                                                        <option value="2">Apartamento</option>
-                                                    </select>
-                                                    <label class="form-label">Tipo do imovel</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input type="text"  name="district" class="form-control" />
-                                                    <label class="form-label">Bairro</label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-6">
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <select name="city" class="form-select" required>
-                                                        <option value="1">Cidade A</option>
-                                                        <option value="2">Cidade B</option>
-                                                    </select>
-                                                    <label class="form-label">Cidade</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input type="number" name="cep" class="form-control" />
-                                                    <label class="form-label">CEP</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                            <div class="form-outline flex-fill mb-0">
-                                                <input type="text"  name="address" class="form-control" />
-                                                <label class="form-label">Endereço</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <textarea class="form-control" name="note" rows="3"></textarea>
-                                                    <label class="form-label" for="form3Example1c">Observação</label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row" style="margin-top: 15px">
-                                <div class="col-12">
-                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        @include('components.messages.message')
-                                        <button type="submit" class="btn btn-primary btn-lg">Criar Leilão</button>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
