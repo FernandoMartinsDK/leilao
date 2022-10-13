@@ -60,7 +60,19 @@ class ItemController extends Controller
         $body = $response->getContent();  
         $immobileTypes = json_decode($body);
 
-        return view('auction.items.create',compact(['brands','carModels','carTypes','immobileTypes']));
+        //Busca estilo do carro
+        $request= Request::create('http://localhost:8000/api/vehicle/models', 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $modelo = json_decode($body);
+
+        //Busca informação dos leilões
+        $request= Request::create('http://localhost:8000/api/auctions/resume', 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();
+        $auctions = json_decode($body);
+
+        return view('auction.items.create',compact(['brands','carModels','carTypes','immobileTypes','modelo','auctions']));
     }
 
     /**

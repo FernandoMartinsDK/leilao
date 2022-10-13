@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\ItemModel;
 use App\Models\VehicleModel;
+use App\Models\VehicleModelsModel;
 use App\Models\VehicleTypeModel;
 use Exception;
 use Illuminate\Http\Request;
@@ -41,9 +43,10 @@ class VehicleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_id'=>'required',
-            'category_id'=>'required',
-            'license_plate'=>'required',
+            'brand_id'=>'required',
+            'car_model_id'=>'required',
+            'vehicles_model_id'=>'required',
+            'vehicle_type_id'=>'required',
             'mileage'=>'required',
             'direction'=>'required',
             'shielding'=>'required',
@@ -51,14 +54,39 @@ class VehicleController extends Controller
             'fuel'=>'required',
             'chassi_status'=>'required',
             'air_conditioning'=>'required',
-            'gas_kit'=>'required'
+            'gas_kit'=>'required',
+            'auction_id'=>'required'
         ]);
-
+        
         try {
-            $vehicle = VehicleModel::create($request->all());
+            // Adiciona registro 
+            $vehicle = VehicleModel::create([
+                'brand_id' => $request->brand_id,
+                'car_model_id' => $request->car_model_id,
+                'vehicles_model_id' => $request->vehicles_model_id,
+                'vehicle_type_id' => $request->vehicle_type_id,
+                'license_plate' => $request->license_plate,
+                'mileage' => $request->mileage,
+                'direction' => $request->direction,
+                'shielding' => $request->shielding,
+                'color' => $request->color,
+                'fuel' => $request->fuel,
+                'chassi_status' => $request->chassi_status,
+                'air_conditioning' => $request->air_conditioning,
+                'gas_kit' => $request->gas_kit,
+                'observation' => $request->observation
+            ]);
+
+            // Cria o registro desse item na tabela items para se tornar disponivel para consulta
+            $item = ItemModel::create([
+                'immobile_id' => null,
+                'vehicle_id' => $vehicle->id,
+                'categories_id' => '2'
+            ]);
+
             return response()->json([
                 'message' => 'success',
-                'data' =>  $vehicle
+                'data' =>  $item
             ],200);
         } catch (Exception $error) {
             return response()->json([
@@ -150,6 +178,23 @@ class VehicleController extends Controller
             return response()->json([
                 'message' => 'success',
                 'data' => $vehicle
+            ],200);     
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
+    }
+
+    public function models()
+    {
+        try {
+            $immobile = VehicleModelsModel::all();
+            return response()->json([
+                'message' => 'success',
+                'data' => $immobile
             ],200);     
         } catch (Exception $error) {
             return response()->json([

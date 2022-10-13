@@ -55,10 +55,11 @@ Route::middleware(['auth:sanctum'])->prefix('/immobile')->group(function(){
     Route::delete('/{id}', [ImmobilesController::class,'destroy']);*/
 });
 
-Route::middleware(['auth:sanctum'])->prefix('/vehicle')->group(function(){    
-    Route::get('/type', [VehicleController::class,'type']);
-    /*Route::get('/', [VehicleController::class,'index']); 
+Route::middleware(['auth:sanctum'])->prefix('/vehicle')->group(function(){  
     Route::post('/', [VehicleController::class,'store']);
+    Route::get('/type', [VehicleController::class,'type']);
+    Route::get('/models', [VehicleController::class,'models']);
+    /*Route::get('/', [VehicleController::class,'index']); 
     Route::get('/{id}', [VehicleController::class,'show']);
     Route::put('/{id}', [VehicleController::class,'update']);
     Route::delete('/{id}', [VehicleController::class,'destroy']);*/
