@@ -71,6 +71,14 @@
     <script>
         $(document).ready(function(){
 
+            $('#table').DataTable({
+                responsive:true,
+                language:{
+                    url: "//cdn.datatables.net/plug-ins/1.11.4/i18n/pt_br.json"
+                },
+                pageLength:10
+            });
+
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
