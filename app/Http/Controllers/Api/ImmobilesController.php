@@ -40,9 +40,20 @@ class ImmobilesController extends Controller
      */
     public function store(Request $request)
     {
-        /**
-         * Caso o imovel tem algum informação judicial ela é gravada
-        */
+        return $request->all();
+        try {
+            $immobiles = "";
+            return response()->json([
+                'message' => 'success',
+                'data' => $immobiles
+            ],200);     
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
     }
 
     /**

@@ -47,9 +47,9 @@ Route::middleware(['auth:sanctum'])->prefix('/user')->group(function(){
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/immobile')->group(function(){    
+    Route::post('/', [ImmobilesController::class,'store']);
     Route::get('/type', [ImmobilesController::class,'type']);
     /*Route::get('/', [ImmobilesController::class,'index']); 
-    Route::post('/', [ImmobilesController::class,'store']);
     Route::get('/{id}', [ImmobilesController::class,'show']);
     Route::put('/{id}', [ImmobilesController::class,'update']);
     Route::delete('/{id}', [ImmobilesController::class,'destroy']);*/

@@ -70,14 +70,14 @@
                                                                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtPlaca" type="text" name="license_plate" class="form-control"/>
-                                                                        <label class="form-label" for="form3Example1c">Placa</label>
+                                                                        <label class="form-label">Placa</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtkilometragem" type="text" name="mileage" class="form-control"/>
-                                                                        <label class="form-label" for="form3Example1c">Kilometragem</label>
+                                                                        <label class="form-label">Kilometragem</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
@@ -102,6 +102,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-6" style="margin-top: 25px;">
+                                                                
                                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                                     <div class="form-outline flex-fill mb-0">
@@ -127,7 +128,7 @@
                                                                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtCor" type="text" name="color" class="form-control"/>
-                                                                        <label class="form-label" for="form3Example1c">cor</label>
+                                                                        <label class="form-label">cor</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
@@ -182,7 +183,7 @@
                                                                 <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                                 <div class="form-outline flex-fill mb-0">
                                                                     <input placeholder="Campo Não Opcional" id="edtObservacao" type="text" name="obs" class="form-control"/>
-                                                                    <label class="form-label" for="form3Example1c">Observação</label>
+                                                                    <label class="form-label">Observação</label>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -190,7 +191,7 @@
                                                                     <a href="{{route('item.all')}}" type="button" class="btn btn-outline-dark" style="margin-right: 15px">voltar</a>
                                                                 </div>
                                                                 <div class="col-6 d-grid gap-2">
-                                                                    <button type="button" id="bntVeiculo" class="btn btn-outline-success">Adicionar item</button>
+                                                                    <button type="button" id="bntVeiculo" class="btn btn-outline-success">Adicionar Veículos</button>
                                                                 </div>
                                                             </div>
                                                             <div id="divAlert" style="margin-top: 15px;"></div>
@@ -213,8 +214,70 @@
                                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                                                     <div class="form-outline flex-fill mb-0">
-                                                                        <input type="text"  name="district" class="form-control" />
+                                                                        <input id="edtBairro" type="text" name="district" class="form-control" />
                                                                         <label class="form-label">Bairro</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input id="edtEndereco" type="text" name="address" class="form-control" />
+                                                                        <label class="form-label">Endereço</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input id="edtImovelNumero" type="text" class="form-control" />
+                                                                        <label class="form-label">Número</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <select id="selectUf" class="form-select" required>
+                                                                            <option value="SP">SP</option>
+                                                                            <option value="RJ">RJ</option>
+                                                                            <option value="SC">SC</option>
+                                                                            <option value="TO">TO</option>
+                                                                            <option value="RS">RS</option>
+                                                                            <option value="RO">RO</option>
+                                                                            <option value="RN">RN</option>
+                                                                            <option value="PI">PI</option>
+                                                                            <option value="PE">PE</option>
+                                                                            <option value="PR">PR</option>
+                                                                            <option value="PB">PB</option>
+                                                                            <option value="PA">PA</option>
+                                                                            <option value="PB">PB</option>
+                                                                            <option value="MG">MG</option>
+                                                                            <option value="MS">MS</option>
+                                                                            <option value="MT">MT</option>
+                                                                            <option value="MA">MA</option>
+                                                                            <option value="GO">GO</option>
+                                                                            <option value="ES">ES</option>
+                                                                            <option value="DF">DF</option>
+                                                                            <option value="CE">CE</option>
+                                                                            <option value="BA">BA</option>
+                                                                            <option value="AM">AM</option>
+                                                                            <option value="AP">AP</option>
+                                                                            <option value="AL">AL</option>
+                                                                            <option value="AC">AC</option>
+                                                                        </select>
+                                                                        <label class="form-label">Estado</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input id="edtTerreno" type="text" class="form-control" />
+                                                                        <label class="form-label">Área do terreno</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input id="edtDescricao" type="text" class="form-control" />
+                                                                        <label class="form-label">Descrição</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -233,25 +296,68 @@
                                                                         <label class="form-label">CEP</label>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                                                <div class="form-outline flex-fill mb-0">
-                                                                    <input type="text"  name="address" class="form-control" />
-                                                                    <label class="form-label">Endereço</label>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input id="edtImovelComplemento" type="text" name="address" class="form-control" />
+                                                                        <label class="form-label">Complemento</label>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-12">
                                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                                     <div class="form-outline flex-fill mb-0">
-                                                                        <textarea class="form-control" name="note" rows="3"></textarea>
-                                                                        <label class="form-label" for="form3Example1c">Observação</label>
+                                                                        <select id="selectImovelModel" name="gas_kit" class="form-select" required>
+                                                                            <option value="CASA">CASA</option>
+                                                                            <option value="CHÁCARA">CHÁCARA</option>
+                                                                            <option value="APARTAMENTO">APARTAMENTO</option>
+                                                                        </select>
+                                                                        <label class="form-label">Modelo do Imóvel</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input id="edtConstruido" type="text" class="form-control" />
+                                                                        <label class="form-label">Área Construida</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <input id="edtComplemento" type="text" class="form-control" />
+                                                                        <label class="form-label">Complemento</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    <div class="form-outline flex-fill mb-0">
+                                                                        <select id="selectImovelLeilao" name="leilao" class="form-select" required>
+                                                                            @for ($i = 0; $i < sizeof($auctions->data); $i++)
+                                                                                @if ((trim($auctions->data[$i]->open)=='T') &&( $auctions->data[$i]->category=='IMÓVEIS'))
+                                                                                    <option value="{{trim($auctions->data[$i]->lote)}}">Lote - {{$auctions->data[$i]->lote}} - {{$auctions->data[$i]->place}} - {{\Carbon\Carbon::parse($auctions->data[$i]->auction_date)->format('d/m/Y - H:m')}}</option>
+                                                                                @endif
+                                                                            @endfor
+                                                                        </select>
+                                                                        <label class="form-label">Vincular ao leião</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <button type="button" id="bntImovel" class="btn btn-outline-success">Cadastrar Imóvel</button>
-                                                            <div id="divAlerta"></div>
+                                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                <div class="form-outline flex-fill mb-0">
+                                                                    <input id="edtJudicial" type="text" class="form-control" />
+                                                                    <label class="form-label">Informação Judicial</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-6 d-grid gap-2">
+                                                                    <a href="{{route('item.all')}}" type="button" class="btn btn-outline-dark" style="margin-right: 15px">voltar</a>
+                                                                </div>
+                                                                <div class="col-6 d-grid gap-2">
+                                                                    <button type="button" id="bntImovel" class="btn btn-outline-success">Adicionar Imóvel</button>
+                                                                </div>
+                                                            </div>
+                                                            <div id="divAlerta" style="margin-top: 15;"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -339,7 +445,7 @@
                             success: function(response){
                                 console.log(response)
                                 $('body').loading('stop');
-                                $('#divAlert').html("<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>✔</strong>Item ao leilão com sucesso.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
+                                $('#divAlert').html("<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>✔</strong>Veiculo adicionado com sucesso.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
                             },
                             error: function (request, status, error) {
                                 console.log(request, status, error)
@@ -356,6 +462,79 @@
                         });
                     }else{
                         $('#divAlert').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>ATENÇÃO!</strong> NÃO HÁ NENHUM LEILÃO VÁLIDO!<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+                    }
+                }
+
+            });
+
+            $(document).on('click', '#bntImovel', function() {
+                var imovel_tipo_id = $('#selectTipoImovel').val();
+                var cidade = $('#edtCidade').val();
+                var endereco = $('#edtEndereco').val();
+                var bairro = $('#edtBairro').val();
+                var cep = $('#edtCep').val();
+                var judicial = $('#edtJudicial').val();
+                var complemento = $('#edtImovelComplemento').val();
+                var numero = $('#edtImovelNumero').val();
+                var uf = $('#selectUf').val();
+                var descricao = $('#edtDescricao').val();
+                var estilo = $('#selectImovelModel').val();
+                var area_construida = $('#edtConstruido').val();
+                var area_terreno = $('#edtTerreno').val();
+                var leilao = $('#selectImovelLeilao').val();
+                
+                if ( imovel_tipo_id=='' || cidade=='' || endereco=='' || bairro=='' || cep=='' || judicial=='' || numero=='' || uf=='' || descricao=='' || estilo=='' || area_construida=='' || area_terreno=='' ) {
+                    $('#divAlerta').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Um ou mais campos obrigatórios não foram preenchidos!<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+                }else{
+                    if (leilao>0) {
+                        $.ajax({
+                            url:"http://localhost:8000/api/immobile",
+                            headers: {
+                            "Authorization": "Bearer "+token 
+                            },
+                            type:'post',
+                            datatype:'json',
+                            data:{ 
+                                immobile_type_id:imovel_tipo_id,
+                                city:cidade,
+                                address:endereco,
+                                district:bairro,
+                                cep:cep,
+                                judicial_information:judicial,
+                                description:descricao,
+                                model:estilo,
+                                number:numero,
+                                complement:complemento,
+                                state:uf,
+                                land_area:area_terreno,
+                                building_area:area_construida,
+                                auction_id:leilao
+                            },
+                            beforeSend : function(){
+                                $('body').loading({
+                                    message: 'Adicionando Imóvel...'
+                                });
+                            },
+                            success: function(response){
+                                console.log(response)
+                                $('body').loading('stop');
+                                $('#divAlerta').html("<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>✔</strong>Imóvel adicionado com sucesso.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
+                            },
+                            error: function (request, status, error) {
+                                console.log(request, status, error)
+                                $('body').loading('stop');
+                                if ('Unauthorized'==error) {
+                                    alert('Sessão expirada');
+                                    window.location.href = "{{route('logout')}}";
+                                }else{
+                                    $('#divAlerta').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Um erro interno aconteceu!.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
+                                }
+                            }
+                            }).done(function () {
+                                $('body').loading('stop');
+                        });
+                    }else{
+                        $('#divAlerta').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>ATENÇÃO!</strong> NÃO HÁ NENHUM LEILÃO VÁLIDO!<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
                     }
                 }
 
