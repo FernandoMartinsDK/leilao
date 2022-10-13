@@ -64,3 +64,8 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## to do
+- fazer rota do botão delete da tela 'action.index'
+
+- validar o cadastrar o leilão não permitir que a data seja menor q a data de do dia 
