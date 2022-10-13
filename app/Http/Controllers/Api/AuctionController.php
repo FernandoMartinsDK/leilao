@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AuctionModel;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AuctionController extends Controller
 {
@@ -42,10 +43,33 @@ class AuctionController extends Controller
         $request->validate([
             'auction_date' => 'required',
             'financial_institution_id' => 'required',
-            'place_id' => 'required',
-            'open' => 'required'
+            'place_id' => 'required'
         ]);
 
+        $dtEvent = $request->auction_date.' '.$request->hour.':00';
+
+        try {
+            $auction = AuctionModel::create([
+                'auction_date' => $dtEvent,
+                'financial_institution_id' => $request->financial_institution_id,
+                'place_id' => $request->place_id,
+                'categorie_id' => $request->categorie_id,
+                'open' => 'T',
+                'note' => $request->note
+            ]);
+            return response()->json([
+                'message' => 'success',
+                'data' => $auction
+            ],200);     
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
+
+        //se a data for a de hoje o leilão é aberto
 
     }
 
@@ -58,7 +82,7 @@ class AuctionController extends Controller
     public function show($id)
     {
         try {
-            $auction = AuctionModel::where('user_id',$id)->get()->first();
+            $auction = AuctionModel::findOrfail($id);
             return response()->json([
                 'message' => 'success',
                 'data' => $auction
@@ -82,6 +106,12 @@ class AuctionController extends Controller
     public function update(Request $request, $id)
     {
         try {
+            $request->validate([
+                'auction_date' => 'required',
+                'financial_institution_id' => 'required',
+                'place_id' => 'required'
+            ]);
+    
             $auction = AuctionModel::findOrfail($id);
             $auction->update($request->all());
             return response()->json([
@@ -110,6 +140,37 @@ class AuctionController extends Controller
             return response()->json([
                 'message' => 'success',
                 'data' => $auction
+            ],200);
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
+    }
+
+    /**
+     * Retorna um resumo de todos os leilões
+     */
+    public function resume()
+    {
+        try {
+            $result = DB::select("SELECT 
+            auctions.id AS lote,
+            auctions.auction_date,
+            auctions.open,
+            categories.category,
+            places.name AS place,
+            (SELECT count(auction_items.id) FROM auction_items where auction_items.auction_id = auctions.id ) AS qt
+            FROM auctions
+            INNER JOIN categories ON categories.id = auctions.categorie_id 
+            INNER JOIN places ON places.id = auctions.place_id
+            ORDER BY auctions.id");
+      
+            return response()->json([
+                'message' => 'success',
+                'data' => $result
             ],200);
         } catch (Exception $error) {
             return response()->json([

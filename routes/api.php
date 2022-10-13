@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\{
     AddressController,
     AuctionController,
     BidsController,
+    CategoriesController,
     FinancialInstitutionsController,
     ImmobilesController,
     ItemsController,
@@ -85,11 +86,12 @@ Route::middleware(['auth:sanctum'])->prefix('/financial_institutions')->group(fu
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/auctions')->group(function(){    
-    /*Route::get('/', [AuctionController::class,'index']); 
     Route::post('/', [AuctionController::class,'store']);
-    Route::put('/{id}', [AuctionController::class,'update']);
+    Route::get('/', [AuctionController::class,'index']); 
+    Route::get('/resume', [AuctionController::class,'resume']); 
     Route::get('/{id}', [AuctionController::class,'show']);
-    Route::delete('/{id}', [AuctionController::class,'destroy']);*/
+    Route::put('/{id}', [AuctionController::class,'update']);
+    Route::delete('/{id}', [AuctionController::class,'destroy']);
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/items')->group(function(){    
@@ -112,4 +114,8 @@ Route::middleware(['auth:sanctum'])->prefix('/address')->group(function(){
 Route::middleware(['auth:sanctum'])->prefix('/bids')->group(function(){
     Route::get('/', [BidsController::class,'index']);
     Route::get('/{id}', [BidsController::class,'show']);
+});
+
+Route::middleware(['auth:sanctum'])->prefix('/categories')->group(function(){
+    Route::get('/', [CategoriesController::class,'index']);
 });

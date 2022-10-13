@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class AuctionController extends Controller
 {
@@ -13,7 +14,14 @@ class AuctionController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('is_admin');
+
+        // Busca todos os leilões
+        $request= Request::create('http://localhost:8000/api/auctions/resume', 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $value = json_decode($body);
+        return view('auction.index',compact(['value']));
     }
 
     /**
@@ -23,7 +31,26 @@ class AuctionController extends Controller
      */
     public function create()
     {
-        return view('auction.create');
+        $this->authorize('is_admin');
+
+        // Busca as categorias no banco de dados
+        $request= Request::create('http://localhost:8000/api/categories', 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $categories = json_decode($body);
+
+        // Busca as os locais no banco de dados 
+        $request= Request::create('http://localhost:8000/api/place', 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $places = json_decode($body);
+
+        // Busca as os locais no banco de dados 
+        $request= Request::create('http://localhost:8000/api/financial_institutions', 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $institutions = json_decode($body);
+        return view('auction.create',compact(['categories','places','institutions']));
     }
 
     /**
@@ -56,7 +83,33 @@ class AuctionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->authorize('is_admin');
+
+        // Busca informações sobre leilão para definir as configurações
+        $request= Request::create('http://localhost:8000/api/auctions/'.$id, 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $base = json_decode($body);
+
+        // Busca as categorias no banco de dados
+        $request= Request::create('http://localhost:8000/api/categories', 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $categories = json_decode($body);
+
+        // Busca as os locais no banco de dados 
+        $request= Request::create('http://localhost:8000/api/place', 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $places = json_decode($body);
+
+        // Busca as os locais no banco de dados 
+        $request= Request::create('http://localhost:8000/api/financial_institutions', 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $institutions = json_decode($body);
+
+        return view('auction.edit',compact(['categories','places','institutions','base']));
     }
 
     /**
@@ -68,7 +121,7 @@ class AuctionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

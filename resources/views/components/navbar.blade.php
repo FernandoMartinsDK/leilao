@@ -18,7 +18,7 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Items</a>
                                 <a class="dropdown-item" href="{{route('auction.place')}}">Locais</a>
-                                <a class="dropdown-item" href="#">Leilões</a>
+                                <a class="dropdown-item" href="{{route('auction.index')}}">Leilões</a>
                                 <a class="dropdown-item" href="{{route('auction.institutions')}}">Instituições Financeiras</a>
                             </div>
                         </li>

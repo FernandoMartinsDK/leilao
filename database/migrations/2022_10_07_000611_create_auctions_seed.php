@@ -26,15 +26,15 @@ return new class extends Migration
                 "auction_date" => now(),
                 "categorie_id" => "2",
                 "financial_institution_id" => '1',
-                "place_id" => "2",
+                "place_id" => "1",
                 "open" => "T",
                 "note" => "Fruto de ação judicial",
                 "created_at" => now(),
                 "updated_at" => now()
             ],
             [
-                "auction_date" => now(),
-                "categorie_id" => "1",
+                "auction_date" => date('Y-m-11 H:i'),
+                "categorie_id" => "2",
                 "financial_institution_id" => '3',
                 "place_id" => "2",
                 "open" => "F",

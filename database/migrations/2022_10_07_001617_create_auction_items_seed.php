@@ -15,7 +15,7 @@ return new class extends Migration
         $this->seedValue = [
             [
                 "item_id" => "1",
-                "auction_id" => '2',
+                "auction_id" => '1',
                 "opening_bid" => "5000",
                 "minimum_bid" => "400",
                 "value_bid" => "5000",
@@ -65,7 +65,7 @@ return new class extends Migration
             ],
             [
                 "item_id" => "6",
-                "auction_id" => '1',
+                "auction_id" => '2',
                 "opening_bid" => "54000",
                 "minimum_bid" => "300",
                 "value_bid" => "54000",
@@ -75,7 +75,7 @@ return new class extends Migration
             ],
             [
                 "item_id" => "7",
-                "auction_id" => '1',
+                "auction_id" => '2',
                 "opening_bid" => "27000",
                 "minimum_bid" => "400",
                 "value_bid" => "27000",
@@ -85,7 +85,7 @@ return new class extends Migration
             ],
             [
                 "item_id" => "8",
-                "auction_id" => '1',
+                "auction_id" => '2',
                 "opening_bid" => "70200",
                 "minimum_bid" => "800",
                 "value_bid" => "70200",
@@ -95,7 +95,7 @@ return new class extends Migration
             ],
             [
                 "item_id" => "9",
-                "auction_id" => '1',
+                "auction_id" => '2',
                 "opening_bid" => "45000",
                 "minimum_bid" => "1000",
                 "value_bid" => "45000",
@@ -105,7 +105,7 @@ return new class extends Migration
             ],
             [
                 "item_id" => "10",
-                "auction_id" => '1',
+                "auction_id" => '2',
                 "opening_bid" => "67000",
                 "minimum_bid" => "1400",
                 "value_bid" => "67000",
@@ -115,7 +115,7 @@ return new class extends Migration
             ],
             [
                 "item_id" => "11",
-                "auction_id" => '1',
+                "auction_id" => '2',
                 "opening_bid" => "347000",
                 "minimum_bid" => "400",
                 "value_bid" => "347000",
@@ -125,7 +125,7 @@ return new class extends Migration
             ],
             [
                 "item_id" => "12",
-                "auction_id" => '1',
+                "auction_id" => '2',
                 "opening_bid" => "87000",
                 "minimum_bid" => "200",
                 "value_bid" => "87000",
@@ -135,7 +135,7 @@ return new class extends Migration
             ],
             [
                 "item_id" => "13",
-                "auction_id" => '1',
+                "auction_id" => '2',
                 "opening_bid" => "7000",
                 "minimum_bid" => "100",
                 "value_bid" => "7000",
@@ -145,7 +145,7 @@ return new class extends Migration
             ],
             [
                 "item_id" => "14",
-                "auction_id" => '1',
+                "auction_id" => '2',
                 "opening_bid" => "69800",
                 "minimum_bid" => "1400",
                 "value_bid" => "69800",
@@ -155,7 +155,7 @@ return new class extends Migration
             ],
             [
                 "item_id" => "15",
-                "auction_id" => '1',
+                "auction_id" => '2',
                 "opening_bid" => "58200",
                 "minimum_bid" => "800",
                 "value_bid" => "58200",
@@ -165,7 +165,7 @@ return new class extends Migration
             ],
             [
                 "item_id" => "16",
-                "auction_id" => '1',
+                "auction_id" => '2',
                 "opening_bid" => "23400",
                 "minimum_bid" => "400",
                 "value_bid" => "23400",
@@ -175,7 +175,7 @@ return new class extends Migration
             ],
             [
                 "item_id" => "17",
-                "auction_id" => '1',
+                "auction_id" => '2',
                 "opening_bid" => "33000",
                 "minimum_bid" => "900",
                 "value_bid" => "33000",
@@ -185,7 +185,7 @@ return new class extends Migration
             ],
             [
                 "item_id" => "18",
-                "auction_id" => '1',
+                "auction_id" => '2',
                 "opening_bid" => "703200",
                 "minimum_bid" => "500",
                 "value_bid" => "703200",

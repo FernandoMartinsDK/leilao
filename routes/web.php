@@ -50,6 +50,8 @@ Route::prefix('/user')->name('user.')->group(function(){
 
 Route::prefix('/auction')->name('auction.')->group(function(){
     Route::get('/create', [AuctionController::class, 'create'])->name('create');
+    Route::get('/edit/{id}', [AuctionController::class, 'edit'])->name('edit');
+    Route::get('/index', [AuctionController::class, 'index'])->name('index');
     Route::get('/institutions', [InstitutionController::class, 'index'])->name('institutions');
     Route::get('/place', [PlaceController::class, 'index'])->name('place');
     Route::get('/place/create', [PlaceController::class, 'create'])->name('place.create');
