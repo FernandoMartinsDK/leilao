@@ -46,7 +46,7 @@
                                             <a type="button" class="btn btn-outline-primary" href="{{route('auction.edit',[ 'id' => $value->data[$i]->lote ])}}">
                                                 <i class="fa-regular fa-pen-to-square"></i>
                                             </a>
-                                            <a type="button" class="btn btn-outline-danger bntDelete"  > FAZER_ROTA
+                                            <a type="button" id="{{$value->data[$i]->lote}}" class="btn btn-outline-danger bntDelete">
                                                 <i class="fa-solid fa-trash-can"></i>
                                             </a>
                                         </td>
@@ -71,7 +71,47 @@
     <script>
         $(document).ready(function(){
 
-                
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            var token = '{{session()->get('token_api')}}';
+
+            $(document).on('click', '.bntDelete', function() {
+                var vid = $(this).attr('id');
+                $.ajax({
+                    url:"http://localhost:8000/api/auctions/"+vid,
+                    headers: {
+                        "Authorization": "Bearer "+token 
+                    },
+                    type:'delete',
+                    datatype:'json',
+                    beforeSend : function(){
+                        $('body').loading({
+                            message: 'Deletando Leilão...'
+                        });
+                    },
+                    success: function(response){
+                        $('body').loading('stop');
+                        document.location.reload();
+                    },
+                    error: function (request, status, error) {
+                        console.log(request, status, error)
+                        $('body').loading('stop');
+                        if ('Unauthorized'==error) {
+                            alert('Sessão expirada');
+                            window.location.href = "{{route('logout')}}";
+                        }else{
+                            alert('Um erro aconteceu: '+error)
+                        }
+                    }
+                }).done(function () {
+                    $('body').loading('stop');
+                });
+            });
+            
+
         });
     </script>
 @endsection
