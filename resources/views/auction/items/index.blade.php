@@ -90,7 +90,33 @@
 
             $(document).on('click', '.bntDelete', function() {
                 var vid = $(this).attr('id');
-
+                $.ajax({
+                    url:"http://localhost:8000/api/items/"+vid,
+                    headers: {
+                    "Authorization": "Bearer "+token 
+                    },
+                    type:'delete',
+                    datatype:'json',
+                    beforeSend : function(){
+                        $('body').loading({
+                            message: 'Deletando Item...'
+                        });
+                    },
+                    success: function(response){
+                        document.location.reload();
+                        $('body').loading('stop');
+                    },
+                    error: function (request, status, error) {
+                        console.log(request, status, error)
+                        $('body').loading('stop');
+                        if ('Unauthorized'==error) {
+                            alert('Sessão expirada');
+                            window.location.href = "{{route('logout')}}";
+                        }else{
+                            alert('Um erro aconteceu: '+error)
+                        }
+                    }
+                })
             });
             
 

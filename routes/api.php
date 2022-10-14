@@ -91,6 +91,7 @@ Route::middleware(['auth:sanctum'])->prefix('/auctions')->group(function(){
 
 Route::middleware(['auth:sanctum'])->prefix('/items')->group(function(){  
     Route::get('/', [ItemsController::class,'index']);
+    Route::delete('/{id}', [ItemsController::class,'destroy']);
     Route::get('/open', [ItemsController::class,'open']); 
     Route::get('/search/{term}', [ItemsController::class,'search']); 
     Route::get('immobile/auction/{term}', [ItemsController::class,'show_auction_item_immobile']);
