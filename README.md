@@ -15,7 +15,7 @@ Sistema básico de leilão construida com Laravel + Bootstrap 5.
 - Iniciar `cmd`, `cd C:\projetos\`
 - Baixe o código `git clone https://github.com/FernandoMartinsDK/youtan.git`
 - Entre no diretorio com comando `cd /youtan` e abra com o seu editor de código preferido
-- cp .env.example .env
+- `cp .env.example .env`
 - Modifique as seguintes váriaveis segundo sua necessidade, mas por padrão se deve usar os seguintes valores:
 
 -  `APP_API=http://localhost:8000/api/`
