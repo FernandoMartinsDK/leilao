@@ -262,7 +262,6 @@
                 var lance = (parseInt('{{$value->data->minimum_bid}}') + parseInt('{{$value->data->value_bid}}'))
                 var cate = $("#edtCategory").val();
                 var user = $("#edtUser").val();
-                console.log(user+' - '+cate+' - '+lance)
                 makeLance(lance,cate,user);
             });
 
@@ -280,7 +279,7 @@
                             message: 'Buscando lances realizados...'
                         });
                     },
-                    success: function(response){
+                    success: function(response){console.log(response)
                         if (response['data'].length>0) {
                             let size = (response['data'].length - 1);
                             $('#txtNomeLance').html(response['data'][size]['name']);
@@ -289,7 +288,7 @@
                             for (let index = 0; index < response['data'].length; index++) {
                                 let dt = moment(response['data'][index]['created_at']).format('DD/MM/YYYY - h:mm' );
                                 let vl = parseFloat(response['data'][index]['value_bid']).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
-                                $('#tab-historico').append("<li>"+vl+" por "+response['data'][0]['name']+" - "+ dt +" </li>")                  
+                                $('#tab-historico').append("<li>"+vl+" por "+response['data'][index]['name']+" - "+ dt +" </li>")                  
                             }
                             $('#tab-historico').append("</ol>")
                         }else{

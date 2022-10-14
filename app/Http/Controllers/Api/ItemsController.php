@@ -375,7 +375,7 @@ class ItemsController extends Controller
                     ],200);
                 }
             }
-            
+
             // verifica se o lance atual é maior que o anterior
             if ($request->valor <= $bid->value_bid) {
                 return response()->json([
@@ -432,7 +432,7 @@ class ItemsController extends Controller
     /**
      * Carrega o historico de lance de um item do leilão
      */
-    public function historic(int $id=0) //verificar se só um parametro já não resolve
+    public function historic(int $id=0)
     {
         try {
             if ($id==0) {
