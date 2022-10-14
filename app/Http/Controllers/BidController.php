@@ -40,13 +40,20 @@ class BidController extends Controller
      */
     public function show($id)
     {
-        $request= Request::create(env('APP_API').'items/show/'.$id, 'GET');
-        $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
+        // descobre o tipo do item
+        $request= Request::create(env('APP_API').'categories/item/'.$id, 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $value= json_decode($body);
+        $type_item = $value->data->categories_id;
         
-dd($value);
+
+        $request= Request::create(env('APP_API').'items/historic/'.$id, 'GET');
+        $response = Route::dispatch($request);
+        $body = $response->getContent();  
+        $value= json_decode($body);
+
+dd($value,$type_item);
         return view('bids.show',compact(['value']));
     }
 

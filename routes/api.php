@@ -116,6 +116,7 @@ Route::middleware(['auth:sanctum'])->prefix('/bids')->group(function(){
 
 Route::middleware(['auth:sanctum'])->prefix('/categories')->group(function(){
     Route::get('/', [CategoriesController::class,'index']);
+    Route::get('/item/{id}', [CategoriesController::class,'show']);
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/brands')->group(function(){

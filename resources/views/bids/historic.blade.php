@@ -27,7 +27,6 @@
                                 <th>Leilão Aberto</th>
                                 <th>Ação</th>
                             </thead>
-                            <tbody>
                                 @for ($i = 0; $i < sizeof($value->data); $i++)
                                     <tr>
                                         <td>{{$value->data[$i]->id_bid}}</td>

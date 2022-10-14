@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\AuctionItemModel;
 use App\Models\CategoryModel;
 use Exception;
 use Illuminate\Http\Request;
@@ -50,7 +51,24 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        try {
+            $category = AuctionItemModel::
+                join('items','auction_items.item_id','items.id')
+                ->where('item_id',$id)
+                ->get(['categories_id'])
+                ->first();
+            return response()->json([
+                'message' => 'success',
+                'data' => $category
+            ],200);     
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
     }
 
     /**
