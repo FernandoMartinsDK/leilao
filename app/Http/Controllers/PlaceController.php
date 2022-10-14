@@ -13,7 +13,7 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        $request= Request::create('http://localhost:8000/api/place/', 'GET');
+        $request= Request::create(env('APP_API').'place/', 'GET');
         //$request->headers->set('Authorization','Bearer '.session()->get('token_api'));
         $response = Route::dispatch($request);
         $body = $response->getContent();  
@@ -27,7 +27,7 @@ class PlaceController extends Controller
     public function update($id)
     {
         if (Session::get('profile_id')=='2') {
-            $request= Request::create('http://localhost:8000/api/place/'.$id, 'GET');
+            $request= Request::create(env('APP_API').'place/'.$id, 'GET');
             $response = Route::dispatch($request);
             $body = $response->getContent();  
             $value= json_decode($body);

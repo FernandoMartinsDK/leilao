@@ -48,13 +48,13 @@ class UserController extends Controller
     public function show($id)
     {
         //pega informações sobre usuario, endereço
-        $request= Request::create('http://localhost:8000/api/user/'.$id, 'GET');
+        $request= Request::create(env('APP_API').'user/'.$id, 'GET');
         $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $value= json_decode($body);
 
-        $request= Request::create('http://localhost:8000/api/address/'.$id, 'GET');
+        $request= Request::create(env('APP_API').'address/'.$id, 'GET');
         $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
         $response = Route::dispatch($request);
         $body = $response->getContent();  

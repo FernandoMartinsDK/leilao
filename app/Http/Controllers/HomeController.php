@@ -37,32 +37,15 @@ class HomeController extends Controller
         return view('home.start');
     }
 
-    public function teste()
-    {
-        dd(session()->get('token_api'));
-        /*
-        //$response = Http::acceptJson()->post('http://127.0.0.1:8000/api/test');
-        $term=10;
-        $request= Request::create('http://localhost:8000/api/items/vehicle/auction/'.$term, 'GET');
-        $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
-        $response = Route::dispatch($request);
-        $body = $response->getContent();  
-        $value = json_decode($body);
-
-        //dd($value->data,$response,$body);
-        return view('home.show',compact(['value']));
-        */
-    }
-
     public function update()
     {
-        //dd('HOME INDEX',Auth::user());
+
         return view('home.update');
     }
 
     public function show()
     {
-        //dd('HOME INDEX',Auth::user());
+
         return view('home.show');
     }
 

@@ -15,7 +15,7 @@ class ItemController extends Controller
     public function index()
     {
         
-        $request= Request::create('http://localhost:8000/api/items/open', 'GET');
+        $request= Request::create(env('APP_API').'items/open', 'GET');
         $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
         $response = Route::dispatch($request);
         $body = $response->getContent();  
@@ -37,37 +37,37 @@ class ItemController extends Controller
     public function create()
     {
         //Busca as marcas
-        $request= Request::create('http://localhost:8000/api/brands/', 'GET');
+        $request= Request::create(env('APP_API').'brands/', 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $brands = json_decode($body);
 
         //Busca os modelos
-        $request= Request::create('http://localhost:8000/api/car_models/', 'GET');
+        $request= Request::create(env('APP_API').'car_models/', 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $carModels = json_decode($body);
 
         //Busca tipo de veiculos
-        $request= Request::create('http://localhost:8000/api/vehicle/type', 'GET');
+        $request= Request::create(env('APP_API').'vehicle/type', 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $carTypes = json_decode($body);
 
         //Busca os tipos de Imoveis
-        $request= Request::create('http://localhost:8000/api/immobile/type', 'GET');
+        $request= Request::create(env('APP_API').'immobile/type', 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $immobileTypes = json_decode($body);
 
         //Busca estilo do carro
-        $request= Request::create('http://localhost:8000/api/vehicle/models', 'GET');
+        $request= Request::create(env('APP_API').'vehicle/models', 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $modelo = json_decode($body);
 
         //Busca informação dos leilões
-        $request= Request::create('http://localhost:8000/api/auctions/resume', 'GET');
+        $request= Request::create(env('APP_API').'/auctions/resume', 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();
         $auctions = json_decode($body);
@@ -95,9 +95,9 @@ class ItemController extends Controller
     public function show($id,$cate)
     {   
         if ($cate == '2') {
-            $request= Request::create('http://localhost:8000/api/items/vehicle/auction/'.$id, 'GET');
+            $request= Request::create(env('APP_API').'items/vehicle/auction/'.$id, 'GET');
         }else{
-            $request= Request::create('http://localhost:8000/api/items/immobile/auction/'.$id, 'GET');
+            $request= Request::create(env('APP_API').'items/immobile/auction/'.$id, 'GET');
         }
         $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
         $response = Route::dispatch($request);
@@ -153,7 +153,7 @@ class ItemController extends Controller
     {
 
         $term = $request->term;
-        $request= Request::create('http://localhost:8000/api/items/search/'.$term, 'GET');
+        $request= Request::create(env('APP_API').'items/search/'.$term, 'GET');
         
         $response = Route::dispatch($request);
         $body = $response->getContent();  
@@ -172,7 +172,7 @@ class ItemController extends Controller
     */
     public function lance(Request $request)
     {
-        $request= Request::create('http://localhost:8000/api/items/search/'.$term, 'GET');
+        $request= Request::create(env('APP_API').'items/search/'.$term, 'GET');
         
         $response = Route::dispatch($request);
         $body = $response->getContent();  
@@ -186,7 +186,7 @@ class ItemController extends Controller
      */
     public function all()
     {
-        $request= Request::create('http://localhost:8000/api/items', 'GET');
+        $request= Request::create(env('APP_API').'items', 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $values = json_decode($body);

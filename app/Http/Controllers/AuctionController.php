@@ -17,7 +17,7 @@ class AuctionController extends Controller
         $this->authorize('is_admin');
 
         // Busca todos os leilões
-        $request= Request::create('http://localhost:8000/api/auctions/resume', 'GET');
+        $request= Request::create(env('APP_API').'auctions/resume', 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $value = json_decode($body);
@@ -34,19 +34,19 @@ class AuctionController extends Controller
         $this->authorize('is_admin');
 
         // Busca as categorias no banco de dados
-        $request= Request::create('http://localhost:8000/api/categories', 'GET');
+        $request= Request::create(env('APP_API').'categories', 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $categories = json_decode($body);
 
         // Busca as os locais no banco de dados 
-        $request= Request::create('http://localhost:8000/api/place', 'GET');
+        $request= Request::create(env('APP_API').'place', 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $places = json_decode($body);
 
         // Busca as os locais no banco de dados 
-        $request= Request::create('http://localhost:8000/api/financial_institutions', 'GET');
+        $request= Request::create(env('APP_API').'financial_institutions', 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $institutions = json_decode($body);
@@ -86,25 +86,25 @@ class AuctionController extends Controller
         $this->authorize('is_admin');
 
         // Busca informações sobre leilão para definir as configurações
-        $request= Request::create('http://localhost:8000/api/auctions/'.$id, 'GET');
+        $request= Request::create(env('APP_API').'auctions/'.$id, 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $base = json_decode($body);
 
         // Busca as categorias no banco de dados
-        $request= Request::create('http://localhost:8000/api/categories', 'GET');
+        $request= Request::create(env('APP_API').'categories', 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $categories = json_decode($body);
 
         // Busca as os locais no banco de dados 
-        $request= Request::create('http://localhost:8000/api/place', 'GET');
+        $request= Request::create(env('APP_API').'api/place', 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $places = json_decode($body);
 
         // Busca as os locais no banco de dados 
-        $request= Request::create('http://localhost:8000/api/financial_institutions', 'GET');
+        $request= Request::create(env('APP_API').'financial_institutions', 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $institutions = json_decode($body);

@@ -49,7 +49,7 @@ class AuthenticateController extends Controller
             ]);
 
             // Autentica na api
-            $request= Request::create('http://localhost:8000/api/login', 'POST',[
+            $request= Request::create(env('APP_API').'login', 'POST',[
                 'email'=>$request->email,
                 'password'=>$request->password,
             ]);

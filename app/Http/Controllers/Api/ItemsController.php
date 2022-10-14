@@ -478,5 +478,26 @@ class ItemsController extends Controller
         }
 
     }
+
+    public function show($id)
+    {
+        try {
+            $place = 'eee ' .$id;
+
+
+
+            
+            return response()->json([
+                'message' => 'success',
+                'data' => $place
+            ],200);
+        } catch (Exception $error) {
+            return response()->json([
+                'message' => get_class($error),
+                'errors' => $error->getMessage(),
+                'data' => null
+            ],400);
+        }
+    }
     
 }

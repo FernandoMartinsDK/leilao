@@ -12,7 +12,7 @@ class InstitutionController extends Controller
      */
     public function index()
     {
-        $request= Request::create('http://localhost:8000/api/financial_institutions/', 'GET');
+        $request= Request::create(env('APP_API').'financial_institutions/', 'GET');
         //$request->headers->set('Authorization','Bearer '.session()->get('token_api'));
         $response = Route::dispatch($request);
         $body = $response->getContent();  

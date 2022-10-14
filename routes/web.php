@@ -59,6 +59,7 @@ Route::prefix('/auction')->name('auction.')->group(function(){
 });
 
 Route::prefix('/bid')->name('bid.')->group(function(){
+    Route::get('/show/{id}', [BidController::class, 'show'])->name('show');
     Route::get('/historic/{id}', [BidController::class, 'index'])->name('historic');
 });
 
