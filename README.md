@@ -31,9 +31,13 @@ Sistema básico de leilão construida com Laravel + Bootstrap 5.
 
 > Valores do banco de dados.
 
-- composer install
-- php artisan key:generate
-- Suba o script docker com comando `docker-compose up -d`, docker ira gerar e instalar tudo que precisa
+- Execute os seguintes comandos
+- `composer install`
+- `php artisan key:generate`
+- `npm install`
+- `npm run build`
+
+- Suba o script docker com comando `docker-compose up -d`
 
 ## Banco de Dados
 ![Diagrama](http://eletrouniverso.dyndns.org:699/img/diagram99.jpg)
