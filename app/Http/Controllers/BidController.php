@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 class BidController extends Controller
 {
@@ -21,11 +22,15 @@ class BidController extends Controller
             $body = $response->getContent();  
             $value= json_decode($body);
         }else{
-            $request= Request::create(env('APP_API').'bids/'.$id,'GET');
-            $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
-            $response = Route::dispatch($request);
-            $body = $response->getContent();  
-            $value= json_decode($body);
+            if ( $id == Session::get('id')) {
+                $request= Request::create(env('APP_API').'bids/'.$id,'GET');
+                $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
+                $response = Route::dispatch($request);
+                $body = $response->getContent();  
+                $value= json_decode($body);
+            }else{
+                abort( response('Unauthorized', 401) );
+            }
         }
         return view('bids.historic',compact(['value']));
     }
