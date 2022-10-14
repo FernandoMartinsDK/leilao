@@ -49,10 +49,6 @@ Route::middleware(['auth:sanctum'])->prefix('/user')->group(function(){
 Route::middleware(['auth:sanctum'])->prefix('/immobile')->group(function(){    
     Route::post('/', [ImmobilesController::class,'store']);
     Route::get('/type', [ImmobilesController::class,'type']);
-    /*Route::get('/', [ImmobilesController::class,'index']); 
-    Route::get('/{id}', [ImmobilesController::class,'show']);
-    Route::put('/{id}', [ImmobilesController::class,'update']);
-    Route::delete('/{id}', [ImmobilesController::class,'destroy']);*/
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/vehicle')->group(function(){  
@@ -104,9 +100,6 @@ Route::middleware(['auth:sanctum'])->prefix('/items')->group(function(){
 Route::middleware(['auth:sanctum'])->prefix('/address')->group(function(){
     Route::get('/{id}', [AddressController::class,'show']);
     Route::put('/{id}', [AddressController::class,'update']);
-    /*Route::get('/', [AuctionController::class,'index']); 
-    Route::post('/', [AuctionController::class,'store']);
-    Route::delete('/{id}', [AuctionController::class,'destroy']);*/
 });
 
 Route::middleware(['auth:sanctum'])->prefix('/bids')->group(function(){
