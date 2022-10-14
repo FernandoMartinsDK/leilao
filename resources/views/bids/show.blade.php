@@ -14,17 +14,64 @@
             <div class="col">
                 <section class="py-4 py-xl-5" style="margin-top: 20px;">
                     <div class="container h-100">
-                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" >Historico de Lances</p>
+                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Detalhamento</p>
 
                         <table class="table table-striped maximize" id="table" style="width: 100%;">
                             <thead class="thead-dark">
                                 <th>Lance</th>
                                 <th>Nome</th>
-                                <th>Valor</th>
+                                <th>Valor Lance</th>
                                 <th>Data</th>
-                                <th>Valor do lance</th>
                             </thead>
                             <tbody>
+                                <div class="card" style="margin-top: 60px; margin-bottom: 40px;">
+                                   <div class="row" style="margin: 20px">
+                                        <div class="col">
+                                            <p><strong>Categoria: </strong>{{$category}}</p>
+                                            <p><strong>Incremento: </strong>{{$info->data->minimum_bid}}</p>
+                                            <p><strong>Local: </strong>{{$info->data->place}}</p>
+                                            <p><strong>Ins.Financeira: </strong>{{$info->data->financial_institution}}</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>Id item: </strong>{{$info->data->item_id}}</p>
+                                            <p><strong>Lance inicial: </strong>{{$historic->data[0]->opening_bid}}</p>
+                                            <p><strong>Data Leilão: </strong>{{\Carbon\Carbon::parse($info->data->auction_date)->format('d/m/Y - H:m')}}</p>
+                                            <p><strong>Cidade:</strong> {{$info->data->place_city}}</p>
+                                        </div>
+                                   </div>
+                                   <hr>
+                                    <div class="row" style="margin: 20px">
+                                        @if ($idCat==1)
+                                            <div class="col">
+                                                <p><strong>Local: </strong>{{$info->data->place}}</p>
+                                            </div>
+                                            <div class="col">
+                                                <p><strong>Cidade: </strong>{{$info->data->immobiles_city}}</p>
+                                            </div>
+                                            <div class="col">
+                                                <p><strong>CEP: </strong>{{$info->data->place_cep}}</p>
+                                            </div>
+                                        @else
+                                            <div class="col">
+                                                <p><strong>Marca: </strong>{{$info->data->brand}}</p>
+                                            </div>
+                                            <div class="col">
+                                                <p><strong>Modelo: </strong>{{$info->data->model_car}}</p>
+                                            </div>
+                                            <div class="col">
+                                                <p><strong>Tipo: </strong>{{$info->data->model}}</p>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                                @for ($i = 0; $i < sizeof($historic->data); $i++)
+                                    <tr>
+                                        <td>{{$i+1}}º</td>
+                                        <td>{{$historic->data[$i]->name}}</td>
+                                        <td>{{$historic->data[$i]->value_bid}}</td>
+                                        <td>{{\Carbon\Carbon::parse($historic->data[$i]->created_at)->format('d/m/Y - H:m')}}</td>
+                                    </tr>
+                                @endfor
                             </tbody>
                         </table>
                     </div>
@@ -52,7 +99,7 @@
                 columnDefs: [ 
                     {"render": function(data){
                         return parseFloat(data).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-                        },"targets": [4] 
+                        },"targets": [2] 
                     }
                 ]    
             });

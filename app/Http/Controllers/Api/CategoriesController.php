@@ -56,7 +56,9 @@ class CategoriesController extends Controller
             $category = AuctionItemModel::
                 join('items','auction_items.item_id','items.id')
                 ->where('item_id',$id)
-                ->get(['categories_id'])
+                ->get([
+                    'categories_id'
+                ])
                 ->first();
             return response()->json([
                 'message' => 'success',

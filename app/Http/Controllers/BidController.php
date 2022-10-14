@@ -45,16 +45,28 @@ class BidController extends Controller
         $response = Route::dispatch($request);
         $body = $response->getContent();  
         $value= json_decode($body);
-        $type_item = $value->data->categories_id;
-        
+        $idCat=$value->data->categories_id;
+        if ($value->data->categories_id == '2') {
+            $category = 'VEÍCULOS';
+            $request= Request::create(env('APP_API').'items/vehicle/auction/'.$id, 'GET');
+            $response = Route::dispatch($request);
+            $body = $response->getContent();  
+            $info = json_decode($body);
+        }else{
+            $category = 'IMÓVEIS';
+            $request= Request::create(env('APP_API').'items/immobile/auction/'.$id, 'GET');
+            $response = Route::dispatch($request);
+            $body = $response->getContent();  
+            $info = json_decode($body);
+        }
 
         $request= Request::create(env('APP_API').'items/historic/'.$id, 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();  
-        $value= json_decode($body);
+        $historic= json_decode($body);
 
-dd($value,$type_item);
-        return view('bids.show',compact(['value']));
+        //dd($historic->data[0],$category,$info);
+        return view('bids.show',compact(['historic','category','info','idCat']));
     }
 
 }

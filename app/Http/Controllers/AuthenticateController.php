@@ -37,7 +37,6 @@ class AuthenticateController extends Controller
                 return redirect()->back();
             }
         }
-
         // Verifica as credenciais do usuário
         if (Auth::attempt($credentials,true)) {
             Session::put([
