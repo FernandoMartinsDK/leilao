@@ -12,6 +12,7 @@ class InstitutionController extends Controller
      */
     public function index()
     {
+        $this->authorize('is_admin');
         $request= Request::create(env('APP_API').'financial_institutions/', 'GET');
         //$request->headers->set('Authorization','Bearer '.session()->get('token_api'));
         $response = Route::dispatch($request);

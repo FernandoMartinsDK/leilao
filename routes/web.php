@@ -72,11 +72,4 @@ Route::prefix('/item')->name('item.')->group(function(){
     //Route::get('/show/{id}//{cate}', [ItemController::class, 'show'])->name('show');
 });
 
-/*
-Route::get('/login', function () {
-    return view('login');
-});
-*/
-
-//Auth::routes();
 

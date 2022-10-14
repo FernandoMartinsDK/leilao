@@ -36,7 +36,7 @@
                                         <td>{{$value->data[$i]->category}}</td>
                                         <td>{{$value->data[$i]->value_bid}}</td>
                                         <td>{{$value->data[$i]->financial}}</td>
-                                        @if ($value->data[$i]->open=='T')
+                                        @if (trim($value->data[$i]->open)=='T')
                                             <td>SIM</td>
                                         @else
                                             <td>NÃO</td>

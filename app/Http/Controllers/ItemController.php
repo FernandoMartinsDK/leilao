@@ -36,6 +36,7 @@ class ItemController extends Controller
      */
     public function create()
     {
+        $this->authorize('is_admin');
         //Busca as marcas
         $request= Request::create(env('APP_API').'brands/', 'GET');
         $response = Route::dispatch($request);

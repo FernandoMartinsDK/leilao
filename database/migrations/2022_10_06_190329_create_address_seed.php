@@ -23,6 +23,42 @@ return new class extends Migration
                 'state'=>'SP',
                 "created_at" => now(),
                 "updated_at" => now()
+            ],
+            [
+                'user_id'=>'2',
+                'address'=>'RUA CORONEL MARCOS',
+                'cep'=>'12270555',
+                'number'=>'34',
+                'complement'=>'APT 23',
+                'district'=>'DISTRICT',
+                'city'=>'SÃO JOSE DOS CAMPOS',
+                'state'=>'SP',
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                'user_id'=>'3',
+                'address'=>'RUA CORONEL MARCOS',
+                'cep'=>'12270555',
+                'number'=>'34',
+                'complement'=>'APT 23',
+                'district'=>'DISTRICT',
+                'city'=>'SÃO JOSE DOS CAMPOS',
+                'state'=>'SP',
+                "created_at" => now(),
+                "updated_at" => now()
+            ],
+            [
+                'user_id'=>'4',
+                'address'=>'RUA CORONEL MARCOS',
+                'cep'=>'12270555',
+                'number'=>'34',
+                'complement'=>'APT 23',
+                'district'=>'DISTRICT',
+                'city'=>'SÃO JOSE DOS CAMPOS',
+                'state'=>'SP',
+                "created_at" => now(),
+                "updated_at" => now()
             ]
         ];
     }

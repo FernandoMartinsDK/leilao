@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -47,18 +47,22 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //pega informações sobre usuario, endereço
-        $request= Request::create(env('APP_API').'user/'.$id, 'GET');
-        $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
-        $response = Route::dispatch($request);
-        $body = $response->getContent();  
-        $value= json_decode($body);
+        if (Session::get('profile_id')=='2' || $id==Session::get('id')) {
+            //pega informações sobre usuario, endereço
+            $request= Request::create(env('APP_API').'user/'.$id, 'GET');
+            $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
+            $response = Route::dispatch($request);
+            $body = $response->getContent();  
+            $value= json_decode($body);
 
-        $request= Request::create(env('APP_API').'address/'.$id, 'GET');
-        $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
-        $response = Route::dispatch($request);
-        $body = $response->getContent();  
-        $address= json_decode($body);
+            $request= Request::create(env('APP_API').'address/'.$id, 'GET');
+            $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
+            $response = Route::dispatch($request);
+            $body = $response->getContent();  
+            $address= json_decode($body);
+        }else{
+            abort( response('Unauthorized', 401) );
+        }
 
         return view('home.update',compact(['value','address']));
     }

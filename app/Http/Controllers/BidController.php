@@ -21,7 +21,7 @@ class BidController extends Controller
             $body = $response->getContent();  
             $value= json_decode($body);
         }else{
-            $request= Request::create(env('APP_API').'ids/'.$id,'GET');
+            $request= Request::create(env('APP_API').'bids/'.$id,'GET');
             $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
             $response = Route::dispatch($request);
             $body = $response->getContent();  
