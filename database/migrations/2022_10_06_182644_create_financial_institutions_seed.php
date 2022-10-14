@@ -50,6 +50,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('financial_institutions_seed');
+        //Schema::dropIfExists('financial_institutions_seed');
     }
 };

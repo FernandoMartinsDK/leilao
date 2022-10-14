@@ -72,6 +72,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('car_models_seed');
+        //Schema::dropIfExists('car_models_seed');
     }
 };

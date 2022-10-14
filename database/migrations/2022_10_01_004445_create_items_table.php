@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('immobile_id')->nullable()->constrained('immobiles','id')->cascadeOnUpdate();
-            $table->foreignId('vehicle_id')->nullable()->constrained('vehicles','id')->cascadeOnUpdate();
-            $table->foreignId('categories_id')->constrained('categories','id')->cascadeOnUpdate();
+            $table->foreignId('immobile_id')->nullable()->constrained('immobiles','id')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('vehicle_id')->nullable()->constrained('vehicles','id')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('categories_id')->constrained('categories','id')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

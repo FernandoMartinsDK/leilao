@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('immobiles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('immobile_type_id')->constrained('immobiles_types')->cascadeOnUpdate();
+            $table->foreignId('immobile_type_id')->constrained('immobiles_types')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('city');
             $table->string('address');
             $table->string('district');

@@ -43,6 +43,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('address_seed');
+        //Schema::dropIfExists('address_seed');
     }
 };

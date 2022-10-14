@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('auctions', function (Blueprint $table) {
             $table->id();
             $table->dateTime('auction_date');
-            $table->foreignId('financial_institution_id')->constrained('financial_institutions','id')->cascadeOnUpdate();
-            $table->foreignId('place_id')->constrained('places','id')->cascadeOnUpdate();
-            $table->foreignId('categorie_id')->constrained('categories','id')->cascadeOnUpdate();
+            $table->foreignId('financial_institution_id')->constrained('financial_institutions','id')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('place_id')->constrained('places','id')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('categorie_id')->constrained('categories','id')->cascadeOnUpdate()->cascadeOnDelete();
             $table->char('open');
             $table->text('note');
             $table->timestamps();
