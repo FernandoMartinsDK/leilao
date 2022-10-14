@@ -66,9 +66,9 @@ Route::prefix('/bid')->name('bid.')->group(function(){
 Route::prefix('/item')->name('item.')->group(function(){
     Route::post('/', [ItemController::class, 'index']);
     Route::get('/all', [ItemController::class, 'all'])->name('all');
-    Route::get('/show/{id}/{cate}', [ItemController::class, 'show'])->name('show');
     Route::get('/create', [ItemController::class, 'create'])->name('create');
     Route::post('/search', [ItemController::class, 'search'])->name('search');
+    Route::get('/show/{id}/{cate}', [ItemController::class, 'show'])->name('show');
     //Route::get('/show/{id}//{cate}', [ItemController::class, 'show'])->name('show');
 });
 

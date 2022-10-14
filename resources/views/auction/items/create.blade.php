@@ -34,7 +34,7 @@
                                                         <div class="row justify-content-center" >
                                                             <div class="col-6" style="margin-top: 25px;">
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <select id="selectMarca" class="form-select" required>
                                                                             @for ($i = 0; $i < sizeof($brands->data); $i++)
@@ -45,7 +45,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <select id="selectModelo" class="form-select" required>
                                                                             @for ($i = 0; $i < sizeof($carModels->data); $i++)
@@ -56,7 +56,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <select id="selectTipoVeiculo" class="form-select" required>
                                                                             @for ($i = 0; $i < sizeof($carTypes->data); $i++)
@@ -67,21 +67,21 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtPlaca" type="text" name="license_plate" class="form-control"/>
                                                                         <label class="form-label">Placa</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtkilometragem" type="text" name="mileage" class="form-control"/>
                                                                         <label class="form-label">Kilometragem</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <select id="selectGas" name="gas_kit" class="form-select" required>
                                                                             <option value="T">Sim</option>
@@ -91,7 +91,6 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <select id="selectDirecao" name="" class="form-select" required>
                                                                             <option value="MANUAL">Manual</option>
@@ -101,14 +100,14 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtVeiculoVenda" type="text" class="form-control"/>
                                                                         <label class="form-label">Valor Venda</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input placeholder="Opcional" id="edtVeiculoNota" type="text" name="obs" class="form-control"/>
                                                                         <label class="form-label">Anotação Item para leião</label>
@@ -117,7 +116,7 @@
                                                             </div>
                                                             <div class="col-6" style="margin-top: 25px;">
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <select id="selectModeloTipo" class="form-select" required>
                                                                             @for ($i = 0; $i < sizeof($modelo->data); $i++)
@@ -128,7 +127,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <select id="selectBlindagem" name="shielding" class="form-select" required>
                                                                             <option value="F">Não</option>
@@ -138,14 +137,14 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtCor" type="text" name="color" class="form-control"/>
                                                                         <label class="form-label">cor</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <select id="selectCombustivel" name="shielding" class="form-select" required>
                                                                             <option value="GASOLINA">Gasolina</option>
@@ -157,7 +156,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <select id="selectChassi" name="chassi_status" class="form-select" required>
                                                                             <option value="INTACTO">Perfeita condição</option>
@@ -169,7 +168,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <select id="selectCondicionado" name="air_conditioning" class="form-select" required>
                                                                             <option value="T">Sim</option>
@@ -179,7 +178,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <select id="selectLeilao" name="leilao" class="form-select" required>
                                                                             @for ($i = 0; $i < sizeof($auctions->data); $i++)
@@ -192,14 +191,14 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtVeiculoIncremento" type="text" class="form-control"/>
                                                                         <label class="form-label">Valor de Incremento</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input placeholder="Campo Não Opcional" id="edtObservacao" type="text" name="obs" class="form-control"/>
                                                                         <label class="form-label">Observação</label>
@@ -221,7 +220,7 @@
                                                         <div class="row justify-content-center" >
                                                             <div class="col-6" style="margin-top: 25px;">
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <select id="selectTipoImovel" class="form-select" required>
                                                                             @for ($i = 0; $i < sizeof($immobileTypes->data); $i++)
@@ -232,28 +231,27 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtBairro" type="text" name="district" class="form-control" />
                                                                         <label class="form-label">Bairro</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtEndereco" type="text" name="address" class="form-control" />
                                                                         <label class="form-label">Endereço</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtImovelNumero" type="text" class="form-control" />
                                                                         <label class="form-label">Número</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <select id="selectUf" class="form-select" required>
                                                                             <option value="SP">SP</option>
@@ -287,21 +285,21 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtTerreno" type="text" class="form-control" />
                                                                         <label class="form-label">Área do terreno</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtDescricao" type="text" class="form-control" />
                                                                         <label class="form-label">Descrição</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtImovelAnotacao" type="text" class="form-control" />
                                                                         <label class="form-label">Anotação Item para leião</label>
@@ -310,28 +308,28 @@
                                                             </div>
                                                             <div class="col-6"style="margin-top: 25px;">
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtCidade" type="text" name="cidade" class="form-control" />
                                                                         <label class="form-label">Cidade</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtCep" type="text" name="cep" class="form-control" />
                                                                         <label class="form-label">CEP</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtImovelComplemento" type="text" name="address" class="form-control" />
                                                                         <label class="form-label">Complemento</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <select id="selectImovelModel" name="gas_kit" class="form-select" required>
                                                                             <option value="CASA">CASA</option>
@@ -342,21 +340,21 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtConstruido" type="text" class="form-control" />
                                                                         <label class="form-label">Área Construida</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtImovelValor" type="text" class="form-control" />
                                                                         <label class="form-label">Valor de venda</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <select id="selectImovelLeilao" name="leilao" class="form-select" required>
                                                                             @for ($i = 0; $i < sizeof($auctions->data); $i++)
@@ -369,7 +367,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-row align-items-center mb-4">
-                                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                    
                                                                     <div class="form-outline flex-fill mb-0">
                                                                         <input id="edtImovelIncremento" type="text" class="form-control" />
                                                                         <label class="form-label">Valor de Incremento </label>
@@ -377,7 +375,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="d-flex flex-row align-items-center mb-4">
-                                                                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                                
                                                                 <div class="form-outline flex-fill mb-0">
                                                                     <input id="edtJudicial" type="text" class="form-control" />
                                                                     <label class="form-label">Informação Judicial</label>
@@ -425,6 +423,7 @@
                 }
             });
             var token = '{{session()->get('token_api')}}';
+            var api = '{{env('APP_API')}}'
 
             $(document).on('click', '#bntVeiculo', function() {
                 var marca = $('#selectMarca').val();
@@ -451,7 +450,7 @@
                 }else{
                     if (leilao>0) {
                         $.ajax({
-                            url:"http://localhost:8000/api/vehicle",
+                            url:api+"vehicle",
                             headers: {
                             "Authorization": "Bearer "+token 
                             },
@@ -531,7 +530,7 @@
                 }else{
                     if (leilao>0) {
                         $.ajax({
-                            url:"http://localhost:8000/api/immobile",
+                            url:api+"immobile",
                             headers: {
                             "Authorization": "Bearer "+token 
                             },

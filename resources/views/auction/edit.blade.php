@@ -124,6 +124,7 @@
             });
             var token = '{{session()->get('token_api')}}';
             var id = $('#edtId').val();
+            var api = '{{env('APP_API')}}'
 
             $('#selectCategoria').select2('val','{{$base->data->categorie_id}}')
             $('#selectPlace').select2('val','{{$base->data->place_id}}')
@@ -142,7 +143,7 @@
                     $('#divAlert').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Um ou mais campos obrigatórios não foram preenchidos!<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
                 }else{
                     $.ajax({
-                        url:"http://localhost:8000/api/auctions/"+id,
+                        url:api+"auctions/"+id,
                         headers: {
                         "Authorization": "Bearer "+token 
                         },

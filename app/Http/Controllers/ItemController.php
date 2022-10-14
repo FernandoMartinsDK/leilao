@@ -67,7 +67,7 @@ class ItemController extends Controller
         $modelo = json_decode($body);
 
         //Busca informação dos leilões
-        $request= Request::create(env('APP_API').'/auctions/resume', 'GET');
+        $request= Request::create(env('APP_API').'auctions/resume', 'GET');
         $response = Route::dispatch($request);
         $body = $response->getContent();
         $auctions = json_decode($body);

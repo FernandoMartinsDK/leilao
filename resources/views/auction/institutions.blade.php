@@ -170,12 +170,12 @@
             });
 
             var token = '{{session()->get('token_api')}}';
-
+            var api = '{{env('APP_API')}}'
             var vid=0;
 
             function toDo(id,nome,cnpj,action) {
                 $.ajax({
-                    url:"http://localhost:8000/api/financial_institutions/"+id,
+                    url:api+"financial_institutions/"+id,
                     headers: {
                         "Authorization": "Bearer "+token 
                     },

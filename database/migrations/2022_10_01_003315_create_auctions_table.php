@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('place_id')->constrained('places','id')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('categorie_id')->constrained('categories','id')->cascadeOnUpdate()->cascadeOnDelete();
             $table->char('open');
-            $table->text('note');
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

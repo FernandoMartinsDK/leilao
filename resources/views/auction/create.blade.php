@@ -110,6 +110,7 @@
                 }
             });
             var token = '{{session()->get('token_api')}}';
+            var api = '{{env('APP_API')}}';
 
             $(document).on('click', '#bntCriar', function() {
                 var categoria = $('#selectCategoria').val();
@@ -124,7 +125,7 @@
                     $('#divAlert').html("<div class='alert alert-warning alert-dismissible fade show' role='alert'><strong>Atenção!</strong> Um ou mais campos obrigatórios não foram preenchidos!<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
                 }else{
                     $.ajax({
-                    url:"http://localhost:8000/api/auctions",
+                    url:api+"auctions",
                     headers: {
                     "Authorization": "Bearer "+token 
                     },
@@ -137,7 +138,6 @@
                         });
                     },
                     success: function(response){
-                        console.log(response)
                         $('body').loading('stop');
                         $('#divAlert').html("<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>✔</strong> Leilão adicionado com sucesso.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>")
                     },

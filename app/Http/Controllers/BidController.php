@@ -15,7 +15,7 @@ class BidController extends Controller
     public function index($id)
     {
         if (session()->get('profile_id') == '2') {
-            $request= Request::create(env('APP_API').'api/bids/', 'GET');
+            $request= Request::create(env('APP_API').'bids/', 'GET');
             $request->headers->set('Authorization','Bearer '.session()->get('token_api'));
             $response = Route::dispatch($request);
             $body = $response->getContent();  

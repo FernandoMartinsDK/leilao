@@ -195,8 +195,6 @@
     <script src="{{ asset('js/moment-with-locales.js') }}"></script> 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Initializing the swiper plugin for the slider.
-            // Read more here: http://idangero.us/swiper/api/
             var mySwiper = new Swiper('.swiper-container', {
                 loop: true,
                 pagination: {
@@ -232,6 +230,7 @@
             };
 
             // define parametros
+            var api = '{{env('APP_API')}}'
             var token = '{{session()->get('token_api')}}'
             var item = $("#edItemAction").val();
 
@@ -268,7 +267,7 @@
             // busca historico
             function historic() {
                 $.ajax({
-                    url:"http://localhost:8000/api/items/historic/"+item,
+                    url:api+"items/historic/"+item,
                     type:'get',
                     headers: {
                         "Authorization": "Bearer " + token
@@ -315,7 +314,7 @@
             // realiza o lance
             function makeLance(lance,cate,user){
                 $.ajax({
-                    url:"http://localhost:8000/api/items/lance",
+                    url:api+"items/lance",
                     type:'post',
                     headers: {
                     "Authorization": "Bearer " + token

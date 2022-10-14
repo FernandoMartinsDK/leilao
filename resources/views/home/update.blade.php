@@ -230,6 +230,7 @@
             });
             var token = '{{session()->get('token_api')}}';
             var id = $('#edtId').val();
+            var api = '{{env('APP_API')}}'
 
             // mascaras
             $('#edtCpf').mask('000.000.000-00', {reverse: true});
@@ -287,7 +288,7 @@
 
                 if (conf==true) {
                     $.ajax({
-                        url:"http://localhost:8000/api/user/"+id,
+                        url:api+"user/"+id,
                         headers: {
                         "Authorization": "Bearer "+token 
                         },

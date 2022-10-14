@@ -85,11 +85,12 @@
                 }
             });
             var token = '{{session()->get('token_api')}}';
+            var api = '{{env('APP_API')}}'
 
             $(document).on('click', '.bntDelete', function() {
                 var vid = $(this).attr('id');
                 $.ajax({
-                    url:"http://localhost:8000/api/auctions/"+vid,
+                    url:api+"auctions/"+vid,
                     headers: {
                         "Authorization": "Bearer "+token 
                     },

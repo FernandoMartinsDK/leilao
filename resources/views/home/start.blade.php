@@ -48,6 +48,7 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }});
         moment.locale('pt-br');
+        var api = '{{env('APP_API')}}'
 
         $.ajax({
             url:"{{ route( 'item.' )}}",
@@ -82,7 +83,6 @@
                     });
                 },
                 success: function(response){
-                    console.log(response);
                     loadCards(response)
                 }
             }).done(function () {
